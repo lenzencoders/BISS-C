@@ -1,0 +1,8 @@
+Protocol → 0 (BiSS-C)
+Frame size → 32
+Frame type → 3 (BISS-C BP3) // or Frame type → 0 (raw) 
+Position bits → 17	// = Encoder Resolution
+Single-turn bits → 17 // = Position bits
+Position start bit →  15 // = Frame size - Position bits
+Baudrate → 5000 kbits/s
+Wait cycles → 0
