@@ -1,0 +1,1648 @@
+Analysis & Synthesis report for USB_BISS
+Fri Dec 24 11:20:26 2021
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: pll3m7:pll_1|altpll:altpll_component
+ 15. Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_mult:Mult1
+ 16. Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Div3
+ 17. Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Mod2
+ 18. Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Div2
+ 19. Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_mult:Mult0
+ 20. Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Mod1
+ 21. Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Mod0
+ 22. Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Div1
+ 23. Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Div0
+ 24. altpll Parameter Settings by Entity Instance
+ 25. lpm_mult Parameter Settings by Entity Instance
+ 26. Port Connectivity Checks: "UART:uart_1"
+ 27. Port Connectivity Checks: "pll3m7:pll_1"
+ 28. Port Connectivity Checks: "CRC4_calc:crc1|CRC4_table:tb1"
+ 29. Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u7"
+ 30. Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u6"
+ 31. Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u5"
+ 32. Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u4"
+ 33. Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u3"
+ 34. Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u2"
+ 35. Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u1"
+ 36. Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u0"
+ 37. Port Connectivity Checks: "bin2deghex:b2dh_1"
+ 38. Post-Synthesis Netlist Statistics for Top Partition
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Dec 24 11:20:26 2021       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                      ; USB_BISS                                    ;
+; Top-level Entity Name              ; USB_BISS                                    ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 2,589                                       ;
+;     Total combinational functions  ; 1,929                                       ;
+;     Dedicated logic registers      ; 908                                         ;
+; Total registers                    ; 908                                         ;
+; Total pins                         ; 126                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 7                                           ;
+; Total PLLs                         ; 1                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; USB_BISS           ; USB_BISS           ;
+; Family name                                                      ; MAX 10 FPGA        ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; pll3m7.v                         ; yes             ; User Wizard-Generated File   ; D:/git/BISS-C/DE10-Lite/Qaurtus/pll3m7.v                                   ;         ;
+; usb_biss.v                       ; yes             ; Auto-Found Verilog HDL File  ; D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v                                 ;         ;
+; altpll.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altpll.tdf          ;         ;
+; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc      ;         ;
+; stratix_pll.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratix_pll.inc     ;         ;
+; stratixii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratixii_pll.inc   ;         ;
+; cycloneii_pll.inc                ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/cycloneii_pll.inc   ;         ;
+; db/pll3m7_altpll.v               ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/pll3m7_altpll.v                         ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_brs.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/mult_brs.tdf                            ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; db/lpm_divide_ltl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_ltl.tdf                      ;         ;
+; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_nlh.tdf                 ;         ;
+; db/alt_u_div_ohe.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_ohe.tdf                       ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/add_sub_t3c.tdf                         ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/add_sub_u3c.tdf                         ;         ;
+; db/lpm_divide_lll.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_lll.tdf                      ;         ;
+; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_klh.tdf                 ;         ;
+; db/alt_u_div_ihe.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_ihe.tdf                       ;         ;
+; db/lpm_divide_itl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_itl.tdf                      ;         ;
+; db/mult_2qs.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/mult_2qs.tdf                            ;         ;
+; db/lpm_divide_dkl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_dkl.tdf                      ;         ;
+; db/sign_div_unsign_ckh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_ckh.tdf                 ;         ;
+; db/alt_u_div_2fe.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_2fe.tdf                       ;         ;
+; db/lpm_divide_gkl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_gkl.tdf                      ;         ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_fkh.tdf                 ;         ;
+; db/alt_u_div_8fe.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_8fe.tdf                       ;         ;
+; db/lpm_divide_8sl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_8sl.tdf                      ;         ;
+; db/sign_div_unsign_akh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_akh.tdf                 ;         ;
+; db/alt_u_div_uee.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_uee.tdf                       ;         ;
+; db/lpm_divide_dsl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_dsl.tdf                      ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimated Total logic elements              ; 2,589         ;
+;                                             ;               ;
+; Total combinational functions               ; 1929          ;
+; Logic element usage by number of LUT inputs ;               ;
+;     -- 4 input functions                    ; 926           ;
+;     -- 3 input functions                    ; 413           ;
+;     -- <=2 input functions                  ; 590           ;
+;                                             ;               ;
+; Logic elements by mode                      ;               ;
+;     -- normal mode                          ; 1436          ;
+;     -- arithmetic mode                      ; 493           ;
+;                                             ;               ;
+; Total registers                             ; 908           ;
+;     -- Dedicated logic registers            ; 908           ;
+;     -- I/O registers                        ; 0             ;
+;                                             ;               ;
+; I/O pins                                    ; 126           ;
+;                                             ;               ;
+; Embedded Multiplier 9-bit elements          ; 7             ;
+;                                             ;               ;
+; Total PLLs                                  ; 1             ;
+;     -- PLLs                                 ; 1             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; BISS_read_end ;
+; Maximum fan-out                             ; 520           ;
+; Total fan-out                               ; 9067          ;
+; Average fan-out                             ; 2.88          ;
++---------------------------------------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                               ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                         ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |USB_BISS                                 ; 1929 (377)          ; 908 (211)                 ; 0           ; 0          ; 7            ; 1       ; 3         ; 126  ; 0            ; 0          ; |USB_BISS                                                                                                                   ; USB_BISS            ; work         ;
+;    |CRC4_calc:crc1|                       ; 8 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|CRC4_calc:crc1                                                                                                    ; CRC4_calc           ; work         ;
+;       |CRC4_table:tb3|                    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|CRC4_calc:crc1|CRC4_table:tb3                                                                                     ; CRC4_table          ; work         ;
+;    |UART:uart_1|                          ; 948 (947)           ; 697 (694)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|UART:uart_1                                                                                                       ; UART                ; work         ;
+;       |mfilt:Mfilt_rx|                    ; 1 (1)               ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|UART:uart_1|mfilt:Mfilt_rx                                                                                        ; mfilt               ; work         ;
+;    |bin2deghex:b2dh_1|                    ; 596 (54)            ; 0 (0)                     ; 0           ; 0          ; 7            ; 1       ; 3         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1                                                                                                 ; bin2deghex          ; work         ;
+;       |d2h:u0|                            ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|d2h:u0                                                                                          ; d2h                 ; work         ;
+;       |d2h:u1|                            ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|d2h:u1                                                                                          ; d2h                 ; work         ;
+;       |d2h:u2|                            ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|d2h:u2                                                                                          ; d2h                 ; work         ;
+;       |d2h:u3|                            ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|d2h:u3                                                                                          ; d2h                 ; work         ;
+;       |d2h:u4|                            ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|d2h:u4                                                                                          ; d2h                 ; work         ;
+;       |d2h:u5|                            ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|d2h:u5                                                                                          ; d2h                 ; work         ;
+;       |lpm_divide:Div0|                   ; 47 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_dsl:auto_generated|  ; 47 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div0|lpm_divide_dsl:auto_generated                                                   ; lpm_divide_dsl      ; work         ;
+;             |sign_div_unsign_fkh:divider| ; 47 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div0|lpm_divide_dsl:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_8fe:divider|    ; 47 (47)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div0|lpm_divide_dsl:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_8fe:divider ; alt_u_div_8fe       ; work         ;
+;       |lpm_divide:Div1|                   ; 46 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_8sl:auto_generated|  ; 46 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div1|lpm_divide_8sl:auto_generated                                                   ; lpm_divide_8sl      ; work         ;
+;             |sign_div_unsign_akh:divider| ; 46 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div1|lpm_divide_8sl:auto_generated|sign_div_unsign_akh:divider                       ; sign_div_unsign_akh ; work         ;
+;                |alt_u_div_uee:divider|    ; 46 (46)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div1|lpm_divide_8sl:auto_generated|sign_div_unsign_akh:divider|alt_u_div_uee:divider ; alt_u_div_uee       ; work         ;
+;       |lpm_divide:Div2|                   ; 80 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div2                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_itl:auto_generated|  ; 80 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div2|lpm_divide_itl:auto_generated                                                   ; lpm_divide_itl      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 80 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div2|lpm_divide_itl:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_ihe:divider|    ; 80 (80)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div2|lpm_divide_itl:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider ; alt_u_div_ihe       ; work         ;
+;       |lpm_divide:Div3|                   ; 69 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div3                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ltl:auto_generated|  ; 69 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div3|lpm_divide_ltl:auto_generated                                                   ; lpm_divide_ltl      ; work         ;
+;             |sign_div_unsign_nlh:divider| ; 69 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div3|lpm_divide_ltl:auto_generated|sign_div_unsign_nlh:divider                       ; sign_div_unsign_nlh ; work         ;
+;                |alt_u_div_ohe:divider|    ; 69 (69)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Div3|lpm_divide_ltl:auto_generated|sign_div_unsign_nlh:divider|alt_u_div_ohe:divider ; alt_u_div_ohe       ; work         ;
+;       |lpm_divide:Mod0|                   ; 62 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_gkl:auto_generated|  ; 62 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod0|lpm_divide_gkl:auto_generated                                                   ; lpm_divide_gkl      ; work         ;
+;             |sign_div_unsign_fkh:divider| ; 62 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod0|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh ; work         ;
+;                |alt_u_div_8fe:divider|    ; 62 (62)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod0|lpm_divide_gkl:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_8fe:divider ; alt_u_div_8fe       ; work         ;
+;       |lpm_divide:Mod1|                   ; 72 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_dkl:auto_generated|  ; 72 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod1|lpm_divide_dkl:auto_generated                                                   ; lpm_divide_dkl      ; work         ;
+;             |sign_div_unsign_ckh:divider| ; 72 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod1|lpm_divide_dkl:auto_generated|sign_div_unsign_ckh:divider                       ; sign_div_unsign_ckh ; work         ;
+;                |alt_u_div_2fe:divider|    ; 72 (72)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod1|lpm_divide_dkl:auto_generated|sign_div_unsign_ckh:divider|alt_u_div_2fe:divider ; alt_u_div_2fe       ; work         ;
+;       |lpm_divide:Mod2|                   ; 83 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_lll:auto_generated|  ; 83 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod2|lpm_divide_lll:auto_generated                                                   ; lpm_divide_lll      ; work         ;
+;             |sign_div_unsign_klh:divider| ; 83 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod2|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider                       ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_ihe:divider|    ; 83 (83)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_divide:Mod2|lpm_divide_lll:auto_generated|sign_div_unsign_klh:divider|alt_u_div_ihe:divider ; alt_u_div_ihe       ; work         ;
+;       |lpm_mult:Mult0|                    ; 15 (0)              ; 0 (0)                     ; 0           ; 0          ; 3            ; 1       ; 1         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_mult:Mult0                                                                                  ; lpm_mult            ; work         ;
+;          |mult_2qs:auto_generated|        ; 15 (15)             ; 0 (0)                     ; 0           ; 0          ; 3            ; 1       ; 1         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_mult:Mult0|mult_2qs:auto_generated                                                          ; mult_2qs            ; work         ;
+;       |lpm_mult:Mult1|                    ; 16 (0)              ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_mult:Mult1                                                                                  ; lpm_mult            ; work         ;
+;          |mult_brs:auto_generated|        ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |USB_BISS|bin2deghex:b2dh_1|lpm_mult:Mult1|mult_brs:auto_generated                                                          ; mult_brs            ; work         ;
+;    |pll3m7:pll_1|                         ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|pll3m7:pll_1                                                                                                      ; pll3m7              ; work         ;
+;       |altpll:altpll_component|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|pll3m7:pll_1|altpll:altpll_component                                                                              ; altpll              ; work         ;
+;          |pll3m7_altpll:auto_generated|   ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|pll3m7:pll_1|altpll:altpll_component|pll3m7_altpll:auto_generated                                                 ; pll3m7_altpll       ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 1           ;
+; Simple Multipliers (18-bit)           ; 3           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 7           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 4           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                    ;
++--------+--------------+---------+--------------+--------------+------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance        ; IP Include File ;
++--------+--------------+---------+--------------+--------------+------------------------+-----------------+
+; Altera ; ALTPLL       ; 21.1    ; N/A          ; N/A          ; |USB_BISS|pll3m7:pll_1 ; pll3m7.v        ;
++--------+--------------+---------+--------------+--------------+------------------------+-----------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; CRC4_in[8,9]                           ; Stuck at GND due to stuck port data_in ;
+; UART:uart_1|BISS_data[0..23]           ; Stuck at GND due to stuck port data_in ;
+; clk_div[2,3]                           ; Lost fanout                            ;
+; Total Number of Removed Registers = 28 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 908   ;
+; Number of registers using Synchronous Clear  ; 38    ;
+; Number of registers using Synchronous Load   ; 51    ;
+; Number of registers using Asynchronous Clear ; 42    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 774   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; UART:uart_1|POWER_CTRL                 ; 2       ;
+; UART:uart_1|TX                         ; 1       ;
+; UART:uart_1|BISS_start                 ; 88      ;
+; Total number of inverted registers = 3 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |USB_BISS|SCD_cou[0]                 ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |USB_BISS|MA_cou[12]                 ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |USB_BISS|ACK_cou[4]                 ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|RX_HEX_CRC[5]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |USB_BISS|CRC6[0]                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|uart_rx_cou[5] ;
+; 257:1              ; 5 bits    ; 855 LEs       ; 15 LEs               ; 840 LEs                ; Yes        ; |USB_BISS|UART:uart_1|TX_CMD[0]      ;
+; 257:1              ; 3 bits    ; 513 LEs       ; 6 LEs                ; 507 LEs                ; Yes        ; |USB_BISS|UART:uart_1|TX_CMD[6]      ;
+; 258:1              ; 7 bits    ; 1204 LEs      ; 7 LEs                ; 1197 LEs               ; Yes        ; |USB_BISS|CRC4_in[0]                 ;
+; 513:1              ; 9 bits    ; 3078 LEs      ; 27 LEs               ; 3051 LEs               ; Yes        ; |USB_BISS|CDM_cou[6]                 ;
+; 259:1              ; 6 bits    ; 1032 LEs      ; 6 LEs                ; 1026 LEs               ; Yes        ; |USB_BISS|BISS_adr_cou[4]            ;
+; 133:1              ; 3 bits    ; 264 LEs       ; 6 LEs                ; 258 LEs                ; Yes        ; |USB_BISS|CDM_shift[13]              ;
+; 133:1              ; 3 bits    ; 264 LEs       ; 6 LEs                ; 258 LEs                ; Yes        ; |USB_BISS|CDM_shift[3]               ;
+; 133:1              ; 9 bits    ; 792 LEs       ; 18 LEs               ; 774 LEs                ; Yes        ; |USB_BISS|CDM_shift[4]               ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 8 LEs                ; 10 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_CRC[6]      ;
+; 14:1               ; 6 bits    ; 54 LEs        ; 24 LEs               ; 30 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_CRC[1]      ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_buf[6]      ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 16 LEs               ; 14 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_buf[2]      ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 22 LEs               ; 10 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_buf[1]      ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |USB_BISS|UART:uart_1|Mux2           ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |USB_BISS|UART:uart_1|TX_cou         ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |USB_BISS|UART:uart_1|TX_cou         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pll3m7:pll_1|altpll:altpll_component ;
++-------------------------------+--------------------------+------------------------+
+; Parameter Name                ; Value                    ; Type                   ;
++-------------------------------+--------------------------+------------------------+
+; OPERATION_MODE                ; NORMAL                   ; Untyped                ;
+; PLL_TYPE                      ; AUTO                     ; Untyped                ;
+; LPM_HINT                      ; CBX_MODULE_PREFIX=pll3m7 ; Untyped                ;
+; QUALIFY_CONF_DONE             ; OFF                      ; Untyped                ;
+; COMPENSATE_CLOCK              ; CLK0                     ; Untyped                ;
+; SCAN_CHAIN                    ; LONG                     ; Untyped                ;
+; PRIMARY_CLOCK                 ; INCLK0                   ; Untyped                ;
+; INCLK0_INPUT_FREQUENCY        ; 20000                    ; Signed Integer         ;
+; INCLK1_INPUT_FREQUENCY        ; 0                        ; Untyped                ;
+; GATE_LOCK_SIGNAL              ; NO                       ; Untyped                ;
+; GATE_LOCK_COUNTER             ; 0                        ; Untyped                ;
+; LOCK_HIGH                     ; 1                        ; Untyped                ;
+; LOCK_LOW                      ; 1                        ; Untyped                ;
+; VALID_LOCK_MULTIPLIER         ; 1                        ; Untyped                ;
+; INVALID_LOCK_MULTIPLIER       ; 5                        ; Untyped                ;
+; SWITCH_OVER_ON_LOSSCLK        ; OFF                      ; Untyped                ;
+; SWITCH_OVER_ON_GATED_LOCK     ; OFF                      ; Untyped                ;
+; ENABLE_SWITCH_OVER_COUNTER    ; OFF                      ; Untyped                ;
+; SKIP_VCO                      ; OFF                      ; Untyped                ;
+; SWITCH_OVER_COUNTER           ; 0                        ; Untyped                ;
+; SWITCH_OVER_TYPE              ; AUTO                     ; Untyped                ;
+; FEEDBACK_SOURCE               ; EXTCLK0                  ; Untyped                ;
+; BANDWIDTH                     ; 0                        ; Untyped                ;
+; BANDWIDTH_TYPE                ; AUTO                     ; Untyped                ;
+; SPREAD_FREQUENCY              ; 0                        ; Untyped                ;
+; DOWN_SPREAD                   ; 0                        ; Untyped                ;
+; SELF_RESET_ON_GATED_LOSS_LOCK ; OFF                      ; Untyped                ;
+; SELF_RESET_ON_LOSS_LOCK       ; OFF                      ; Untyped                ;
+; CLK9_MULTIPLY_BY              ; 0                        ; Untyped                ;
+; CLK8_MULTIPLY_BY              ; 0                        ; Untyped                ;
+; CLK7_MULTIPLY_BY              ; 0                        ; Untyped                ;
+; CLK6_MULTIPLY_BY              ; 0                        ; Untyped                ;
+; CLK5_MULTIPLY_BY              ; 1                        ; Untyped                ;
+; CLK4_MULTIPLY_BY              ; 1                        ; Untyped                ;
+; CLK3_MULTIPLY_BY              ; 1                        ; Untyped                ;
+; CLK2_MULTIPLY_BY              ; 1                        ; Untyped                ;
+; CLK1_MULTIPLY_BY              ; 8                        ; Signed Integer         ;
+; CLK0_MULTIPLY_BY              ; 1152                     ; Signed Integer         ;
+; CLK9_DIVIDE_BY                ; 0                        ; Untyped                ;
+; CLK8_DIVIDE_BY                ; 0                        ; Untyped                ;
+; CLK7_DIVIDE_BY                ; 0                        ; Untyped                ;
+; CLK6_DIVIDE_BY                ; 0                        ; Untyped                ;
+; CLK5_DIVIDE_BY                ; 1                        ; Untyped                ;
+; CLK4_DIVIDE_BY                ; 1                        ; Untyped                ;
+; CLK3_DIVIDE_BY                ; 1                        ; Untyped                ;
+; CLK2_DIVIDE_BY                ; 1                        ; Untyped                ;
+; CLK1_DIVIDE_BY                ; 5                        ; Signed Integer         ;
+; CLK0_DIVIDE_BY                ; 15625                    ; Signed Integer         ;
+; CLK9_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK8_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK7_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK6_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK5_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK4_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK3_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK2_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK1_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK0_PHASE_SHIFT              ; 0                        ; Untyped                ;
+; CLK5_TIME_DELAY               ; 0                        ; Untyped                ;
+; CLK4_TIME_DELAY               ; 0                        ; Untyped                ;
+; CLK3_TIME_DELAY               ; 0                        ; Untyped                ;
+; CLK2_TIME_DELAY               ; 0                        ; Untyped                ;
+; CLK1_TIME_DELAY               ; 0                        ; Untyped                ;
+; CLK0_TIME_DELAY               ; 0                        ; Untyped                ;
+; CLK9_DUTY_CYCLE               ; 50                       ; Untyped                ;
+; CLK8_DUTY_CYCLE               ; 50                       ; Untyped                ;
+; CLK7_DUTY_CYCLE               ; 50                       ; Untyped                ;
+; CLK6_DUTY_CYCLE               ; 50                       ; Untyped                ;
+; CLK5_DUTY_CYCLE               ; 50                       ; Untyped                ;
+; CLK4_DUTY_CYCLE               ; 50                       ; Untyped                ;
+; CLK3_DUTY_CYCLE               ; 50                       ; Untyped                ;
+; CLK2_DUTY_CYCLE               ; 50                       ; Untyped                ;
+; CLK1_DUTY_CYCLE               ; 50                       ; Signed Integer         ;
+; CLK0_DUTY_CYCLE               ; 50                       ; Signed Integer         ;
+; CLK9_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK8_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK7_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK6_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK5_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK4_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK3_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK2_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK1_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK0_USE_EVEN_COUNTER_MODE    ; OFF                      ; Untyped                ;
+; CLK9_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; CLK8_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; CLK7_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; CLK6_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; CLK5_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; CLK4_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; CLK3_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; CLK2_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; CLK1_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; CLK0_USE_EVEN_COUNTER_VALUE   ; OFF                      ; Untyped                ;
+; LOCK_WINDOW_UI                ;  0.05                    ; Untyped                ;
+; LOCK_WINDOW_UI_BITS           ; UNUSED                   ; Untyped                ;
+; VCO_RANGE_DETECTOR_LOW_BITS   ; UNUSED                   ; Untyped                ;
+; VCO_RANGE_DETECTOR_HIGH_BITS  ; UNUSED                   ; Untyped                ;
+; DPA_MULTIPLY_BY               ; 0                        ; Untyped                ;
+; DPA_DIVIDE_BY                 ; 1                        ; Untyped                ;
+; DPA_DIVIDER                   ; 0                        ; Untyped                ;
+; EXTCLK3_MULTIPLY_BY           ; 1                        ; Untyped                ;
+; EXTCLK2_MULTIPLY_BY           ; 1                        ; Untyped                ;
+; EXTCLK1_MULTIPLY_BY           ; 1                        ; Untyped                ;
+; EXTCLK0_MULTIPLY_BY           ; 1                        ; Untyped                ;
+; EXTCLK3_DIVIDE_BY             ; 1                        ; Untyped                ;
+; EXTCLK2_DIVIDE_BY             ; 1                        ; Untyped                ;
+; EXTCLK1_DIVIDE_BY             ; 1                        ; Untyped                ;
+; EXTCLK0_DIVIDE_BY             ; 1                        ; Untyped                ;
+; EXTCLK3_PHASE_SHIFT           ; 0                        ; Untyped                ;
+; EXTCLK2_PHASE_SHIFT           ; 0                        ; Untyped                ;
+; EXTCLK1_PHASE_SHIFT           ; 0                        ; Untyped                ;
+; EXTCLK0_PHASE_SHIFT           ; 0                        ; Untyped                ;
+; EXTCLK3_TIME_DELAY            ; 0                        ; Untyped                ;
+; EXTCLK2_TIME_DELAY            ; 0                        ; Untyped                ;
+; EXTCLK1_TIME_DELAY            ; 0                        ; Untyped                ;
+; EXTCLK0_TIME_DELAY            ; 0                        ; Untyped                ;
+; EXTCLK3_DUTY_CYCLE            ; 50                       ; Untyped                ;
+; EXTCLK2_DUTY_CYCLE            ; 50                       ; Untyped                ;
+; EXTCLK1_DUTY_CYCLE            ; 50                       ; Untyped                ;
+; EXTCLK0_DUTY_CYCLE            ; 50                       ; Untyped                ;
+; VCO_MULTIPLY_BY               ; 0                        ; Untyped                ;
+; VCO_DIVIDE_BY                 ; 0                        ; Untyped                ;
+; SCLKOUT0_PHASE_SHIFT          ; 0                        ; Untyped                ;
+; SCLKOUT1_PHASE_SHIFT          ; 0                        ; Untyped                ;
+; VCO_MIN                       ; 0                        ; Untyped                ;
+; VCO_MAX                       ; 0                        ; Untyped                ;
+; VCO_CENTER                    ; 0                        ; Untyped                ;
+; PFD_MIN                       ; 0                        ; Untyped                ;
+; PFD_MAX                       ; 0                        ; Untyped                ;
+; M_INITIAL                     ; 0                        ; Untyped                ;
+; M                             ; 0                        ; Untyped                ;
+; N                             ; 1                        ; Untyped                ;
+; M2                            ; 1                        ; Untyped                ;
+; N2                            ; 1                        ; Untyped                ;
+; SS                            ; 1                        ; Untyped                ;
+; C0_HIGH                       ; 0                        ; Untyped                ;
+; C1_HIGH                       ; 0                        ; Untyped                ;
+; C2_HIGH                       ; 0                        ; Untyped                ;
+; C3_HIGH                       ; 0                        ; Untyped                ;
+; C4_HIGH                       ; 0                        ; Untyped                ;
+; C5_HIGH                       ; 0                        ; Untyped                ;
+; C6_HIGH                       ; 0                        ; Untyped                ;
+; C7_HIGH                       ; 0                        ; Untyped                ;
+; C8_HIGH                       ; 0                        ; Untyped                ;
+; C9_HIGH                       ; 0                        ; Untyped                ;
+; C0_LOW                        ; 0                        ; Untyped                ;
+; C1_LOW                        ; 0                        ; Untyped                ;
+; C2_LOW                        ; 0                        ; Untyped                ;
+; C3_LOW                        ; 0                        ; Untyped                ;
+; C4_LOW                        ; 0                        ; Untyped                ;
+; C5_LOW                        ; 0                        ; Untyped                ;
+; C6_LOW                        ; 0                        ; Untyped                ;
+; C7_LOW                        ; 0                        ; Untyped                ;
+; C8_LOW                        ; 0                        ; Untyped                ;
+; C9_LOW                        ; 0                        ; Untyped                ;
+; C0_INITIAL                    ; 0                        ; Untyped                ;
+; C1_INITIAL                    ; 0                        ; Untyped                ;
+; C2_INITIAL                    ; 0                        ; Untyped                ;
+; C3_INITIAL                    ; 0                        ; Untyped                ;
+; C4_INITIAL                    ; 0                        ; Untyped                ;
+; C5_INITIAL                    ; 0                        ; Untyped                ;
+; C6_INITIAL                    ; 0                        ; Untyped                ;
+; C7_INITIAL                    ; 0                        ; Untyped                ;
+; C8_INITIAL                    ; 0                        ; Untyped                ;
+; C9_INITIAL                    ; 0                        ; Untyped                ;
+; C0_MODE                       ; BYPASS                   ; Untyped                ;
+; C1_MODE                       ; BYPASS                   ; Untyped                ;
+; C2_MODE                       ; BYPASS                   ; Untyped                ;
+; C3_MODE                       ; BYPASS                   ; Untyped                ;
+; C4_MODE                       ; BYPASS                   ; Untyped                ;
+; C5_MODE                       ; BYPASS                   ; Untyped                ;
+; C6_MODE                       ; BYPASS                   ; Untyped                ;
+; C7_MODE                       ; BYPASS                   ; Untyped                ;
+; C8_MODE                       ; BYPASS                   ; Untyped                ;
+; C9_MODE                       ; BYPASS                   ; Untyped                ;
+; C0_PH                         ; 0                        ; Untyped                ;
+; C1_PH                         ; 0                        ; Untyped                ;
+; C2_PH                         ; 0                        ; Untyped                ;
+; C3_PH                         ; 0                        ; Untyped                ;
+; C4_PH                         ; 0                        ; Untyped                ;
+; C5_PH                         ; 0                        ; Untyped                ;
+; C6_PH                         ; 0                        ; Untyped                ;
+; C7_PH                         ; 0                        ; Untyped                ;
+; C8_PH                         ; 0                        ; Untyped                ;
+; C9_PH                         ; 0                        ; Untyped                ;
+; L0_HIGH                       ; 1                        ; Untyped                ;
+; L1_HIGH                       ; 1                        ; Untyped                ;
+; G0_HIGH                       ; 1                        ; Untyped                ;
+; G1_HIGH                       ; 1                        ; Untyped                ;
+; G2_HIGH                       ; 1                        ; Untyped                ;
+; G3_HIGH                       ; 1                        ; Untyped                ;
+; E0_HIGH                       ; 1                        ; Untyped                ;
+; E1_HIGH                       ; 1                        ; Untyped                ;
+; E2_HIGH                       ; 1                        ; Untyped                ;
+; E3_HIGH                       ; 1                        ; Untyped                ;
+; L0_LOW                        ; 1                        ; Untyped                ;
+; L1_LOW                        ; 1                        ; Untyped                ;
+; G0_LOW                        ; 1                        ; Untyped                ;
+; G1_LOW                        ; 1                        ; Untyped                ;
+; G2_LOW                        ; 1                        ; Untyped                ;
+; G3_LOW                        ; 1                        ; Untyped                ;
+; E0_LOW                        ; 1                        ; Untyped                ;
+; E1_LOW                        ; 1                        ; Untyped                ;
+; E2_LOW                        ; 1                        ; Untyped                ;
+; E3_LOW                        ; 1                        ; Untyped                ;
+; L0_INITIAL                    ; 1                        ; Untyped                ;
+; L1_INITIAL                    ; 1                        ; Untyped                ;
+; G0_INITIAL                    ; 1                        ; Untyped                ;
+; G1_INITIAL                    ; 1                        ; Untyped                ;
+; G2_INITIAL                    ; 1                        ; Untyped                ;
+; G3_INITIAL                    ; 1                        ; Untyped                ;
+; E0_INITIAL                    ; 1                        ; Untyped                ;
+; E1_INITIAL                    ; 1                        ; Untyped                ;
+; E2_INITIAL                    ; 1                        ; Untyped                ;
+; E3_INITIAL                    ; 1                        ; Untyped                ;
+; L0_MODE                       ; BYPASS                   ; Untyped                ;
+; L1_MODE                       ; BYPASS                   ; Untyped                ;
+; G0_MODE                       ; BYPASS                   ; Untyped                ;
+; G1_MODE                       ; BYPASS                   ; Untyped                ;
+; G2_MODE                       ; BYPASS                   ; Untyped                ;
+; G3_MODE                       ; BYPASS                   ; Untyped                ;
+; E0_MODE                       ; BYPASS                   ; Untyped                ;
+; E1_MODE                       ; BYPASS                   ; Untyped                ;
+; E2_MODE                       ; BYPASS                   ; Untyped                ;
+; E3_MODE                       ; BYPASS                   ; Untyped                ;
+; L0_PH                         ; 0                        ; Untyped                ;
+; L1_PH                         ; 0                        ; Untyped                ;
+; G0_PH                         ; 0                        ; Untyped                ;
+; G1_PH                         ; 0                        ; Untyped                ;
+; G2_PH                         ; 0                        ; Untyped                ;
+; G3_PH                         ; 0                        ; Untyped                ;
+; E0_PH                         ; 0                        ; Untyped                ;
+; E1_PH                         ; 0                        ; Untyped                ;
+; E2_PH                         ; 0                        ; Untyped                ;
+; E3_PH                         ; 0                        ; Untyped                ;
+; M_PH                          ; 0                        ; Untyped                ;
+; C1_USE_CASC_IN                ; OFF                      ; Untyped                ;
+; C2_USE_CASC_IN                ; OFF                      ; Untyped                ;
+; C3_USE_CASC_IN                ; OFF                      ; Untyped                ;
+; C4_USE_CASC_IN                ; OFF                      ; Untyped                ;
+; C5_USE_CASC_IN                ; OFF                      ; Untyped                ;
+; C6_USE_CASC_IN                ; OFF                      ; Untyped                ;
+; C7_USE_CASC_IN                ; OFF                      ; Untyped                ;
+; C8_USE_CASC_IN                ; OFF                      ; Untyped                ;
+; C9_USE_CASC_IN                ; OFF                      ; Untyped                ;
+; CLK0_COUNTER                  ; G0                       ; Untyped                ;
+; CLK1_COUNTER                  ; G0                       ; Untyped                ;
+; CLK2_COUNTER                  ; G0                       ; Untyped                ;
+; CLK3_COUNTER                  ; G0                       ; Untyped                ;
+; CLK4_COUNTER                  ; G0                       ; Untyped                ;
+; CLK5_COUNTER                  ; G0                       ; Untyped                ;
+; CLK6_COUNTER                  ; E0                       ; Untyped                ;
+; CLK7_COUNTER                  ; E1                       ; Untyped                ;
+; CLK8_COUNTER                  ; E2                       ; Untyped                ;
+; CLK9_COUNTER                  ; E3                       ; Untyped                ;
+; L0_TIME_DELAY                 ; 0                        ; Untyped                ;
+; L1_TIME_DELAY                 ; 0                        ; Untyped                ;
+; G0_TIME_DELAY                 ; 0                        ; Untyped                ;
+; G1_TIME_DELAY                 ; 0                        ; Untyped                ;
+; G2_TIME_DELAY                 ; 0                        ; Untyped                ;
+; G3_TIME_DELAY                 ; 0                        ; Untyped                ;
+; E0_TIME_DELAY                 ; 0                        ; Untyped                ;
+; E1_TIME_DELAY                 ; 0                        ; Untyped                ;
+; E2_TIME_DELAY                 ; 0                        ; Untyped                ;
+; E3_TIME_DELAY                 ; 0                        ; Untyped                ;
+; M_TIME_DELAY                  ; 0                        ; Untyped                ;
+; N_TIME_DELAY                  ; 0                        ; Untyped                ;
+; EXTCLK3_COUNTER               ; E3                       ; Untyped                ;
+; EXTCLK2_COUNTER               ; E2                       ; Untyped                ;
+; EXTCLK1_COUNTER               ; E1                       ; Untyped                ;
+; EXTCLK0_COUNTER               ; E0                       ; Untyped                ;
+; ENABLE0_COUNTER               ; L0                       ; Untyped                ;
+; ENABLE1_COUNTER               ; L0                       ; Untyped                ;
+; CHARGE_PUMP_CURRENT           ; 2                        ; Untyped                ;
+; LOOP_FILTER_R                 ;  1.000000                ; Untyped                ;
+; LOOP_FILTER_C                 ; 5                        ; Untyped                ;
+; CHARGE_PUMP_CURRENT_BITS      ; 9999                     ; Untyped                ;
+; LOOP_FILTER_R_BITS            ; 9999                     ; Untyped                ;
+; LOOP_FILTER_C_BITS            ; 9999                     ; Untyped                ;
+; VCO_POST_SCALE                ; 0                        ; Untyped                ;
+; CLK2_OUTPUT_FREQUENCY         ; 0                        ; Untyped                ;
+; CLK1_OUTPUT_FREQUENCY         ; 0                        ; Untyped                ;
+; CLK0_OUTPUT_FREQUENCY         ; 0                        ; Untyped                ;
+; INTENDED_DEVICE_FAMILY        ; MAX 10                   ; Untyped                ;
+; PORT_CLKENA0                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLKENA1                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLKENA2                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLKENA3                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLKENA4                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLKENA5                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_EXTCLKENA0               ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_EXTCLKENA1               ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_EXTCLKENA2               ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_EXTCLKENA3               ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_EXTCLK0                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_EXTCLK1                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_EXTCLK2                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_EXTCLK3                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLKBAD0                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLKBAD1                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLK0                     ; PORT_USED                ; Untyped                ;
+; PORT_CLK1                     ; PORT_USED                ; Untyped                ;
+; PORT_CLK2                     ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLK3                     ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLK4                     ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLK5                     ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLK6                     ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLK7                     ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLK8                     ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLK9                     ; PORT_UNUSED              ; Untyped                ;
+; PORT_SCANDATA                 ; PORT_UNUSED              ; Untyped                ;
+; PORT_SCANDATAOUT              ; PORT_UNUSED              ; Untyped                ;
+; PORT_SCANDONE                 ; PORT_UNUSED              ; Untyped                ;
+; PORT_SCLKOUT1                 ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_SCLKOUT0                 ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_ACTIVECLOCK              ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLKLOSS                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_INCLK1                   ; PORT_UNUSED              ; Untyped                ;
+; PORT_INCLK0                   ; PORT_USED                ; Untyped                ;
+; PORT_FBIN                     ; PORT_UNUSED              ; Untyped                ;
+; PORT_PLLENA                   ; PORT_UNUSED              ; Untyped                ;
+; PORT_CLKSWITCH                ; PORT_UNUSED              ; Untyped                ;
+; PORT_ARESET                   ; PORT_USED                ; Untyped                ;
+; PORT_PFDENA                   ; PORT_UNUSED              ; Untyped                ;
+; PORT_SCANCLK                  ; PORT_UNUSED              ; Untyped                ;
+; PORT_SCANACLR                 ; PORT_UNUSED              ; Untyped                ;
+; PORT_SCANREAD                 ; PORT_UNUSED              ; Untyped                ;
+; PORT_SCANWRITE                ; PORT_UNUSED              ; Untyped                ;
+; PORT_ENABLE0                  ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_ENABLE1                  ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_LOCKED                   ; PORT_USED                ; Untyped                ;
+; PORT_CONFIGUPDATE             ; PORT_UNUSED              ; Untyped                ;
+; PORT_FBOUT                    ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_PHASEDONE                ; PORT_UNUSED              ; Untyped                ;
+; PORT_PHASESTEP                ; PORT_UNUSED              ; Untyped                ;
+; PORT_PHASEUPDOWN              ; PORT_UNUSED              ; Untyped                ;
+; PORT_SCANCLKENA               ; PORT_UNUSED              ; Untyped                ;
+; PORT_PHASECOUNTERSELECT       ; PORT_UNUSED              ; Untyped                ;
+; PORT_VCOOVERRANGE             ; PORT_CONNECTIVITY        ; Untyped                ;
+; PORT_VCOUNDERRANGE            ; PORT_CONNECTIVITY        ; Untyped                ;
+; M_TEST_SOURCE                 ; 5                        ; Untyped                ;
+; C0_TEST_SOURCE                ; 5                        ; Untyped                ;
+; C1_TEST_SOURCE                ; 5                        ; Untyped                ;
+; C2_TEST_SOURCE                ; 5                        ; Untyped                ;
+; C3_TEST_SOURCE                ; 5                        ; Untyped                ;
+; C4_TEST_SOURCE                ; 5                        ; Untyped                ;
+; C5_TEST_SOURCE                ; 5                        ; Untyped                ;
+; C6_TEST_SOURCE                ; 5                        ; Untyped                ;
+; C7_TEST_SOURCE                ; 5                        ; Untyped                ;
+; C8_TEST_SOURCE                ; 5                        ; Untyped                ;
+; C9_TEST_SOURCE                ; 5                        ; Untyped                ;
+; CBXI_PARAMETER                ; pll3m7_altpll            ; Untyped                ;
+; VCO_FREQUENCY_CONTROL         ; AUTO                     ; Untyped                ;
+; VCO_PHASE_SHIFT_STEP          ; 0                        ; Untyped                ;
+; WIDTH_CLOCK                   ; 5                        ; Signed Integer         ;
+; WIDTH_PHASECOUNTERSELECT      ; 4                        ; Untyped                ;
+; USING_FBMIMICBIDIR_PORT       ; OFF                      ; Untyped                ;
+; DEVICE_FAMILY                 ; MAX 10                   ; Untyped                ;
+; SCAN_CHAIN_MIF_FILE           ; UNUSED                   ; Untyped                ;
+; SIM_GATE_LOCK_DEVICE_BEHAVIOR ; OFF                      ; Untyped                ;
+; AUTO_CARRY_CHAINS             ; ON                       ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS          ; OFF                      ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS           ; ON                       ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS        ; OFF                      ; IGNORE_CASCADE         ;
++-------------------------------+--------------------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_mult:Mult1 ;
++------------------------------------------------+----------+-----------------------+
+; Parameter Name                                 ; Value    ; Type                  ;
++------------------------------------------------+----------+-----------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY            ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY          ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE          ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE        ;
+; LPM_WIDTHA                                     ; 24       ; Untyped               ;
+; LPM_WIDTHB                                     ; 10       ; Untyped               ;
+; LPM_WIDTHP                                     ; 34       ; Untyped               ;
+; LPM_WIDTHR                                     ; 34       ; Untyped               ;
+; LPM_WIDTHS                                     ; 1        ; Untyped               ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped               ;
+; LPM_PIPELINE                                   ; 0        ; Untyped               ;
+; LATENCY                                        ; 0        ; Untyped               ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped               ;
+; INPUT_B_IS_CONSTANT                            ; YES      ; Untyped               ;
+; USE_EAB                                        ; OFF      ; Untyped               ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped               ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped               ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped               ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K   ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped               ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped               ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped               ;
+; CBXI_PARAMETER                                 ; mult_brs ; Untyped               ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped               ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped               ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped               ;
++------------------------------------------------+----------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Div3 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                  ;
+; LPM_WIDTHD             ; 7              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_ltl ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Mod2 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_lll ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Div2 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_itl ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_mult:Mult0 ;
++------------------------------------------------+----------+-----------------------+
+; Parameter Name                                 ; Value    ; Type                  ;
++------------------------------------------------+----------+-----------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY            ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY          ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE          ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE        ;
+; LPM_WIDTHA                                     ; 24       ; Untyped               ;
+; LPM_WIDTHB                                     ; 9        ; Untyped               ;
+; LPM_WIDTHP                                     ; 33       ; Untyped               ;
+; LPM_WIDTHR                                     ; 33       ; Untyped               ;
+; LPM_WIDTHS                                     ; 1        ; Untyped               ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped               ;
+; LPM_PIPELINE                                   ; 0        ; Untyped               ;
+; LATENCY                                        ; 0        ; Untyped               ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped               ;
+; INPUT_B_IS_CONSTANT                            ; YES      ; Untyped               ;
+; USE_EAB                                        ; OFF      ; Untyped               ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped               ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped               ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped               ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K   ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped               ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped               ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped               ;
+; CBXI_PARAMETER                                 ; mult_2qs ; Untyped               ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped               ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped               ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped               ;
++------------------------------------------------+----------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Mod1 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_dkl ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                  ;
+; LPM_WIDTHD             ; 7              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_gkl ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Div1 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_8sl ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bin2deghex:b2dh_1|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                  ;
+; LPM_WIDTHD             ; 7              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_dsl ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; altpll Parameter Settings by Entity Instance                         ;
++-------------------------------+--------------------------------------+
+; Name                          ; Value                                ;
++-------------------------------+--------------------------------------+
+; Number of entity instances    ; 1                                    ;
+; Entity Instance               ; pll3m7:pll_1|altpll:altpll_component ;
+;     -- OPERATION_MODE         ; NORMAL                               ;
+;     -- PLL_TYPE               ; AUTO                                 ;
+;     -- PRIMARY_CLOCK          ; INCLK0                               ;
+;     -- INCLK0_INPUT_FREQUENCY ; 20000                                ;
+;     -- INCLK1_INPUT_FREQUENCY ; 0                                    ;
+;     -- VCO_MULTIPLY_BY        ; 0                                    ;
+;     -- VCO_DIVIDE_BY          ; 0                                    ;
++-------------------------------+--------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                           ;
++---------------------------------------+----------------------------------+
+; Name                                  ; Value                            ;
++---------------------------------------+----------------------------------+
+; Number of entity instances            ; 2                                ;
+; Entity Instance                       ; bin2deghex:b2dh_1|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 24                               ;
+;     -- LPM_WIDTHB                     ; 10                               ;
+;     -- LPM_WIDTHP                     ; 34                               ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                               ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                              ;
+;     -- USE_EAB                        ; OFF                              ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                               ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                               ;
+; Entity Instance                       ; bin2deghex:b2dh_1|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 24                               ;
+;     -- LPM_WIDTHB                     ; 9                                ;
+;     -- LPM_WIDTHP                     ; 33                               ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                               ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                              ;
+;     -- USE_EAB                        ; OFF                              ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                             ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                               ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                               ;
++---------------------------------------+----------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "UART:uart_1"                                                                                                                                     ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                      ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; TX_start ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; DATA     ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pll3m7:pll_1"                                                                                                                                  ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                                      ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; areset ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; locked ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "CRC4_calc:crc1|CRC4_table:tb1" ;
++-------+-------+----------+--------------------------------+
+; Port  ; Type  ; Severity ; Details                        ;
++-------+-------+----------+--------------------------------+
+; in[3] ; Input ; Info     ; Stuck at GND                   ;
++-------+-------+----------+--------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u7"                                                                                                                                                       ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u6"                                                                                                                                                       ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u5"                                                                                                                                                       ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u4"                                                                                                                                                       ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u3"                                                                                                                                                       ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u2"                                                                                                                                                       ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u1"                                                                                                                                                         ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (4 bits) it drives.  The 28 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bin2deghex:b2dh_1|d2h:u0"                                                                                                                                                         ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d    ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (4 bits) it drives.  The 28 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bin2deghex:b2dh_1"                                                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; HEX1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; HEX0 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 126                         ;
+; cycloneiii_ff         ; 908                         ;
+;     CLR               ; 16                          ;
+;     CLR SLD           ; 3                           ;
+;     ENA               ; 679                         ;
+;     ENA CLR           ; 23                          ;
+;     ENA SCLR          ; 38                          ;
+;     ENA SLD           ; 34                          ;
+;     SLD               ; 14                          ;
+;     plain             ; 101                         ;
+; cycloneiii_io_obuf    ; 53                          ;
+; cycloneiii_lcell_comb ; 1933                        ;
+;     arith             ; 493                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 227                         ;
+;         3 data inputs ; 265                         ;
+;     normal            ; 1440                        ;
+;         0 data inputs ; 43                          ;
+;         1 data inputs ; 24                          ;
+;         2 data inputs ; 299                         ;
+;         3 data inputs ; 148                         ;
+;         4 data inputs ; 926                         ;
+; cycloneiii_mac_mult   ; 4                           ;
+; cycloneiii_mac_out    ; 4                           ;
+; cycloneiii_pll        ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 23.50                       ;
+; Average LUT depth     ; 9.26                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Fri Dec 24 11:20:13 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off USB_BISS -c USB_BISS
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file pll3m7.v
+    Info (12023): Found entity 1: pll3m7 File: D:/git/BISS-C/DE10-Lite/Qaurtus/pll3m7.v Line: 40
+Warning (12125): Using design file usb_biss.v, which is not specified as a design file for the current project, but contains definitions for 7 design units and 7 entities in project
+    Info (12023): Found entity 1: USB_BISS File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 1
+    Info (12023): Found entity 2: UART File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 266
+    Info (12023): Found entity 3: bin2deghex File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 506
+    Info (12023): Found entity 4: d2h File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 532
+    Info (12023): Found entity 5: mfilt File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 539
+    Info (12023): Found entity 6: CRC4_table File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 549
+    Info (12023): Found entity 7: CRC4_calc File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 571
+Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(241): created implicit net for "clk3M7" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 241
+Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(241): created implicit net for "clk80M" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 241
+Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(245): created implicit net for "TX" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 245
+Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(246): created implicit net for "POWER_CTRL" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 246
+Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(247): created implicit net for "UART_MODE_EN" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 247
+Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(248): created implicit net for "TX_start" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 248
+Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(249): created implicit net for "BISS_start" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 249
+Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(252): created implicit net for "RnW" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 252
+Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(291): created implicit net for "RX_filt" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 291
+Info (12127): Elaborating entity "USB_BISS" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at usb_biss.v(74): object "sen_MA" assigned a value but never read File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 74
+Warning (10036): Verilog HDL or VHDL warning at usb_biss.v(74): object "SCD_finish" assigned a value but never read File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 74
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(34): truncated value with size 32 to match size of target (3) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 34
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(55): truncated value with size 32 to match size of target (21) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 55
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(97): truncated value with size 32 to match size of target (4) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 97
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(110): truncated value with size 32 to match size of target (9) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 110
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(115): truncated value with size 32 to match size of target (9) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 115
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(122): truncated value with size 32 to match size of target (9) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 122
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(131): truncated value with size 32 to match size of target (6) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 131
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(145): truncated value with size 32 to match size of target (9) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 145
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(150): truncated value with size 11 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 150
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(168): truncated value with size 32 to match size of target (14) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 168
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(175): truncated value with size 32 to match size of target (14) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 175
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(191): truncated value with size 32 to match size of target (14) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 191
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(196): truncated value with size 32 to match size of target (9) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 196
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(225): truncated value with size 32 to match size of target (6) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 225
+Warning (10665): Bidirectional port "ARDUINO_IO[13]" at usb_biss.v(20) has a one-way connection to bidirectional port "AGPIO[13]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+Warning (10665): Bidirectional port "ARDUINO_IO[12]" at usb_biss.v(20) has a one-way connection to bidirectional port "AGPIO[12]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+Warning (10665): Bidirectional port "ARDUINO_IO[11]" at usb_biss.v(20) has a one-way connection to bidirectional port "AGPIO[11]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+Info (12128): Elaborating entity "bin2deghex" for hierarchy "bin2deghex:b2dh_1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 67
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(510): variable "deg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 510
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(510): variable "D360" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 510
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(510): variable "D60360" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 510
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(511): variable "deg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 511
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(511): variable "D360" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 511
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(512): variable "deg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 512
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(513): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 513
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(514): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 514
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(515): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 515
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(516): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 516
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(517): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 517
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(518): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 518
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(519): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 519
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(520): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 520
+Info (12128): Elaborating entity "d2h" for hierarchy "bin2deghex:b2dh_1|d2h:u0" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 522
+Info (12128): Elaborating entity "CRC4_calc" for hierarchy "CRC4_calc:crc1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 100
+Info (12128): Elaborating entity "CRC4_table" for hierarchy "CRC4_calc:crc1|CRC4_table:tb1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 575
+Info (12128): Elaborating entity "pll3m7" for hierarchy "pll3m7:pll_1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 241
+Info (12128): Elaborating entity "altpll" for hierarchy "pll3m7:pll_1|altpll:altpll_component" File: D:/git/BISS-C/DE10-Lite/Qaurtus/pll3m7.v Line: 108
+Info (12130): Elaborated megafunction instantiation "pll3m7:pll_1|altpll:altpll_component" File: D:/git/BISS-C/DE10-Lite/Qaurtus/pll3m7.v Line: 108
+Info (12133): Instantiated megafunction "pll3m7:pll_1|altpll:altpll_component" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/pll3m7.v Line: 108
+    Info (12134): Parameter "bandwidth_type" = "AUTO"
+    Info (12134): Parameter "clk0_divide_by" = "15625"
+    Info (12134): Parameter "clk0_duty_cycle" = "50"
+    Info (12134): Parameter "clk0_multiply_by" = "1152"
+    Info (12134): Parameter "clk0_phase_shift" = "0"
+    Info (12134): Parameter "clk1_divide_by" = "5"
+    Info (12134): Parameter "clk1_duty_cycle" = "50"
+    Info (12134): Parameter "clk1_multiply_by" = "8"
+    Info (12134): Parameter "clk1_phase_shift" = "0"
+    Info (12134): Parameter "compensate_clock" = "CLK0"
+    Info (12134): Parameter "inclk0_input_frequency" = "20000"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "lpm_hint" = "CBX_MODULE_PREFIX=pll3m7"
+    Info (12134): Parameter "lpm_type" = "altpll"
+    Info (12134): Parameter "operation_mode" = "NORMAL"
+    Info (12134): Parameter "pll_type" = "AUTO"
+    Info (12134): Parameter "port_activeclock" = "PORT_UNUSED"
+    Info (12134): Parameter "port_areset" = "PORT_USED"
+    Info (12134): Parameter "port_clkbad0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkbad1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkloss" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkswitch" = "PORT_UNUSED"
+    Info (12134): Parameter "port_configupdate" = "PORT_UNUSED"
+    Info (12134): Parameter "port_fbin" = "PORT_UNUSED"
+    Info (12134): Parameter "port_inclk0" = "PORT_USED"
+    Info (12134): Parameter "port_inclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_locked" = "PORT_USED"
+    Info (12134): Parameter "port_pfdena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasecounterselect" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasedone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phasestep" = "PORT_UNUSED"
+    Info (12134): Parameter "port_phaseupdown" = "PORT_UNUSED"
+    Info (12134): Parameter "port_pllena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanaclr" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclk" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanclkena" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandata" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandataout" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scandone" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanread" = "PORT_UNUSED"
+    Info (12134): Parameter "port_scanwrite" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk0" = "PORT_USED"
+    Info (12134): Parameter "port_clk1" = "PORT_USED"
+    Info (12134): Parameter "port_clk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clk5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena3" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena4" = "PORT_UNUSED"
+    Info (12134): Parameter "port_clkena5" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk0" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk1" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk2" = "PORT_UNUSED"
+    Info (12134): Parameter "port_extclk3" = "PORT_UNUSED"
+    Info (12134): Parameter "self_reset_on_loss_lock" = "OFF"
+    Info (12134): Parameter "width_clock" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/pll3m7_altpll.v
+    Info (12023): Found entity 1: pll3m7_altpll File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/pll3m7_altpll.v Line: 31
+Info (12128): Elaborating entity "pll3m7_altpll" for hierarchy "pll3m7:pll_1|altpll:altpll_component|pll3m7_altpll:auto_generated" File: c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altpll.tdf Line: 898
+Info (12128): Elaborating entity "UART" for hierarchy "UART:uart_1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 255
+Warning (10036): Verilog HDL or VHDL warning at usb_biss.v(285): object "uart_rx_end_ok" assigned a value but never read File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 285
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(290): truncated value with size 32 to match size of target (3) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 290
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(301): truncated value with size 32 to match size of target (7) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 301
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(313): truncated value with size 32 to match size of target (24) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 313
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(324): truncated value with size 32 to match size of target (24) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 324
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(327): truncated value with size 32 to match size of target (7) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 327
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(335): truncated value with size 32 to match size of target (7) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 335
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(344): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 344
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(346): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 346
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(353): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 353
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(387): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 387
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(398): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 398
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(399): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 399
+Warning (10762): Verilog HDL Case Statement warning at usb_biss.v(384): can't check case statement for completeness because the case expression has too many possible states File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 384
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(427): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 427
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(437): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 437
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(444): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 444
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(451): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 451
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(459): truncated value with size 32 to match size of target (8) File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 459
+Info (12128): Elaborating entity "mfilt" for hierarchy "UART:uart_1|mfilt:Mfilt_rx" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 291
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer MA_clk File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 98
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "UART:uart_1|BISS_RX" is uninferred due to asynchronous read logic File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 283
+Info (278001): Inferred 9 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "bin2deghex:b2dh_1|Mult1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 510
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div3" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 518
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Mod2" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 517
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div2" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 516
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "bin2deghex:b2dh_1|Mult0" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 510
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Mod1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 515
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Mod0" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 514
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 514
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div0" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 513
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_mult:Mult1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 510
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_mult:Mult1" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 510
+    Info (12134): Parameter "LPM_WIDTHA" = "24"
+    Info (12134): Parameter "LPM_WIDTHB" = "10"
+    Info (12134): Parameter "LPM_WIDTHP" = "34"
+    Info (12134): Parameter "LPM_WIDTHR" = "34"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_brs.tdf
+    Info (12023): Found entity 1: mult_brs File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/mult_brs.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div3" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 518
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div3" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 518
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ltl.tdf
+    Info (12023): Found entity 1: lpm_divide_ltl File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_ltl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_nlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_nlh File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_nlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ohe.tdf
+    Info (12023): Found entity 1: alt_u_div_ohe File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_ohe.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/add_sub_u3c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Mod2" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 517
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Mod2" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 517
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_lll.tdf
+    Info (12023): Found entity 1: lpm_divide_lll File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_lll.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_klh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ihe.tdf
+    Info (12023): Found entity 1: alt_u_div_ihe File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_ihe.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div2" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 516
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div2" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 516
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_itl.tdf
+    Info (12023): Found entity 1: lpm_divide_itl File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_itl.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_mult:Mult0" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 510
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_mult:Mult0" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 510
+    Info (12134): Parameter "LPM_WIDTHA" = "24"
+    Info (12134): Parameter "LPM_WIDTHB" = "9"
+    Info (12134): Parameter "LPM_WIDTHP" = "33"
+    Info (12134): Parameter "LPM_WIDTHR" = "33"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_2qs.tdf
+    Info (12023): Found entity 1: mult_2qs File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/mult_2qs.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Mod1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 515
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Mod1" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 515
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_dkl.tdf
+    Info (12023): Found entity 1: lpm_divide_dkl File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_dkl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_ckh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_ckh File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_ckh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_2fe.tdf
+    Info (12023): Found entity 1: alt_u_div_2fe File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_2fe.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Mod0" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 514
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Mod0" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 514
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_gkl.tdf
+    Info (12023): Found entity 1: lpm_divide_gkl File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_gkl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_fkh File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_fkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_8fe.tdf
+    Info (12023): Found entity 1: alt_u_div_8fe File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_8fe.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 514
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div1" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 514
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_8sl.tdf
+    Info (12023): Found entity 1: lpm_divide_8sl File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_8sl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_akh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_akh File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/sign_div_unsign_akh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_uee.tdf
+    Info (12023): Found entity 1: alt_u_div_uee File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/alt_u_div_uee.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div0" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 513
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div0" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 513
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_dsl.tdf
+    Info (12023): Found entity 1: lpm_divide_dsl File: D:/git/BISS-C/DE10-Lite/Qaurtus/db/lpm_divide_dsl.tdf Line: 25
+Warning (12241): 10 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13014): Ignored 73 buffer(s)
+    Info (13019): Ignored 73 SOFT buffer(s)
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "ARDUINO_IO[9]" and its non-tri-state driver. File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13035): Inserted always-enabled tri-state buffer between "ARDUINO_IO[10]" and its non-tri-state driver. File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13035): Inserted always-enabled tri-state buffer between "ARDUINO_IO[13]" and its non-tri-state driver. File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13035): Inserted always-enabled tri-state buffer between "AGPIO[10]" and its non-tri-state driver. File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[12]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 21
+    Warning (13040): bidirectional pin "AGPIO[0]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[1]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[2]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[3]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[4]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[5]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[6]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[7]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[8]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[9]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[26]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[27]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[28]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[29]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[30]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[31]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[32]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[33]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[34]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13040): bidirectional pin "AGPIO[35]" has no driver File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+Warning (13032): The following tri-state nodes are fed by constants
+    Warning (13033): The pin "AGPIO[14]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[15]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[16]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[17]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[18]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[19]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[20]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[21]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[22]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[23]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[24]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13033): The pin "AGPIO[25]" is fed by GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ARDUINO_IO[13]" is moved to its source File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "UART:uart_1|TX_en" is converted into an equivalent circuit using register "UART:uart_1|TX_en~_emulated" and latch "UART:uart_1|TX_en~1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 285
+    Warning (13310): Register "UART:uart_1|TX_cou[23]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[23]~_emulated" and latch "UART:uart_1|TX_cou[23]~1" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[22]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[22]~_emulated" and latch "UART:uart_1|TX_cou[22]~5" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[21]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[21]~_emulated" and latch "UART:uart_1|TX_cou[21]~9" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[20]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[20]~_emulated" and latch "UART:uart_1|TX_cou[20]~13" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[19]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[19]~_emulated" and latch "UART:uart_1|TX_cou[19]~17" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[18]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[18]~_emulated" and latch "UART:uart_1|TX_cou[18]~21" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[17]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[17]~_emulated" and latch "UART:uart_1|TX_cou[17]~25" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[16]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[16]~_emulated" and latch "UART:uart_1|TX_cou[16]~29" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[15]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[15]~_emulated" and latch "UART:uart_1|TX_cou[15]~33" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[14]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[14]~_emulated" and latch "UART:uart_1|TX_cou[14]~37" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[13]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[13]~_emulated" and latch "UART:uart_1|TX_cou[13]~41" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[12]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[12]~_emulated" and latch "UART:uart_1|TX_cou[12]~45" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[11]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[11]~_emulated" and latch "UART:uart_1|TX_cou[11]~49" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[10]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[10]~_emulated" and latch "UART:uart_1|TX_cou[10]~53" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[9]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[9]~_emulated" and latch "UART:uart_1|TX_cou[9]~57" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[8]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[8]~_emulated" and latch "UART:uart_1|TX_cou[8]~61" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[7]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[7]~_emulated" and latch "UART:uart_1|TX_cou[7]~65" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[6]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[6]~_emulated" and latch "UART:uart_1|TX_cou[6]~69" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[5]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[5]~_emulated" and latch "UART:uart_1|TX_cou[5]~73" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[4]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[4]~_emulated" and latch "UART:uart_1|TX_cou[4]~77" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[3]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[3]~_emulated" and latch "UART:uart_1|TX_cou[3]~81" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[2]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[2]~_emulated" and latch "UART:uart_1|TX_cou[2]~85" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[1]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[1]~_emulated" and latch "UART:uart_1|TX_cou[1]~89" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+    Warning (13310): Register "UART:uart_1|TX_cou[0]" is converted into an equivalent circuit using register "UART:uart_1|TX_cou[0]~_emulated" and latch "UART:uart_1|TX_cou[0]~93" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 321
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "ARDUINO_IO[9]~synth" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13010): Node "ARDUINO_IO[10]~synth" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13010): Node "ARDUINO_IO[13]~synth" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 20
+    Warning (13010): Node "AGPIO[10]~synth" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 24
+    Warning (13010): Node "LOG[1]~synth" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 26
+    Warning (13010): Node "RX_IN~synth" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 36
+    Warning (13010): Node "LOG[3]~synth" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 26
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[7]" is stuck at VCC File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 7
+    Warning (13410): Pin "HEX1[7]" is stuck at GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 8
+    Warning (13410): Pin "HEX2[7]" is stuck at VCC File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 9
+    Warning (13410): Pin "HEX3[7]" is stuck at GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 10
+    Warning (13410): Pin "HEX4[7]" is stuck at VCC File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 11
+    Warning (13410): Pin "HEX5[7]" is stuck at VCC File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 12
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 16
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 16
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 16
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 16
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 16
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 16
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 11 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 3
+    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 5
+    Warning (15610): No output dependent on input pin "KEY[1]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 14
+    Warning (15610): No output dependent on input pin "SW[1]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[2]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[3]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[4]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[5]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[6]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[7]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 18
+    Warning (15610): No output dependent on input pin "SW[8]" File: D:/git/BISS-C/DE10-Lite/Qaurtus/usb_biss.v Line: 18
+Info (21057): Implemented 2724 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 58 output pins
+    Info (21060): Implemented 53 bidirectional pins
+    Info (21061): Implemented 2590 logic cells
+    Info (21065): Implemented 1 PLLs
+    Info (21062): Implemented 7 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 178 warnings
+    Info: Peak virtual memory: 4830 megabytes
+    Info: Processing ended: Fri Dec 24 11:20:26 2021
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:25
+
+

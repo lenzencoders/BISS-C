@@ -1,0 +1,6 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,bin2deghex:b2dh_1|lpm_mult:Mult0|mult_2qs:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,bin2deghex:b2dh_1|lpm_mult:Mult0|mult_2qs:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,bin2deghex:b2dh_1|lpm_mult:Mult1|mult_brs:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,bin2deghex:b2dh_1|lpm_mult:Mult1|mult_brs:auto_generated|mac_out2,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,bin2deghex:b2dh_1|lpm_mult:Mult1|mult_brs:auto_generated|mac_mult3,
