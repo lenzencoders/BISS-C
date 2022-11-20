@@ -26,21 +26,19 @@ module USB_BISS(
 wire [15:0]LOG;
 assign AGPIO[25:10] = LOG;
 wire clk = MAX10_CLK1_50;
-//assign LOG[11:0]={sen,sout_inc,SDAT_filt,sclk_ddd,a,b,sen_iso,sclk_iso_filt,sout_inc_iso,sdat_iso_filt};
-//assign LOG[15:0]={b_1_div5,a_1_div5,sclk,SDAT_filt_d,sen_d,QEP_shift[25],sclk_test,sdat_out};
 assign LOG[15:0]={ARDUINO_IO[13],RX_IN,SLO,MA_sync};
 //=====================================================================================================
 reg [2:0]clk_50_div;
 always @(posedge clk)clk_50_div <= clk_50_div + 1;
 
 wire RX_IN = ARDUINO_IO[12];
-assign ARDUINO_IO[13] = UART_MODE_EN? SLO : TX;//SDAT_filt|(~UART_MODE_EN);//TX
-assign ARDUINO_IO[10] = UART_MODE_EN? RX_IN : MA;// (SW[0]?sclk:1'b1);
+assign ARDUINO_IO[13] = UART_MODE_EN? SLO : TX;
+assign ARDUINO_IO[10] = UART_MODE_EN? RX_IN : MA;
 wire SLO = ARDUINO_IO[11];
-assign ARDUINO_IO[9] = POWER_CTRL & KEY[0];//;//POWER_CTRL;
+assign ARDUINO_IO[9] = POWER_CTRL & KEY[0];
 
 //===========================================================================================
-assign LEDR[9:0] = {NO_ACK, ~SCD_data[7:6], ~CRC6_OK};//SW[1]?QEP_data[15:6]:(SW[2]?SSI_data[16:7]:SSI_data[9:0]);
+assign LEDR[9:0] = {NO_ACK, ~SCD_data[7:6], ~CRC6_OK};
 
 assign HEX5 = {1'b1,HEX[7][6:0]};
 assign HEX4 = {1'b1,HEX[6][6:0]};
@@ -55,7 +53,7 @@ reg [20:0]slow_clk_div;
 always @(posedge clk)slow_clk_div <= slow_clk_div + 1;
 always @(posedge slow_clk_div[20]) Slow_angle <= SCD_data[31:8];
 bin2deghex b2dh_1(.clk(MAX10_CLK1_50),
-.deg(/*SW[1]?cou_inc[23:0]:*/Slow_angle),
+.deg(Slow_angle),
 .HEX7(HEX[7]),
 .HEX6(HEX[6]),
 .HEX5(HEX[5]),
@@ -246,6 +244,7 @@ UART uart_1(
 .POWER_CTRL(POWER_CTRL),
 .UART_MODE_EN(UART_MODE_EN),
 .TX_start(TX_start),
+.DATA(Slow_angle),
 .BISS_start(BISS_start),
 .BISS_adr(BISS_adr),
 .BISS_data_size(BISS_data_size),
@@ -264,7 +263,7 @@ endmodule
 //UART MODULE
 
 module UART(input clk3M7, input RX_IN, output reg TX,output reg POWER_CTRL,
-				input [39:0] DATA, output reg UART_MODE_EN,output reg TX_start, 
+				input [23:0] DATA, output reg UART_MODE_EN,output reg TX_start, 
 				output reg RnW, input [7:0] BISS_read_data, output reg [6:0] BISS_adr,
 				output reg [7:0] BISS_data_size, output reg BISS_start, input BISS_read_end);
 initial begin
@@ -308,7 +307,7 @@ always @(negedge UART_CLK or negedge TX_start)begin
 		if((TX_CMD < 16) | (TX_CMD == 147)) begin
 			TX_cou <= 5;
 			TX_en <= 1;
-		end	
+		end
 		else if(TX_CMD == 146) begin
 			TX_cou <= {2'b0, BISS_data_size[5:0]} + 6;
 			TX_en <= 0;
@@ -321,7 +320,7 @@ always @(negedge UART_CLK or negedge TX_start)begin
 	else if (TX_cou > 0) begin
 		if(tx_clk_cou>78) begin					
 			tx_clk_cou<=0;				
-			TX_cou <= TX_cou - 1;
+				TX_cou <= TX_cou - 1;
 		end
 		else if(TX_en)
 			tx_clk_cou <= tx_clk_cou + 1;	
@@ -348,7 +347,7 @@ always @(posedge tx_clk_cou[2]) begin
 		else if (TX_CMD == 148) begin
 			case(TX_cou)
 				8:begin
-					BISS_data <= DATA[39:16];
+					BISS_data <= DATA;
 					TX_buf <= 3;
 					TX_CRC <= 256 - 3;
 				end
@@ -521,12 +520,12 @@ module bin2deghex(input clk,input [23:0]deg, output [6:0] HEX0, output [6:0] HEX
 	end	
 	d2h u0(.d(D0 == 0? 15 : D0),.h(HEX7));
 	d2h u1(.d((D1 + D0) == 0? 15 : D1),.h(HEX6));
-	d2h u2(.d(D2),.h(HEX5));
-	d2h u3(.d(D3),.h(HEX4));
-	d2h u4(.d(D4),.h(HEX3));
-	d2h u5(.d(D5),.h(HEX2));
-	d2h u6(.d(D6),.h(HEX1));
-	d2h u7(.d(D7),.h(HEX0));
+d2h u2(.d(D2),.h(HEX5));
+d2h u3(.d(D3),.h(HEX4));
+d2h u4(.d(D4),.h(HEX3));
+d2h u5(.d(D5),.h(HEX2));
+d2h u6(.d(D6),.h(HEX1));
+d2h u7(.d(D7),.h(HEX0));
 endmodule
 
 module d2h(input [3:0]d, output wire [6:0] h);
