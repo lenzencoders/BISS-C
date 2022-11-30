@@ -100,6 +100,7 @@ Please refer to papers provided:
 <br />
 
 And application to read BiSS data and upload calibration table:
+
 <a href="https://github.com/lenzencoders">
     <img src="DE10-Lite/lenz_uploader/images/mainwindow.png" alt="Uploader tool for LENZ Encoders" width="380">
 </a>
