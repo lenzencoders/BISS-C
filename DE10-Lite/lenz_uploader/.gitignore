@@ -1,0 +1,6 @@
+__pycache__/*
+build/*
+venv/*
+lenz_uploader.spec
+lenz_calibration_encrypt.spec
+*.log

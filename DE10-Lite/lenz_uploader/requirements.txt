@@ -1,0 +1,4 @@
+sv_ttk
+pyserial
+numpy
+pandas
