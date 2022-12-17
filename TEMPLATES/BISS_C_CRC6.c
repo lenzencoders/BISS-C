@@ -36,5 +36,6 @@ uint8_t BISS_CRC6_Calc(uint32_t data){
 	crc = CRC6_LUT[((data >> 16U) & 0xFFU) ^ crc];
 	crc = CRC6_LUT[((data >> 8U) & 0xFFU) ^ crc];
 	crc = CRC6_LUT[(data & 0xFFU) ^ crc];
-	return(63U - (crc >> 2U));
+	crc = ((~crc) >> 2U) & 0x3FU;
+	return(crc);
 }
