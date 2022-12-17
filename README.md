@@ -85,6 +85,8 @@ Please refer to papers provided:
 
 * [BiSS C paper](https://github.com/lenzencoders/BISS-C/blob/main/BISS%20C_B3%20description.pdf)
 * [Electrical connection paper](https://github.com/lenzencoders/BISS-C/blob/main/Electrical%20Connection.pdf)
+* [6-bit CRC calculation with 0x43 polynome for BiSS](https://github.com/lenzencoders/BISS-C/blob/main/TEMPLATES/BISS_C_CRC6.c)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
