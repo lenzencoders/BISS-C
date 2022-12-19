@@ -1,9 +1,9 @@
 /*!
  * @file BISS_C_CRC6.c
- * @author Kirill Rostovskiy (kmrost@kb-rs.com)
+ * @author Kirill Rostovskiy (kmrost@lenzencoders.com)
  * @brief BISS C CRC6 calculation template
  * @version 0.1
- * @copyright KBRS LLC (c) 2022
+ * @copyright Lenz Encoders (c) 2022
  */
 #include <stdint.h>
 
