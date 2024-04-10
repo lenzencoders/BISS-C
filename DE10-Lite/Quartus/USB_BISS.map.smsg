@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at usb_biss.v(299): object "tx_size" differs only in case from object "TX_size" in the same scope File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 299

@@ -208,23 +208,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "AGPIO[10]",
+					"name" : "AGPIO[0]",
 					"strict" : false
 				},
 				{
-					"name" : "AGPIO[11]",
+					"name" : "AGPIO[1]",
 					"strict" : false
 				},
 				{
-					"name" : "AGPIO[12]",
+					"name" : "AGPIO[2]",
 					"strict" : false
 				},
 				{
-					"name" : "AGPIO[13]",
+					"name" : "AGPIO[3]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[9]",
+					"name" : "AGPIO[4]",
 					"strict" : false
 				},
 				{

@@ -24,10 +24,11 @@ module USB_BISS(
 );
 
 wire [15:0]LOG;
-assign AGPIO[25:10] = LOG;
+assign AGPIO[15:0] = LOG;
 wire clk = MAX10_CLK1_50;
-assign LOG[15:0]={ARDUINO_IO[13],RX_IN,SLO,MA_sync};
+assign LOG[15:0]={ARDUINO_IO[10], ARDUINO_IO[13:11], MA_sync};
 //=====================================================================================================
+
 reg [2:0]clk_50_div;
 always @(posedge clk)clk_50_div <= clk_50_div + 1;
 
@@ -90,10 +91,7 @@ reg [5:0]ACK_cou,CRC6;
 
 wire [7:0] SCD_size = 32;
 
-
-
-always @(posedge clk80M)clk_div <= clk_div + 1;
-wire MA_clk = SW[9]? clk80M : clk_div[1];
+wire MA_clk = clk20M;
 
 CRC4_calc crc1(.data(CRC4_in[10:0]),.CRC(CRC4));
 
@@ -158,14 +156,14 @@ end
 always @(posedge MA_clk)begin
 	if((MA_cou > 0) | SLO) begin
 		if(MA_sync_start)begin
-			if((MA_sync_cou[13:3] > (SW[9]?(ACK_cou + SCD_size + 126) : (ACK_cou + SCD_size + 33))) & SLO)begin
+			if((MA_sync_cou[13:3] > ACK_cou + SCD_size + 21) & SLO)begin
 				MA_cou <= 0;
 				NO_ACK <= 0;
 			end
 			else if (SW[0])
 				MA_cou <= MA_cou + 1;		
 		end
-		else if(MA_cou[13:3] > (SW[9]?(SCD_size + 503) : (SCD_size + 128)))begin
+		else if(MA_cou[13:3] > SCD_size + 128)begin
 			MA_cou <= 0;
 			NO_ACK <= 1;
 		end
@@ -236,15 +234,17 @@ end
 //===========================================================================================
 wire [6:0] BISS_adr;
 wire [7:0] BISS_data_size;
-pll3m7 pll_1(.inclk0(MAX10_CLK1_50),.c0(clk3M7),.c1(clk80M));
+pll3m7 pll_1(.inclk0(MAX10_CLK1_50),.c0(clk7M4),.c1(clk20M),.c2(clk12M));
 UART uart_1(
-.clk3M7(clk3M7),
+.clk12M(clk12M),
+.clk7M4(clk7M4),
 .RX_IN(RX_IN),
 .TX(TX),
 .POWER_CTRL(POWER_CTRL),
 .UART_MODE_EN(UART_MODE_EN),
 .TX_start(TX_start),
-.DATA(Slow_angle),
+.DATA(SCD_data[31:8]),
+.data_sync(SCD_finish),
 .BISS_start(BISS_start),
 .BISS_adr(BISS_adr),
 .BISS_data_size(BISS_data_size),
@@ -262,34 +262,42 @@ endmodule
 //=====================================================================================================
 //UART MODULE
 
-module UART(input clk3M7, input RX_IN, output reg TX,output reg POWER_CTRL,
-				input [23:0] DATA, output reg UART_MODE_EN,output reg TX_start, 
+module UART(input clk12M,input clk7M4, input RX_IN, output reg TX,output reg POWER_CTRL,
+				input [23:0] DATA, input data_sync, output reg UART_MODE_EN,output reg TX_start, 
 				output reg RnW, input [7:0] BISS_read_data, output reg [6:0] BISS_adr,
 				output reg [7:0] BISS_data_size, output reg BISS_start, input BISS_read_end);
 initial begin
-	TX_start <= 0;
-	tx_clk_cou <= 0;
-	POWER_CTRL <= 1;
-	UART_MODE_EN <= 0;
-	TX <= 1;
-	TX_cou <= 0;
+	UART_CLK_12M_n3M7<=1;
+	TX_start<=0;
+	tx_clk_cou<=0;
+	POWER_CTRL<=1;
+	UART_MODE_EN<=0;
+	TX<=1;
+	TX_cou<=0;
 	BISS_start <= 1;
 end
 //=====================================================================================================
-wire UART_CLK = clk3M7;
+
+reg clk3M7;
+always @(posedge clk7M4)clk3M7<=~clk3M7;
 //=====================================================================================================
 //UART RX BEGIN
-reg [7:0] UART_RX_SHIFT,RX_DATA[7:0],BISS_RX[63:0],uart_rx_cou,rx_len,RX_HEX_CRC,RX_OUT,TX_CMD,TX_CRC,TX_buf;
-
-reg uart_rx_busy,uart_rx_end_ok,RX_filt_d,TX_busy,TX_start_d,UART_CLK_96M_n3M7,TX_en;
+reg [7:0] UART_RX_SHIFT,RX_DATA[7:0],BISS_RX[63:0],uart_rx_cou,rx_len,RX_HEX_CRC,RX_OUT,TX_CMD,TX_CRC,TX_buf,data_cou,buf_cou_m;
+reg [23:0]DATA_BUF[255:0];
+always @(negedge data_sync)begin
+	data_cou <= data_cou + 1;
+	DATA_BUF[data_cou] <= DATA;
+end
+reg uart_rx_busy,uart_rx_end_ok,RX_filt_d,TX_busy,TX_start_d,UART_CLK_12M_n3M7,TX_en;
 reg [6:0]tx_clk_cou,BISS_read_cou;
 reg [23:0]TX_cou;
-
+wire UART_CLK=UART_CLK_12M_n3M7?clk12M:clk3M7;
 wire [2:0]len_m1;
 assign len_m1=rx_len-1;
 mfilt Mfilt_rx(.clk(UART_CLK),.in(RX_IN),.out(RX_filt));
 reg [3:0]buf_cou_l;
-
+parameter tx_size = 255; 
+wire [7:0]dif_cou = data_cou - buf_cou_m;
 reg [15:0]TX_size,packet_cnt; 
 always @(posedge BISS_read_end or negedge BISS_start)begin
 	if(~BISS_start)begin
@@ -308,6 +316,11 @@ always @(negedge UART_CLK or negedge TX_start)begin
 			TX_cou <= 5;
 			TX_en <= 1;
 		end
+		else if(TX_CMD == 145) begin
+			TX_cou <= tx_size + 5;
+			packet_cnt <= TX_size;
+			TX_en <= 1;			
+		end		
 		else if(TX_CMD == 146) begin
 			TX_cou <= {2'b0, BISS_data_size[5:0]} + 6;
 			TX_en <= 0;
@@ -320,10 +333,19 @@ always @(negedge UART_CLK or negedge TX_start)begin
 	else if (TX_cou > 0) begin
 		if(tx_clk_cou>78) begin					
 			tx_clk_cou<=0;				
+			if( (TX_cou == 1) & (TX_CMD == 145) & (packet_cnt > 0)) begin
+				if ((packet_cnt < TX_size) & (dif_cou < 250))
+					TX_en <= 0;	
+				TX_cou <= tx_size + 5;	
+				packet_cnt <= packet_cnt - 1;					
+			end
+			else				
 				TX_cou <= TX_cou - 1;
 		end
 		else if(TX_en)
 			tx_clk_cou <= tx_clk_cou + 1;	
+		else if((dif_cou > 250) & (TX_CMD == 145))
+			TX_en <= 1;	
 		else if((TX_CMD == 146) & (BISS_read_cou == BISS_TX_size))
 			TX_en <= 1;	
 	end
@@ -347,7 +369,7 @@ always @(posedge tx_clk_cou[2]) begin
 		else if (TX_CMD == 148) begin
 			case(TX_cou)
 				8:begin
-					BISS_data <= DATA;
+					BISS_data <= DATA[23:0];
 					TX_buf <= 3;
 					TX_CRC <= 256 - 3;
 				end
@@ -406,6 +428,59 @@ always @(posedge tx_clk_cou[2]) begin
 			else
 				TX_buf <= TX_CRC;					
 		end
+		else if(TX_CMD == 145) begin
+			if(TX_cou > tx_size + 1) begin
+				case(TX_cou)
+					tx_size + 5 : begin
+						TX_buf <= tx_size;
+						TX_CRC <= 256 - tx_size;
+					end
+					tx_size + 4 : begin
+						TX_buf <= packet_cnt[15:8];
+						TX_CRC <= TX_CRC - packet_cnt[15:8];
+					end
+					tx_size + 3:begin
+						TX_buf <= packet_cnt[7:0];
+						TX_CRC <= TX_CRC - packet_cnt[7:0];						
+					end
+					tx_size + 2:begin
+						TX_buf <= 145;
+						TX_CRC <= TX_CRC - 145;
+						if(packet_cnt == TX_size)
+							buf_cou_m <= data_cou + 2;
+							
+						buf_cou_l <= 0;
+					end
+				endcase
+			end
+			else begin
+				if (TX_cou > 1) begin
+					if (buf_cou_l == 2)begin
+						buf_cou_l <= 0;
+						buf_cou_m <= buf_cou_m + 1;
+					end
+					else
+						buf_cou_l <= buf_cou_l + 1;
+						
+					case(buf_cou_l)
+						0:begin
+							TX_buf<=DATA_BUF[buf_cou_m][7:0];
+							TX_CRC<=TX_CRC-DATA_BUF[buf_cou_m][7:0];
+						end
+						1:begin
+							TX_buf<=DATA_BUF[buf_cou_m][15:8];
+							TX_CRC<=TX_CRC-DATA_BUF[buf_cou_m][15:8];
+						end
+						2:begin
+							TX_buf<=DATA_BUF[buf_cou_m][23:16];
+							TX_CRC<=TX_CRC-DATA_BUF[buf_cou_m][23:16];
+						end						
+					endcase
+				end
+				else 
+					TX_buf<=TX_CRC;			
+			end
+		end
 	end
 	else 
 		if (tx_clk_cou[6:3]>8)
@@ -413,25 +488,30 @@ always @(posedge tx_clk_cou[2]) begin
 		else 
 			TX <= TX_buf[tx_clk_cou[6:3]-1];
 end
+
 //=====================================================================================================
 //Recieve task
 always @(posedge UART_CLK)begin	
-	RX_filt_d <= RX_filt;	
-	if (RX_filt_d & (~RX_filt) & (~uart_rx_busy)) begin
-		if (uart_rx_cou == 255)begin
+	RX_filt_d<=RX_filt;	
+	if (RX_filt_d&(~RX_filt)&(~uart_rx_busy)) begin
+		if (uart_rx_cou==255)begin
 			RX_HEX_CRC <= 0;
 			rx_len <= 1;
 			rx_command_reset_task();
 		end
-		else rx_len <= rx_len + 1;		
-		uart_rx_busy <= 1;
-		uart_rx_cou <= 0;
+		else rx_len<=rx_len+1;		
+		uart_rx_busy<=1;
+		uart_rx_cou<=0;
 	end 
 	else begin
-		if((uart_rx_cou == 252) & (rx_len == 5) & (RX_HEX_CRC == 0)) begin
-			if(RX_DATA[0] == 0) begin
+		if((uart_rx_cou==252)&(rx_len==5)&(RX_HEX_CRC==0)) begin
+			if(RX_DATA[0]==0) begin
 				case(RX_DATA[3])
 					128:	rx_command_task();
+					129:	begin
+						TX_CMD <= RX_DATA[3] + 16;
+						TX_size<={RX_DATA[1][7:0],RX_DATA[2][7:0]};						
+					end
 					130: begin
 						TX_CMD <= RX_DATA[3] + 16;
 						BISS_adr[6:0] <= RX_DATA[1][6:0];
@@ -452,18 +532,18 @@ always @(posedge UART_CLK)begin
 				endcase
 			end
 		end			
-		if((uart_rx_cou == 254) & (rx_len == 5) & (RX_HEX_CRC == 0) & RX_DATA[3][7])
+		if((uart_rx_cou==254)&(rx_len==5)&(RX_HEX_CRC==0)&RX_DATA[3][7])begin
 			TX_start <= 1;
-		if (uart_rx_cou < 255)
-			uart_rx_cou <= uart_rx_cou+1;
+		end
+		if (uart_rx_cou<255)
+			uart_rx_cou<=uart_rx_cou+1;
 		
-		uart_rx_busy <= uart_rx_cou < 76;
-		UART_RX_SHIFT <= (uart_rx_cou[2:0] == 4)? {RX_filt,UART_RX_SHIFT[7:1]} : UART_RX_SHIFT;
-		if (uart_rx_cou == 75)begin
-			uart_rx_end_ok <= RX_filt;
-			RX_HEX_CRC <= RX_HEX_CRC - UART_RX_SHIFT;
-			if(rx_len < 9)
-				RX_DATA[len_m1][7:0] <= UART_RX_SHIFT[7:0];			
+		uart_rx_busy<=uart_rx_cou<76;
+		UART_RX_SHIFT<=(uart_rx_cou[2:0]==4)?{RX_filt,UART_RX_SHIFT[7:1]}:UART_RX_SHIFT;
+		if (uart_rx_cou==75)begin
+			uart_rx_end_ok<=RX_filt;
+			RX_HEX_CRC<=RX_HEX_CRC-UART_RX_SHIFT;
+			if(rx_len<9)RX_DATA[len_m1][7:0]<=UART_RX_SHIFT[7:0];			
 		end	
 	end	
 end
@@ -471,26 +551,34 @@ end
 task rx_command_task;		
 	case(RX_DATA[2])//must be lower 253
 		0:begin//reset task
-			TX_CMD <= RX_DATA[2];
+			TX_CMD <= 0;
+		end
+		9:begin
+			TX_CMD<=RX_DATA[2];
+			UART_CLK_12M_n3M7<=0;		
+		end
+		10:begin
+			TX_CMD<=RX_DATA[2];
+			UART_CLK_12M_n3M7<=1;		
 		end
 		11:begin
-			TX_CMD <= RX_DATA[2];
-			POWER_CTRL <= 0;
+			TX_CMD<=RX_DATA[2];
+			POWER_CTRL<=0;
 		end
 		12:begin
-			TX_CMD <= RX_DATA[2];
-			POWER_CTRL <= 1;
+			TX_CMD<=RX_DATA[2];
+			POWER_CTRL<=1;
 		end
 		13:begin
-			TX_CMD <= RX_DATA[2];
-			UART_MODE_EN <= 0;
+			TX_CMD<=RX_DATA[2];
+			UART_MODE_EN<=0;
 		end
 		14:begin
-			TX_CMD <= RX_DATA[2];
-			UART_MODE_EN <= 1;		
+			TX_CMD<=RX_DATA[2];
+			UART_MODE_EN<=1;		
 		end
 		default:
-			TX_CMD <= 255;
+			TX_CMD<=255;
 	endcase		
 endtask
 //=====================================================================================================
