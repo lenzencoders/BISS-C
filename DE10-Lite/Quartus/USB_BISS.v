@@ -267,7 +267,7 @@ module UART(input clk12M,input clk7M4, input RX_IN, output reg TX,output reg POW
 				output reg RnW, input [7:0] BISS_read_data, output reg [6:0] BISS_adr,
 				output reg [7:0] BISS_data_size, output reg BISS_start, input BISS_read_end);
 initial begin
-	UART_CLK_12M_n3M7<=1;
+	UART_CLK_12M_n3M7<=0;
 	TX_start<=0;
 	tx_clk_cou<=0;
 	POWER_CTRL<=1;

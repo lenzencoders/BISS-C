@@ -1,5 +1,5 @@
 Timing Analyzer report for USB_BISS
-Wed Apr 10 15:09:33 2024
+Wed Apr 10 19:25:20 2024
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Standard Edition
 
 
@@ -95,14 +95,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 4.78        ;
+; Average used               ; 4.85        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  25.5%      ;
-;     Processor 3            ;  25.3%      ;
-;     Processors 4-16        ;  25.2%      ;
+;     Processor 2            ;  26.0%      ;
+;     Processor 3            ;  25.7%      ;
+;     Processors 4-16        ;  25.6%      ;
 +----------------------------+-------------+
 
 
@@ -111,7 +111,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; USB_BISS.SDC  ; OK     ; Wed Apr 10 15:09:30 2024 ;
+; USB_BISS.SDC  ; OK     ; Wed Apr 10 19:25:17 2024 ;
 +---------------+--------+--------------------------+
 
 
@@ -134,10 +134,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------+-----------------+---------------------------------------------------+---------------------------------------------------------------+
 ; Fmax        ; Restricted Fmax ; Clock Name                                        ; Note                                                          ;
 +-------------+-----------------+---------------------------------------------------+---------------------------------------------------------------+
-; 38.87 MHz   ; 38.87 MHz       ; pll_1|altpll_component|auto_generated|pll1|clk[2] ;                                                               ;
-; 109.93 MHz  ; 109.93 MHz      ; pll_1|altpll_component|auto_generated|pll1|clk[1] ;                                                               ;
-; 261.57 MHz  ; 250.0 MHz       ; MAX10_CLK1_50                                     ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 1479.29 MHz ; 416.15 MHz      ; pll_1|altpll_component|auto_generated|pll1|clk[0] ; limit due to minimum period restriction (tmin)                ;
+; 37.3 MHz    ; 37.3 MHz        ; pll_1|altpll_component|auto_generated|pll1|clk[2] ;                                                               ;
+; 100.27 MHz  ; 100.27 MHz      ; pll_1|altpll_component|auto_generated|pll1|clk[1] ;                                                               ;
+; 271.96 MHz  ; 250.0 MHz       ; MAX10_CLK1_50                                     ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 1464.13 MHz ; 416.15 MHz      ; pll_1|altpll_component|auto_generated|pll1|clk[0] ; limit due to minimum period restriction (tmin)                ;
 +-------------+-----------------+---------------------------------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -147,10 +147,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+---------+---------------+
 ; Clock                                             ; Slack   ; End Point TNS ;
 +---------------------------------------------------+---------+---------------+
-; MAX10_CLK1_50                                     ; 16.177  ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 28.804  ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 40.903  ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 134.509 ; 0.000         ;
+; MAX10_CLK1_50                                     ; 16.323  ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 28.262  ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 40.027  ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 134.502 ; 0.000         ;
 +---------------------------------------------------+---------+---------------+
 
 
@@ -159,10 +159,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+-------+---------------+
 ; Clock                                             ; Slack ; End Point TNS ;
 +---------------------------------------------------+-------+---------------+
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 0.347 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 0.340 ; 0.000         ;
 ; MAX10_CLK1_50                                     ; 0.355 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 0.412 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 0.439 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 0.413 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 0.432 ; 0.000         ;
 +---------------------------------------------------+-------+---------------+
 
 
@@ -171,7 +171,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 39.590 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 39.364 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
 
@@ -180,7 +180,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 42.645 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 42.702 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
 
@@ -189,11 +189,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; MAX10_CLK1_50                                     ; 9.647  ; 0.000         ;
+; MAX10_CLK1_50                                     ; 9.595  ; 0.000         ;
 ; MAX10_CLK2_50                                     ; 16.000 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 24.720 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 41.398 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 67.336 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 24.719 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 41.385 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 67.315 ; 0.000         ;
 ; ADC_CLK_10                                        ; 96.000 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
@@ -209,10 +209,10 @@ No synchronizer chains to report.
 +-------------+-----------------+---------------------------------------------------+---------------------------------------------------------------+
 ; Fmax        ; Restricted Fmax ; Clock Name                                        ; Note                                                          ;
 +-------------+-----------------+---------------------------------------------------+---------------------------------------------------------------+
-; 42.37 MHz   ; 42.37 MHz       ; pll_1|altpll_component|auto_generated|pll1|clk[2] ;                                                               ;
-; 117.98 MHz  ; 117.98 MHz      ; pll_1|altpll_component|auto_generated|pll1|clk[1] ;                                                               ;
-; 297.35 MHz  ; 250.0 MHz       ; MAX10_CLK1_50                                     ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 1529.05 MHz ; 416.15 MHz      ; pll_1|altpll_component|auto_generated|pll1|clk[0] ; limit due to minimum period restriction (tmin)                ;
+; 39.99 MHz   ; 39.99 MHz       ; pll_1|altpll_component|auto_generated|pll1|clk[2] ;                                                               ;
+; 106.68 MHz  ; 106.68 MHz      ; pll_1|altpll_component|auto_generated|pll1|clk[1] ;                                                               ;
+; 302.21 MHz  ; 250.0 MHz       ; MAX10_CLK1_50                                     ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 1515.15 MHz ; 416.15 MHz      ; pll_1|altpll_component|auto_generated|pll1|clk[0] ; limit due to minimum period restriction (tmin)                ;
 +-------------+-----------------+---------------------------------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -222,10 +222,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+---------+---------------+
 ; Clock                                             ; Slack   ; End Point TNS ;
 +---------------------------------------------------+---------+---------------+
-; MAX10_CLK1_50                                     ; 16.637  ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 29.866  ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 41.524  ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 134.531 ; 0.000         ;
+; MAX10_CLK1_50                                     ; 16.691  ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 29.162  ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 40.626  ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 134.525 ; 0.000         ;
 +---------------------------------------------------+---------+---------------+
 
 
@@ -234,10 +234,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+-------+---------------+
 ; Clock                                             ; Slack ; End Point TNS ;
 +---------------------------------------------------+-------+---------------+
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 0.312 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 0.304 ; 0.000         ;
 ; MAX10_CLK1_50                                     ; 0.322 ; 0.000         ;
 ; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 0.332 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 0.359 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 0.353 ; 0.000         ;
 +---------------------------------------------------+-------+---------------+
 
 
@@ -246,7 +246,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 39.696 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 39.520 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
 
@@ -255,7 +255,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 42.629 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 42.712 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
 
@@ -264,11 +264,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; MAX10_CLK1_50                                     ; 9.653  ; 0.000         ;
+; MAX10_CLK1_50                                     ; 9.558  ; 0.000         ;
 ; MAX10_CLK2_50                                     ; 16.000 ; 0.000         ;
 ; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 24.710 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 41.288 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 67.313 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 41.327 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 67.307 ; 0.000         ;
 ; ADC_CLK_10                                        ; 96.000 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
@@ -284,10 +284,10 @@ No synchronizer chains to report.
 +---------------------------------------------------+---------+---------------+
 ; Clock                                             ; Slack   ; End Point TNS ;
 +---------------------------------------------------+---------+---------------+
-; MAX10_CLK1_50                                     ; 18.136  ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 36.199  ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 45.974  ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 134.904 ; 0.000         ;
+; MAX10_CLK1_50                                     ; 18.364  ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 36.044  ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 45.354  ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 134.901 ; 0.000         ;
 +---------------------------------------------------+---------+---------------+
 
 
@@ -296,10 +296,10 @@ No synchronizer chains to report.
 +---------------------------------------------------+-------+---------------+
 ; Clock                                             ; Slack ; End Point TNS ;
 +---------------------------------------------------+-------+---------------+
-; MAX10_CLK1_50                                     ; 0.152 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 0.153 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 0.147 ; 0.000         ;
+; MAX10_CLK1_50                                     ; 0.151 ; 0.000         ;
 ; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 0.206 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 0.215 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 0.212 ; 0.000         ;
 +---------------------------------------------------+-------+---------------+
 
 
@@ -308,7 +308,7 @@ No synchronizer chains to report.
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 40.786 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 40.701 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
 
@@ -317,7 +317,7 @@ No synchronizer chains to report.
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 42.011 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 41.948 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
 
@@ -326,11 +326,11 @@ No synchronizer chains to report.
 +---------------------------------------------------+--------+---------------+
 ; Clock                                             ; Slack  ; End Point TNS ;
 +---------------------------------------------------+--------+---------------+
-; MAX10_CLK1_50                                     ; 9.300  ; 0.000         ;
+; MAX10_CLK1_50                                     ; 9.332  ; 0.000         ;
 ; MAX10_CLK2_50                                     ; 16.000 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 24.796 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 41.261 ; 0.000         ;
-; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 67.397 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[1] ; 24.794 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[2] ; 41.174 ; 0.000         ;
+; pll_1|altpll_component|auto_generated|pll1|clk[0] ; 67.395 ; 0.000         ;
 ; ADC_CLK_10                                        ; 96.000 ; 0.000         ;
 +---------------------------------------------------+--------+---------------+
 
@@ -346,13 +346,13 @@ No synchronizer chains to report.
 +----------------------------------------------------+---------+-------+----------+---------+---------------------+
 ; Clock                                              ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +----------------------------------------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack                                   ; 16.177  ; 0.152 ; 39.590   ; 42.011  ; 9.300               ;
+; Worst-case Slack                                   ; 16.323  ; 0.147 ; 39.364   ; 41.948  ; 9.332               ;
 ;  ADC_CLK_10                                        ; N/A     ; N/A   ; N/A      ; N/A     ; 96.000              ;
-;  MAX10_CLK1_50                                     ; 16.177  ; 0.152 ; N/A      ; N/A     ; 9.300               ;
+;  MAX10_CLK1_50                                     ; 16.323  ; 0.151 ; N/A      ; N/A     ; 9.332               ;
 ;  MAX10_CLK2_50                                     ; N/A     ; N/A   ; N/A      ; N/A     ; 16.000              ;
-;  pll_1|altpll_component|auto_generated|pll1|clk[0] ; 134.509 ; 0.215 ; N/A      ; N/A     ; 67.313              ;
-;  pll_1|altpll_component|auto_generated|pll1|clk[1] ; 40.903  ; 0.206 ; N/A      ; N/A     ; 24.710              ;
-;  pll_1|altpll_component|auto_generated|pll1|clk[2] ; 28.804  ; 0.153 ; 39.590   ; 42.011  ; 41.261              ;
+;  pll_1|altpll_component|auto_generated|pll1|clk[0] ; 134.502 ; 0.212 ; N/A      ; N/A     ; 67.307              ;
+;  pll_1|altpll_component|auto_generated|pll1|clk[1] ; 40.027  ; 0.206 ; N/A      ; N/A     ; 24.710              ;
+;  pll_1|altpll_component|auto_generated|pll1|clk[2] ; 28.262  ; 0.147 ; 39.364   ; 41.948  ; 41.174              ;
 ; Design-wide TNS                                    ; 0.0     ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  ADC_CLK_10                                        ; N/A     ; N/A   ; N/A      ; N/A     ; 0.000               ;
 ;  MAX10_CLK1_50                                     ; 0.000   ; 0.000 ; N/A      ; N/A     ; 0.000               ;
@@ -1172,7 +1172,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Standard Edition
-    Info: Processing started: Wed Apr 10 15:09:29 2024
+    Info: Processing started: Wed Apr 10 19:25:16 2024
 Info: Command: quartus_sta USB_BISS -c USB_BISS
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1187,50 +1187,15 @@ Info (332110): Deriving PLL clocks
     Info (332110): create_generated_clock -source {pll_1|altpll_component|auto_generated|pll1|inclk[0]} -divide_by 25 -multiply_by 6 -duty_cycle 50.00 -name {pll_1|altpll_component|auto_generated|pll1|clk[2]} {pll_1|altpll_component|auto_generated|pll1|clk[2]}
 Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|packet_cnt[3]~42|combout"
-    Warning (332126): Node "uart_1|packet_cnt~101|datad"
-    Warning (332126): Node "uart_1|packet_cnt~101|combout"
-    Warning (332126): Node "uart_1|packet_cnt[3]~42|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|packet_cnt[11]~46|combout"
-    Warning (332126): Node "uart_1|packet_cnt~102|datad"
-    Warning (332126): Node "uart_1|packet_cnt~102|combout"
-    Warning (332126): Node "uart_1|packet_cnt[11]~46|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|packet_cnt[0]~58|combout"
-    Warning (332126): Node "uart_1|packet_cnt~104|datad"
-    Warning (332126): Node "uart_1|packet_cnt~104|combout"
-    Warning (332126): Node "uart_1|packet_cnt[0]~58|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|packet_cnt[8]~62|combout"
-    Warning (332126): Node "uart_1|packet_cnt~103|datad"
-    Warning (332126): Node "uart_1|packet_cnt~103|combout"
-    Warning (332126): Node "uart_1|packet_cnt[8]~62|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|packet_cnt[5]~2|combout"
-    Warning (332126): Node "uart_1|packet_cnt~107|datad"
-    Warning (332126): Node "uart_1|packet_cnt~107|combout"
-    Warning (332126): Node "uart_1|packet_cnt[5]~2|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|packet_cnt[7]~10|combout"
-    Warning (332126): Node "uart_1|packet_cnt~109|datac"
-    Warning (332126): Node "uart_1|packet_cnt~109|combout"
-    Warning (332126): Node "uart_1|packet_cnt[7]~10|datac"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|packet_cnt[15]~14|combout"
-    Warning (332126): Node "uart_1|packet_cnt~110|datad"
-    Warning (332126): Node "uart_1|packet_cnt~110|combout"
-    Warning (332126): Node "uart_1|packet_cnt[15]~14|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|packet_cnt[13]~6|combout"
-    Warning (332126): Node "uart_1|packet_cnt~108|datad"
-    Warning (332126): Node "uart_1|packet_cnt~108|combout"
-    Warning (332126): Node "uart_1|packet_cnt[13]~6|datac"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|packet_cnt[14]~22|combout"
     Warning (332126): Node "uart_1|packet_cnt~106|datad"
     Warning (332126): Node "uart_1|packet_cnt~106|combout"
-    Warning (332126): Node "uart_1|packet_cnt[14]~22|datac"
+    Warning (332126): Node "uart_1|packet_cnt[14]~22|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|packet_cnt[12]~30|combout"
+    Warning (332126): Node "uart_1|packet_cnt~112|datad"
+    Warning (332126): Node "uart_1|packet_cnt~112|combout"
+    Warning (332126): Node "uart_1|packet_cnt[12]~30|datac"
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|packet_cnt[4]~26|combout"
     Warning (332126): Node "uart_1|packet_cnt~111|datad"
@@ -1242,106 +1207,101 @@ Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-L
     Warning (332126): Node "uart_1|packet_cnt~105|combout"
     Warning (332126): Node "uart_1|packet_cnt[6]~18|datad"
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|packet_cnt[12]~30|combout"
-    Warning (332126): Node "uart_1|packet_cnt~112|datad"
-    Warning (332126): Node "uart_1|packet_cnt~112|combout"
-    Warning (332126): Node "uart_1|packet_cnt[12]~30|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 301
-    Warning (332126): Node "uart_1|packet_cnt~98|combout"
-    Warning (332126): Node "uart_1|packet_cnt[10]~54|datac"
+    Warning (332126): Node "uart_1|packet_cnt[3]~42|combout"
+    Warning (332126): Node "uart_1|packet_cnt~101|datad"
+    Warning (332126): Node "uart_1|packet_cnt~101|combout"
+    Warning (332126): Node "uart_1|packet_cnt[3]~42|datac"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|packet_cnt[11]~46|combout"
+    Warning (332126): Node "uart_1|packet_cnt~102|dataa"
+    Warning (332126): Node "uart_1|packet_cnt~102|combout"
+    Warning (332126): Node "uart_1|packet_cnt[11]~46|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|packet_cnt[0]~58|combout"
+    Warning (332126): Node "uart_1|packet_cnt~104|datad"
+    Warning (332126): Node "uart_1|packet_cnt~104|combout"
+    Warning (332126): Node "uart_1|packet_cnt[0]~58|datac"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|packet_cnt[8]~62|combout"
+    Warning (332126): Node "uart_1|packet_cnt~103|datab"
+    Warning (332126): Node "uart_1|packet_cnt~103|combout"
+    Warning (332126): Node "uart_1|packet_cnt[8]~62|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|packet_cnt[10]~54|combout"
     Warning (332126): Node "uart_1|packet_cnt~98|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 301
-    Warning (332126): Node "uart_1|packet_cnt~97|combout"
-    Warning (332126): Node "uart_1|packet_cnt[2]~50|datac"
+    Warning (332126): Node "uart_1|packet_cnt~98|combout"
+    Warning (332126): Node "uart_1|packet_cnt[10]~54|datac"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|packet_cnt[2]~50|combout"
     Warning (332126): Node "uart_1|packet_cnt~97|datad"
+    Warning (332126): Node "uart_1|packet_cnt~97|combout"
+    Warning (332126): Node "uart_1|packet_cnt[2]~50|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|packet_cnt[7]~10|combout"
+    Warning (332126): Node "uart_1|packet_cnt~109|datad"
+    Warning (332126): Node "uart_1|packet_cnt~109|combout"
+    Warning (332126): Node "uart_1|packet_cnt[7]~10|datac"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|packet_cnt[13]~6|combout"
+    Warning (332126): Node "uart_1|packet_cnt~108|datad"
+    Warning (332126): Node "uart_1|packet_cnt~108|combout"
+    Warning (332126): Node "uart_1|packet_cnt[13]~6|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|packet_cnt[5]~2|combout"
+    Warning (332126): Node "uart_1|packet_cnt~107|datad"
+    Warning (332126): Node "uart_1|packet_cnt~107|combout"
+    Warning (332126): Node "uart_1|packet_cnt[5]~2|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|packet_cnt[15]~14|combout"
+    Warning (332126): Node "uart_1|packet_cnt~110|datad"
+    Warning (332126): Node "uart_1|packet_cnt~110|combout"
+    Warning (332126): Node "uart_1|packet_cnt[15]~14|datac"
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 291
     Warning (332126): Node "uart_1|TX_en~2|combout"
-    Warning (332126): Node "uart_1|TX_en~21|datad"
+    Warning (332126): Node "uart_1|TX_en~21|datac"
     Warning (332126): Node "uart_1|TX_en~21|combout"
-    Warning (332126): Node "uart_1|TX_en~2|datac"
+    Warning (332126): Node "uart_1|TX_en~2|datad"
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|packet_cnt[1]~34|combout"
     Warning (332126): Node "uart_1|packet_cnt~100|datad"
     Warning (332126): Node "uart_1|packet_cnt~100|combout"
-    Warning (332126): Node "uart_1|packet_cnt[1]~34|datad"
+    Warning (332126): Node "uart_1|packet_cnt[1]~34|datac"
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|packet_cnt[9]~38|combout"
     Warning (332126): Node "uart_1|packet_cnt~99|datad"
     Warning (332126): Node "uart_1|packet_cnt~99|combout"
     Warning (332126): Node "uart_1|packet_cnt[9]~38|datac"
 Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[1]~90|combout"
-    Warning (332126): Node "uart_1|Add4~2|datad"
-    Warning (332126): Node "uart_1|Add4~2|combout"
-    Warning (332126): Node "uart_1|Add4~3|datad"
-    Warning (332126): Node "uart_1|Add4~3|combout"
-    Warning (332126): Node "uart_1|TX_cou[1]~90|datac"
+    Warning (332126): Node "uart_1|TX_cou[7]~66|combout"
+    Warning (332126): Node "uart_1|TX_cou~166|datad"
+    Warning (332126): Node "uart_1|TX_cou~166|combout"
+    Warning (332126): Node "uart_1|TX_cou~167|datac"
+    Warning (332126): Node "uart_1|TX_cou~167|combout"
+    Warning (332126): Node "uart_1|TX_cou[7]~66|datad"
 Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[2]~86|combout"
-    Warning (332126): Node "uart_1|Add4~22|datad"
-    Warning (332126): Node "uart_1|Add4~22|combout"
-    Warning (332126): Node "uart_1|Add4~23|datad"
-    Warning (332126): Node "uart_1|Add4~23|combout"
-    Warning (332126): Node "uart_1|TX_cou[2]~86|datad"
+    Warning (332126): Node "uart_1|TX_cou[8]~62|combout"
+    Warning (332126): Node "uart_1|TX_cou~164|datac"
+    Warning (332126): Node "uart_1|TX_cou~164|combout"
+    Warning (332126): Node "uart_1|TX_cou~165|datad"
+    Warning (332126): Node "uart_1|TX_cou~165|combout"
+    Warning (332126): Node "uart_1|TX_cou[8]~62|datad"
 Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[0]~94|combout"
-    Warning (332126): Node "uart_1|TX_cou~147|datad"
-    Warning (332126): Node "uart_1|TX_cou~147|combout"
-    Warning (332126): Node "uart_1|TX_cou~148|datad"
-    Warning (332126): Node "uart_1|TX_cou~148|combout"
-    Warning (332126): Node "uart_1|TX_cou[0]~94|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[18]~22|combout"
-    Warning (332126): Node "uart_1|TX_cou~152|datac"
-    Warning (332126): Node "uart_1|TX_cou~152|combout"
-    Warning (332126): Node "uart_1|TX_cou[18]~22|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[17]~26|combout"
-    Warning (332126): Node "uart_1|TX_cou~153|datad"
-    Warning (332126): Node "uart_1|TX_cou~153|combout"
-    Warning (332126): Node "uart_1|TX_cou[17]~26|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[20]~14|combout"
-    Warning (332126): Node "uart_1|TX_cou~150|datad"
-    Warning (332126): Node "uart_1|TX_cou~150|combout"
-    Warning (332126): Node "uart_1|TX_cou[20]~14|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[19]~18|combout"
-    Warning (332126): Node "uart_1|TX_cou~151|datac"
-    Warning (332126): Node "uart_1|TX_cou~151|combout"
-    Warning (332126): Node "uart_1|TX_cou[19]~18|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[9]~58|combout"
-    Warning (332126): Node "uart_1|TX_cou~161|datad"
-    Warning (332126): Node "uart_1|TX_cou~161|combout"
-    Warning (332126): Node "uart_1|TX_cou[9]~58|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[12]~46|combout"
-    Warning (332126): Node "uart_1|TX_cou~158|datac"
-    Warning (332126): Node "uart_1|TX_cou~158|combout"
-    Warning (332126): Node "uart_1|TX_cou[12]~46|datac"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[11]~50|combout"
-    Warning (332126): Node "uart_1|TX_cou~159|datab"
-    Warning (332126): Node "uart_1|TX_cou~159|combout"
-    Warning (332126): Node "uart_1|TX_cou[11]~50|datad"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[10]~54|combout"
-    Warning (332126): Node "uart_1|TX_cou~160|datac"
-    Warning (332126): Node "uart_1|TX_cou~160|combout"
-    Warning (332126): Node "uart_1|TX_cou[10]~54|datac"
-Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[13]~42|combout"
-    Warning (332126): Node "uart_1|TX_cou~157|datad"
-    Warning (332126): Node "uart_1|TX_cou~157|combout"
-    Warning (332126): Node "uart_1|TX_cou[13]~42|datac"
+    Warning (332126): Node "uart_1|TX_cou[6]~70|combout"
+    Warning (332126): Node "uart_1|Add4~14|datad"
+    Warning (332126): Node "uart_1|Add4~14|combout"
+    Warning (332126): Node "uart_1|Add4~15|datad"
+    Warning (332126): Node "uart_1|Add4~15|combout"
+    Warning (332126): Node "uart_1|TX_cou[6]~70|datad"
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|TX_cou[16]~30|combout"
-    Warning (332126): Node "uart_1|TX_cou~154|datac"
+    Warning (332126): Node "uart_1|TX_cou~154|datad"
     Warning (332126): Node "uart_1|TX_cou~154|combout"
-    Warning (332126): Node "uart_1|TX_cou[16]~30|datad"
+    Warning (332126): Node "uart_1|TX_cou[16]~30|datac"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[13]~42|combout"
+    Warning (332126): Node "uart_1|TX_cou~157|datac"
+    Warning (332126): Node "uart_1|TX_cou~157|combout"
+    Warning (332126): Node "uart_1|TX_cou[13]~42|datac"
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|TX_cou[14]~38|combout"
     Warning (332126): Node "uart_1|TX_cou~156|datad"
@@ -1352,20 +1312,46 @@ Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-L
     Warning (332126): Node "uart_1|TX_cou~155|datad"
     Warning (332126): Node "uart_1|TX_cou~155|combout"
     Warning (332126): Node "uart_1|TX_cou[15]~34|datad"
-Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[5]~74|combout"
-    Warning (332126): Node "uart_1|Add4~16|datac"
-    Warning (332126): Node "uart_1|Add4~16|combout"
-    Warning (332126): Node "uart_1|Add4~17|datad"
-    Warning (332126): Node "uart_1|Add4~17|combout"
-    Warning (332126): Node "uart_1|TX_cou[5]~74|datac"
-Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[4]~78|combout"
-    Warning (332126): Node "uart_1|Add4~20|datac"
-    Warning (332126): Node "uart_1|Add4~20|combout"
-    Warning (332126): Node "uart_1|Add4~21|datad"
-    Warning (332126): Node "uart_1|Add4~21|combout"
-    Warning (332126): Node "uart_1|TX_cou[4]~78|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[18]~22|combout"
+    Warning (332126): Node "uart_1|TX_cou~152|datad"
+    Warning (332126): Node "uart_1|TX_cou~152|combout"
+    Warning (332126): Node "uart_1|TX_cou[18]~22|datac"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[17]~26|combout"
+    Warning (332126): Node "uart_1|TX_cou~153|datac"
+    Warning (332126): Node "uart_1|TX_cou~153|combout"
+    Warning (332126): Node "uart_1|TX_cou[17]~26|datac"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[20]~14|combout"
+    Warning (332126): Node "uart_1|TX_cou~150|datad"
+    Warning (332126): Node "uart_1|TX_cou~150|combout"
+    Warning (332126): Node "uart_1|TX_cou[20]~14|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[19]~18|combout"
+    Warning (332126): Node "uart_1|TX_cou~151|datad"
+    Warning (332126): Node "uart_1|TX_cou~151|combout"
+    Warning (332126): Node "uart_1|TX_cou[19]~18|datac"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[11]~50|combout"
+    Warning (332126): Node "uart_1|TX_cou~159|datad"
+    Warning (332126): Node "uart_1|TX_cou~159|combout"
+    Warning (332126): Node "uart_1|TX_cou[11]~50|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[12]~46|combout"
+    Warning (332126): Node "uart_1|TX_cou~158|datac"
+    Warning (332126): Node "uart_1|TX_cou~158|combout"
+    Warning (332126): Node "uart_1|TX_cou[12]~46|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[10]~54|combout"
+    Warning (332126): Node "uart_1|TX_cou~160|datad"
+    Warning (332126): Node "uart_1|TX_cou~160|combout"
+    Warning (332126): Node "uart_1|TX_cou[10]~54|datad"
+Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[9]~58|combout"
+    Warning (332126): Node "uart_1|TX_cou~161|datac"
+    Warning (332126): Node "uart_1|TX_cou~161|combout"
+    Warning (332126): Node "uart_1|TX_cou[9]~58|datac"
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|TX_cou[22]~6|combout"
     Warning (332126): Node "uart_1|TX_cou~162|datad"
@@ -1376,25 +1362,25 @@ Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-L
     Warning (332126): Node "uart_1|TX_cou~169|datac"
     Warning (332126): Node "uart_1|TX_cou~169|combout"
     Warning (332126): Node "uart_1|TX_cou[21]~10|datac"
-Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[7]~66|combout"
-    Warning (332126): Node "uart_1|TX_cou~166|datad"
-    Warning (332126): Node "uart_1|TX_cou~166|combout"
-    Warning (332126): Node "uart_1|TX_cou~167|datad"
-    Warning (332126): Node "uart_1|TX_cou~167|combout"
-    Warning (332126): Node "uart_1|TX_cou[7]~66|datad"
 Warning (332125): Found combinational loop of 4 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|TX_cou[23]~2|combout"
     Warning (332126): Node "uart_1|TX_cou~168|datad"
     Warning (332126): Node "uart_1|TX_cou~168|combout"
-    Warning (332126): Node "uart_1|TX_cou[23]~2|datad"
+    Warning (332126): Node "uart_1|TX_cou[23]~2|datac"
 Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[8]~62|combout"
-    Warning (332126): Node "uart_1|TX_cou~164|datad"
-    Warning (332126): Node "uart_1|TX_cou~164|combout"
-    Warning (332126): Node "uart_1|TX_cou~165|datad"
-    Warning (332126): Node "uart_1|TX_cou~165|combout"
-    Warning (332126): Node "uart_1|TX_cou[8]~62|datac"
+    Warning (332126): Node "uart_1|TX_cou[4]~78|combout"
+    Warning (332126): Node "uart_1|Add4~20|datac"
+    Warning (332126): Node "uart_1|Add4~20|combout"
+    Warning (332126): Node "uart_1|Add4~21|datad"
+    Warning (332126): Node "uart_1|Add4~21|combout"
+    Warning (332126): Node "uart_1|TX_cou[4]~78|datac"
+Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[5]~74|combout"
+    Warning (332126): Node "uart_1|Add4~16|datad"
+    Warning (332126): Node "uart_1|Add4~16|combout"
+    Warning (332126): Node "uart_1|Add4~17|datad"
+    Warning (332126): Node "uart_1|Add4~17|combout"
+    Warning (332126): Node "uart_1|TX_cou[5]~74|datad"
 Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
     Warning (332126): Node "uart_1|TX_cou[3]~82|combout"
     Warning (332126): Node "uart_1|Add4~18|datad"
@@ -1403,58 +1389,72 @@ Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-L
     Warning (332126): Node "uart_1|Add4~19|combout"
     Warning (332126): Node "uart_1|TX_cou[3]~82|datad"
 Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
-    Warning (332126): Node "uart_1|TX_cou[6]~70|combout"
-    Warning (332126): Node "uart_1|Add4~14|datac"
-    Warning (332126): Node "uart_1|Add4~14|combout"
-    Warning (332126): Node "uart_1|Add4~15|datad"
-    Warning (332126): Node "uart_1|Add4~15|combout"
-    Warning (332126): Node "uart_1|TX_cou[6]~70|datad"
+    Warning (332126): Node "uart_1|TX_cou[2]~86|combout"
+    Warning (332126): Node "uart_1|Add4~22|datac"
+    Warning (332126): Node "uart_1|Add4~22|combout"
+    Warning (332126): Node "uart_1|Add4~23|datad"
+    Warning (332126): Node "uart_1|Add4~23|combout"
+    Warning (332126): Node "uart_1|TX_cou[2]~86|datad"
+Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[1]~90|combout"
+    Warning (332126): Node "uart_1|Add4~2|datad"
+    Warning (332126): Node "uart_1|Add4~2|combout"
+    Warning (332126): Node "uart_1|Add4~3|datad"
+    Warning (332126): Node "uart_1|Add4~3|combout"
+    Warning (332126): Node "uart_1|TX_cou[1]~90|datad"
+Warning (332125): Found combinational loop of 6 nodes File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 333
+    Warning (332126): Node "uart_1|TX_cou[0]~94|combout"
+    Warning (332126): Node "uart_1|TX_cou~147|datad"
+    Warning (332126): Node "uart_1|TX_cou~147|combout"
+    Warning (332126): Node "uart_1|TX_cou~148|datad"
+    Warning (332126): Node "uart_1|TX_cou~148|combout"
+    Warning (332126): Node "uart_1|TX_cou[0]~94|datac"
 Warning (332060): Node: slow_clk_div[20] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register Slow_angle[0]~_Duplicate_1 is being clocked by slow_clk_div[20]
 Warning (332060): Node: UART:uart_1|tx_clk_cou[2] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register UART:uart_1|TX_buf[1] is being clocked by UART:uart_1|tx_clk_cou[2]
 Warning (332060): Node: UART:uart_1|TX_start was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Latch UART:uart_1|TX_cou[12]~45 is being clocked by UART:uart_1|TX_start
-Warning (332060): Node: SCD_finish was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register UART:uart_1|data_cou[0] is being clocked by SCD_finish
+    Info (13166): Latch UART:uart_1|TX_cou[7]~65 is being clocked by UART:uart_1|TX_start
 Warning (332060): Node: BISS_read_end was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register UART:uart_1|BISS_read_cou[6] is being clocked by BISS_read_end
+    Info (13166): Register UART:uart_1|BISS_read_cou[5] is being clocked by BISS_read_end
 Warning (332060): Node: MA_sync_start was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register BISS_read_end is being clocked by MA_sync_start
+Warning (332060): Node: SCD_finish was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register UART:uart_1|data_cou[0] is being clocked by SCD_finish
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332146): Worst-case setup slack is 16.177
+Info (332146): Worst-case setup slack is 16.323
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    16.177               0.000 MAX10_CLK1_50 
-    Info (332119):    28.804               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-    Info (332119):    40.903               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):   134.509               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
-Info (332146): Worst-case hold slack is 0.347
+    Info (332119):    16.323               0.000 MAX10_CLK1_50 
+    Info (332119):    28.262               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):    40.027               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):   134.502               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
+Info (332146): Worst-case hold slack is 0.340
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.347               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):     0.340               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
     Info (332119):     0.355               0.000 MAX10_CLK1_50 
-    Info (332119):     0.412               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):     0.439               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
-Info (332146): Worst-case recovery slack is 39.590
+    Info (332119):     0.413               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):     0.432               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
+Info (332146): Worst-case recovery slack is 39.364
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    39.590               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-Info (332146): Worst-case removal slack is 42.645
+    Info (332119):    39.364               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+Info (332146): Worst-case removal slack is 42.702
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    42.645               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-Info (332146): Worst-case minimum pulse width slack is 9.647
+    Info (332119):    42.702               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+Info (332146): Worst-case minimum pulse width slack is 9.595
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     9.647               0.000 MAX10_CLK1_50 
+    Info (332119):     9.595               0.000 MAX10_CLK1_50 
     Info (332119):    16.000               0.000 MAX10_CLK2_50 
-    Info (332119):    24.720               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):    41.398               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-    Info (332119):    67.336               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):    24.719               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):    41.385               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):    67.315               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
     Info (332119):    96.000               0.000 ADC_CLK_10 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
@@ -1464,44 +1464,44 @@ Warning (332060): Node: slow_clk_div[20] was determined to be a clock but was fo
 Warning (332060): Node: UART:uart_1|tx_clk_cou[2] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register UART:uart_1|TX_buf[1] is being clocked by UART:uart_1|tx_clk_cou[2]
 Warning (332060): Node: UART:uart_1|TX_start was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Latch UART:uart_1|TX_cou[12]~45 is being clocked by UART:uart_1|TX_start
-Warning (332060): Node: SCD_finish was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register UART:uart_1|data_cou[0] is being clocked by SCD_finish
+    Info (13166): Latch UART:uart_1|TX_cou[7]~65 is being clocked by UART:uart_1|TX_start
 Warning (332060): Node: BISS_read_end was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register UART:uart_1|BISS_read_cou[6] is being clocked by BISS_read_end
+    Info (13166): Register UART:uart_1|BISS_read_cou[5] is being clocked by BISS_read_end
 Warning (332060): Node: MA_sync_start was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register BISS_read_end is being clocked by MA_sync_start
+Warning (332060): Node: SCD_finish was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register UART:uart_1|data_cou[0] is being clocked by SCD_finish
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 16.637
+Info (332146): Worst-case setup slack is 16.691
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    16.637               0.000 MAX10_CLK1_50 
-    Info (332119):    29.866               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-    Info (332119):    41.524               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):   134.531               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
-Info (332146): Worst-case hold slack is 0.312
+    Info (332119):    16.691               0.000 MAX10_CLK1_50 
+    Info (332119):    29.162               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):    40.626               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):   134.525               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
+Info (332146): Worst-case hold slack is 0.304
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.312               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):     0.304               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
     Info (332119):     0.322               0.000 MAX10_CLK1_50 
     Info (332119):     0.332               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):     0.359               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
-Info (332146): Worst-case recovery slack is 39.696
+    Info (332119):     0.353               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
+Info (332146): Worst-case recovery slack is 39.520
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    39.696               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-Info (332146): Worst-case removal slack is 42.629
+    Info (332119):    39.520               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+Info (332146): Worst-case removal slack is 42.712
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    42.629               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-Info (332146): Worst-case minimum pulse width slack is 9.653
+    Info (332119):    42.712               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+Info (332146): Worst-case minimum pulse width slack is 9.558
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     9.653               0.000 MAX10_CLK1_50 
+    Info (332119):     9.558               0.000 MAX10_CLK1_50 
     Info (332119):    16.000               0.000 MAX10_CLK2_50 
     Info (332119):    24.710               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):    41.288               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-    Info (332119):    67.313               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):    41.327               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):    67.307               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
     Info (332119):    96.000               0.000 ADC_CLK_10 
 Info: Analyzing Fast 1200mV 0C Model
 Warning (332060): Node: slow_clk_div[20] was determined to be a clock but was found without an associated clock assignment.
@@ -1509,50 +1509,50 @@ Warning (332060): Node: slow_clk_div[20] was determined to be a clock but was fo
 Warning (332060): Node: UART:uart_1|tx_clk_cou[2] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register UART:uart_1|TX_buf[1] is being clocked by UART:uart_1|tx_clk_cou[2]
 Warning (332060): Node: UART:uart_1|TX_start was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Latch UART:uart_1|TX_cou[12]~45 is being clocked by UART:uart_1|TX_start
-Warning (332060): Node: SCD_finish was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register UART:uart_1|data_cou[0] is being clocked by SCD_finish
+    Info (13166): Latch UART:uart_1|TX_cou[7]~65 is being clocked by UART:uart_1|TX_start
 Warning (332060): Node: BISS_read_end was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register UART:uart_1|BISS_read_cou[6] is being clocked by BISS_read_end
+    Info (13166): Register UART:uart_1|BISS_read_cou[5] is being clocked by BISS_read_end
 Warning (332060): Node: MA_sync_start was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register BISS_read_end is being clocked by MA_sync_start
+Warning (332060): Node: SCD_finish was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register UART:uart_1|data_cou[0] is being clocked by SCD_finish
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 18.136
+Info (332146): Worst-case setup slack is 18.364
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    18.136               0.000 MAX10_CLK1_50 
-    Info (332119):    36.199               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-    Info (332119):    45.974               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):   134.904               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
-Info (332146): Worst-case hold slack is 0.152
+    Info (332119):    18.364               0.000 MAX10_CLK1_50 
+    Info (332119):    36.044               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):    45.354               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):   134.901               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
+Info (332146): Worst-case hold slack is 0.147
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.152               0.000 MAX10_CLK1_50 
-    Info (332119):     0.153               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):     0.147               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):     0.151               0.000 MAX10_CLK1_50 
     Info (332119):     0.206               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):     0.215               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
-Info (332146): Worst-case recovery slack is 40.786
+    Info (332119):     0.212               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
+Info (332146): Worst-case recovery slack is 40.701
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    40.786               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-Info (332146): Worst-case removal slack is 42.011
+    Info (332119):    40.701               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+Info (332146): Worst-case removal slack is 41.948
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    42.011               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-Info (332146): Worst-case minimum pulse width slack is 9.300
+    Info (332119):    41.948               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+Info (332146): Worst-case minimum pulse width slack is 9.332
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     9.300               0.000 MAX10_CLK1_50 
+    Info (332119):     9.332               0.000 MAX10_CLK1_50 
     Info (332119):    16.000               0.000 MAX10_CLK2_50 
-    Info (332119):    24.796               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
-    Info (332119):    41.261               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
-    Info (332119):    67.397               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
+    Info (332119):    24.794               0.000 pll_1|altpll_component|auto_generated|pll1|clk[1] 
+    Info (332119):    41.174               0.000 pll_1|altpll_component|auto_generated|pll1|clk[2] 
+    Info (332119):    67.395               0.000 pll_1|altpll_component|auto_generated|pll1|clk[0] 
     Info (332119):    96.000               0.000 ADC_CLK_10 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 243 warnings
-    Info: Peak virtual memory: 5067 megabytes
-    Info: Processing ended: Wed Apr 10 15:09:33 2024
+    Info: Peak virtual memory: 5072 megabytes
+    Info: Processing ended: Wed Apr 10 19:25:20 2024
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:15
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for USB_BISS
-Wed Apr 10 15:09:02 2024
+Wed Apr 10 19:24:51 2024
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Standard Edition
 
 
@@ -74,7 +74,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                            ;
 +------------------------------------+----------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Apr 10 15:09:02 2024              ;
+; Analysis & Synthesis Status        ; Successful - Wed Apr 10 19:24:51 2024              ;
 ; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Standard Edition ;
 ; Revision Name                      ; USB_BISS                                           ;
 ; Top-level Entity Name              ; USB_BISS                                           ;
@@ -398,9 +398,8 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +----------------------------------------+---------+
 ; UART:uart_1|POWER_CTRL                 ; 3       ;
 ; UART:uart_1|TX                         ; 1       ;
-; UART:uart_1|UART_CLK_12M_n3M7          ; 2       ;
 ; UART:uart_1|BISS_start                 ; 88      ;
-; Total number of inverted registers = 4 ;         ;
+; Total number of inverted registers = 3 ;         ;
 +----------------------------------------+---------+
 
 
@@ -409,25 +408,25 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |USB_BISS|SCD_cou[7]                 ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |USB_BISS|MA_cou[0]                  ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |USB_BISS|ACK_cou[2]                 ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|RX_HEX_CRC[0]  ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |USB_BISS|CRC6[5]                    ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|uart_rx_cou[7] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|buf_cou_m[4]   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|buf_cou_l[1]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |USB_BISS|SCD_cou[1]                 ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |USB_BISS|MA_cou[13]                 ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |USB_BISS|ACK_cou[4]                 ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|RX_HEX_CRC[1]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |USB_BISS|CRC6[0]                    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|uart_rx_cou[1] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|buf_cou_m[2]   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |USB_BISS|UART:uart_1|buf_cou_l[3]   ;
 ; 256:1              ; 4 bits    ; 680 LEs       ; 12 LEs               ; 668 LEs                ; Yes        ; |USB_BISS|UART:uart_1|TX_CMD[3]      ;
-; 128:1              ; 3 bits    ; 255 LEs       ; 3 LEs                ; 252 LEs                ; Yes        ; |USB_BISS|UART:uart_1|TX_CMD[5]      ;
-; 258:1              ; 7 bits    ; 1204 LEs      ; 7 LEs                ; 1197 LEs               ; Yes        ; |USB_BISS|CRC4_in[1]                 ;
-; 513:1              ; 9 bits    ; 3078 LEs      ; 27 LEs               ; 3051 LEs               ; Yes        ; |USB_BISS|CDM_cou[2]                 ;
-; 259:1              ; 6 bits    ; 1032 LEs      ; 6 LEs                ; 1026 LEs               ; Yes        ; |USB_BISS|BISS_adr_cou[0]            ;
-; 133:1              ; 3 bits    ; 264 LEs       ; 6 LEs                ; 258 LEs                ; Yes        ; |USB_BISS|CDM_shift[15]              ;
-; 133:1              ; 3 bits    ; 264 LEs       ; 6 LEs                ; 258 LEs                ; Yes        ; |USB_BISS|CDM_shift[3]               ;
-; 133:1              ; 9 bits    ; 792 LEs       ; 18 LEs               ; 774 LEs                ; Yes        ; |USB_BISS|CDM_shift[9]               ;
+; 128:1              ; 3 bits    ; 255 LEs       ; 3 LEs                ; 252 LEs                ; Yes        ; |USB_BISS|UART:uart_1|TX_CMD[7]      ;
+; 258:1              ; 7 bits    ; 1204 LEs      ; 7 LEs                ; 1197 LEs               ; Yes        ; |USB_BISS|CRC4_in[5]                 ;
+; 513:1              ; 9 bits    ; 3078 LEs      ; 27 LEs               ; 3051 LEs               ; Yes        ; |USB_BISS|CDM_cou[7]                 ;
+; 259:1              ; 6 bits    ; 1032 LEs      ; 6 LEs                ; 1026 LEs               ; Yes        ; |USB_BISS|BISS_adr_cou[1]            ;
+; 133:1              ; 3 bits    ; 264 LEs       ; 6 LEs                ; 258 LEs                ; Yes        ; |USB_BISS|CDM_shift[13]              ;
+; 133:1              ; 3 bits    ; 264 LEs       ; 6 LEs                ; 258 LEs                ; Yes        ; |USB_BISS|CDM_shift[1]               ;
+; 133:1              ; 9 bits    ; 792 LEs       ; 18 LEs               ; 774 LEs                ; Yes        ; |USB_BISS|CDM_shift[12]              ;
 ; 36:1               ; 2 bits    ; 48 LEs        ; 18 LEs               ; 30 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_CRC[7]      ;
-; 36:1               ; 6 bits    ; 144 LEs       ; 60 LEs               ; 84 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_CRC[2]      ;
-; 40:1               ; 2 bits    ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_buf[6]      ;
+; 36:1               ; 6 bits    ; 144 LEs       ; 60 LEs               ; 84 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_CRC[1]      ;
+; 40:1               ; 2 bits    ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_buf[5]      ;
 ; 45:1               ; 2 bits    ; 60 LEs        ; 28 LEs               ; 32 LEs                 ; Yes        ; |USB_BISS|UART:uart_1|TX_buf[3]      ;
 ; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |USB_BISS|UART:uart_1|Mux0           ;
 ; 5:1                ; 18 bits   ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; No         ; |USB_BISS|UART:uart_1|TX_cou         ;
@@ -1249,7 +1248,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:07     ;
+; Top            ; 00:00:08     ;
 +----------------+--------------+
 
 
@@ -1259,7 +1258,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Standard Edition
-    Info: Processing started: Wed Apr 10 15:08:48 2024
+    Info: Processing started: Wed Apr 10 19:24:37 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off USB_BISS -c USB_BISS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -1690,8 +1689,8 @@ Info (21057): Implemented 13678 device resources after synthesis - the final res
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 7 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 206 warnings
-    Info: Peak virtual memory: 4941 megabytes
-    Info: Processing ended: Wed Apr 10 15:09:02 2024
+    Info: Peak virtual memory: 4947 megabytes
+    Info: Processing ended: Wed Apr 10 19:24:51 2024
     Info: Elapsed time: 00:00:14
     Info: Total CPU time (on all processors): 00:00:22
 
