@@ -553,11 +553,13 @@ task rx_command_task;
 		0:begin//reset task
 			TX_CMD <= 0;
 		end
+		// Set 460800 baud
 		9:begin
 			TX_CMD<=RX_DATA[2];
 			UART_CLK_12M_n3M7<=0;		
 		end
-		10:begin
+		// Set 1500000 baud
+		15:begin
 			TX_CMD<=RX_DATA[2];
 			UART_CLK_12M_n3M7<=1;		
 		end

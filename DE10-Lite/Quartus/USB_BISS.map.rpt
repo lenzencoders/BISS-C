@@ -1,5 +1,5 @@
 Analysis & Synthesis report for USB_BISS
-Wed Apr 10 19:24:51 2024
+Thu Apr 11 10:44:14 2024
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Standard Edition
 
 
@@ -74,13 +74,13 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                            ;
 +------------------------------------+----------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Apr 10 19:24:51 2024              ;
+; Analysis & Synthesis Status        ; Successful - Thu Apr 11 10:44:14 2024              ;
 ; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Standard Edition ;
 ; Revision Name                      ; USB_BISS                                           ;
 ; Top-level Entity Name              ; USB_BISS                                           ;
 ; Family                             ; MAX 10                                             ;
-; Total logic elements               ; 13,543                                             ;
-;     Total combinational functions  ; 6,699                                              ;
+; Total logic elements               ; 13,544                                             ;
+;     Total combinational functions  ; 6,700                                              ;
 ;     Dedicated logic registers      ; 7,129                                              ;
 ; Total registers                    ; 7129                                               ;
 ; Total pins                         ; 126                                                ;
@@ -253,16 +253,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimated Total logic elements              ; 13,543     ;
+; Estimated Total logic elements              ; 13,544     ;
 ;                                             ;            ;
-; Total combinational functions               ; 6699       ;
+; Total combinational functions               ; 6700       ;
 ; Logic element usage by number of LUT inputs ;            ;
 ;     -- 4 input functions                    ; 5233       ;
 ;     -- 3 input functions                    ; 538        ;
-;     -- <=2 input functions                  ; 928        ;
+;     -- <=2 input functions                  ; 929        ;
 ;                                             ;            ;
 ; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 6096       ;
+;     -- normal mode                          ; 6097       ;
 ;     -- arithmetic mode                      ; 603        ;
 ;                                             ;            ;
 ; Total registers                             ; 7129       ;
@@ -278,7 +278,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;            ;
 ; Maximum fan-out node                        ; SCD_finish ;
 ; Maximum fan-out                             ; 6154       ;
-; Total fan-out                               ; 46021      ;
+; Total fan-out                               ; 46023      ;
 ; Average fan-out                             ; 3.25       ;
 +---------------------------------------------+------------+
 
@@ -288,7 +288,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                         ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |USB_BISS                                 ; 6699 (359)          ; 7129 (210)                ; 0           ; 0          ; 7            ; 1       ; 3         ; 126  ; 0            ; 0          ; |USB_BISS                                                                                                                   ; USB_BISS            ; work         ;
+; |USB_BISS                                 ; 6700 (360)          ; 7129 (210)                ; 0           ; 0          ; 7            ; 1       ; 3         ; 126  ; 0            ; 0          ; |USB_BISS                                                                                                                   ; USB_BISS            ; work         ;
 ;    |CRC4_calc:crc1|                       ; 8 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|CRC4_calc:crc1                                                                                                    ; CRC4_calc           ; work         ;
 ;       |CRC4_table:tb3|                    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|CRC4_calc:crc1|CRC4_table:tb3                                                                                     ; CRC4_table          ; work         ;
 ;    |UART:uart_1|                          ; 5736 (5735)         ; 6919 (6916)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |USB_BISS|UART:uart_1                                                                                                       ; UART                ; work         ;
@@ -1223,15 +1223,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SLD               ; 14                          ;
 ;     plain             ; 113                         ;
 ; cycloneiii_io_obuf    ; 53                          ;
-; cycloneiii_lcell_comb ; 6703                        ;
+; cycloneiii_lcell_comb ; 6704                        ;
 ;     arith             ; 603                         ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 258                         ;
 ;         3 data inputs ; 344                         ;
-;     normal            ; 6100                        ;
+;     normal            ; 6101                        ;
 ;         0 data inputs ; 41                          ;
 ;         1 data inputs ; 31                          ;
-;         2 data inputs ; 601                         ;
+;         2 data inputs ; 602                         ;
 ;         3 data inputs ; 194                         ;
 ;         4 data inputs ; 5233                        ;
 ; cycloneiii_mac_mult   ; 4                           ;
@@ -1239,7 +1239,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 23.50                       ;
-; Average LUT depth     ; 11.93                       ;
+; Average LUT depth     ; 11.92                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1258,7 +1258,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Standard Edition
-    Info: Processing started: Wed Apr 10 19:24:37 2024
+    Info: Processing started: Thu Apr 11 10:43:59 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off USB_BISS -c USB_BISS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -1267,11 +1267,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file pll3m7.
 Warning (12125): Using design file usb_biss.v, which is not specified as a design file for the current project, but contains definitions for 7 design units and 7 entities in project
     Info (12023): Found entity 1: USB_BISS File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 1
     Info (12023): Found entity 2: UART File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 265
-    Info (12023): Found entity 3: bin2deghex File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 593
-    Info (12023): Found entity 4: d2h File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 619
-    Info (12023): Found entity 5: mfilt File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 626
-    Info (12023): Found entity 6: CRC4_table File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 636
-    Info (12023): Found entity 7: CRC4_calc File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 658
+    Info (12023): Found entity 3: bin2deghex File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 595
+    Info (12023): Found entity 4: d2h File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 621
+    Info (12023): Found entity 5: mfilt File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 628
+    Info (12023): Found entity 6: CRC4_table File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 638
+    Info (12023): Found entity 7: CRC4_calc File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 660
 Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(237): created implicit net for "clk7M4" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 237
 Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(237): created implicit net for "clk20M" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 237
 Warning (10236): Verilog HDL Implicit Net warning at usb_biss.v(237): created implicit net for "clk12M" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 237
@@ -1302,23 +1302,23 @@ Warning (10665): Bidirectional port "ARDUINO_IO[12]" at usb_biss.v(20) has a one
 Warning (10665): Bidirectional port "ARDUINO_IO[11]" at usb_biss.v(20) has a one-way connection to bidirectional port "AGPIO[1]" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 20
 Warning (10665): Bidirectional port "ARDUINO_IO[10]" at usb_biss.v(20) has a one-way connection to bidirectional port "AGPIO[4]" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 20
 Info (12128): Elaborating entity "bin2deghex" for hierarchy "bin2deghex:b2dh_1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 66
-Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(597): variable "deg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 597
-Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(597): variable "D360" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 597
-Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(597): variable "D60360" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 597
-Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(598): variable "deg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 598
-Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(598): variable "D360" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 598
 Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(599): variable "deg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 599
-Warning (10230): Verilog HDL assignment warning at usb_biss.v(600): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 600
-Warning (10230): Verilog HDL assignment warning at usb_biss.v(601): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 601
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(599): variable "D360" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 599
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(599): variable "D60360" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 599
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(600): variable "deg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 600
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(600): variable "D360" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 600
+Warning (10235): Verilog HDL Always Construct warning at usb_biss.v(601): variable "deg" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 601
 Warning (10230): Verilog HDL assignment warning at usb_biss.v(602): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 602
 Warning (10230): Verilog HDL assignment warning at usb_biss.v(603): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
 Warning (10230): Verilog HDL assignment warning at usb_biss.v(604): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 604
 Warning (10230): Verilog HDL assignment warning at usb_biss.v(605): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 605
 Warning (10230): Verilog HDL assignment warning at usb_biss.v(606): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 606
 Warning (10230): Verilog HDL assignment warning at usb_biss.v(607): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 607
-Info (12128): Elaborating entity "d2h" for hierarchy "bin2deghex:b2dh_1|d2h:u0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 609
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(608): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 608
+Warning (10230): Verilog HDL assignment warning at usb_biss.v(609): truncated value with size 34 to match size of target (5) File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 609
+Info (12128): Elaborating entity "d2h" for hierarchy "bin2deghex:b2dh_1|d2h:u0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 611
 Info (12128): Elaborating entity "CRC4_calc" for hierarchy "CRC4_calc:crc1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 96
-Info (12128): Elaborating entity "CRC4_table" for hierarchy "CRC4_calc:crc1|CRC4_table:tb1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 662
+Info (12128): Elaborating entity "CRC4_table" for hierarchy "CRC4_calc:crc1|CRC4_table:tb1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 664
 Info (12128): Elaborating entity "pll3m7" for hierarchy "pll3m7:pll_1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 237
 Info (12128): Elaborating entity "altpll" for hierarchy "pll3m7:pll_1|altpll:altpll_component" File: D:/git/BISS-C/DE10-Lite/Quartus/pll3m7.v Line: 112
 Info (12130): Elaborated megafunction instantiation "pll3m7:pll_1|altpll:altpll_component" File: D:/git/BISS-C/DE10-Lite/Quartus/pll3m7.v Line: 112
@@ -1427,17 +1427,17 @@ Info (276014): Found 2 instances of uninferred RAM logic
     Info (276007): RAM logic "UART:uart_1|DATA_BUF" is uninferred due to asynchronous read logic File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 286
     Info (276007): RAM logic "UART:uart_1|BISS_RX" is uninferred due to asynchronous read logic File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 285
 Info (278001): Inferred 9 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "bin2deghex:b2dh_1|Mult1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 597
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div3" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 605
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Mod2" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 604
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div2" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "bin2deghex:b2dh_1|Mult0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 597
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Mod1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 602
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Mod0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 601
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 601
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 600
-Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_mult:Mult1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 597
-Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_mult:Mult1" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 597
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "bin2deghex:b2dh_1|Mult1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 599
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div3" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 607
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Mod2" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 606
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div2" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 605
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "bin2deghex:b2dh_1|Mult0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 599
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Mod1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 604
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Mod0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bin2deghex:b2dh_1|Div0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 602
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_mult:Mult1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 599
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_mult:Mult1" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 599
     Info (12134): Parameter "LPM_WIDTHA" = "24"
     Info (12134): Parameter "LPM_WIDTHB" = "10"
     Info (12134): Parameter "LPM_WIDTHP" = "34"
@@ -1449,8 +1449,8 @@ Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_mult:Mult1" with 
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_brs.tdf
     Info (12023): Found entity 1: mult_brs File: D:/git/BISS-C/DE10-Lite/Quartus/db/mult_brs.tdf Line: 31
-Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div3" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 605
-Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div3" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 605
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div3" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 607
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div3" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 607
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -1465,8 +1465,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_t3c File: D:/git/BISS-C/DE10-Lite/Quartus/db/add_sub_t3c.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
     Info (12023): Found entity 1: add_sub_u3c File: D:/git/BISS-C/DE10-Lite/Quartus/db/add_sub_u3c.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Mod2" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 604
-Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Mod2" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 604
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Mod2" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 606
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Mod2" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 606
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -1477,16 +1477,16 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_klh File: D:/git/BISS-C/DE10-Lite/Quartus/db/sign_div_unsign_klh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ihe.tdf
     Info (12023): Found entity 1: alt_u_div_ihe File: D:/git/BISS-C/DE10-Lite/Quartus/db/alt_u_div_ihe.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div2" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
-Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div2" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div2" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 605
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div2" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 605
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_itl.tdf
     Info (12023): Found entity 1: lpm_divide_itl File: D:/git/BISS-C/DE10-Lite/Quartus/db/lpm_divide_itl.tdf Line: 25
-Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_mult:Mult0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 597
-Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_mult:Mult0" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 597
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_mult:Mult0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 599
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_mult:Mult0" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 599
     Info (12134): Parameter "LPM_WIDTHA" = "24"
     Info (12134): Parameter "LPM_WIDTHB" = "9"
     Info (12134): Parameter "LPM_WIDTHP" = "33"
@@ -1498,8 +1498,8 @@ Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_mult:Mult0" with 
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_2qs.tdf
     Info (12023): Found entity 1: mult_2qs File: D:/git/BISS-C/DE10-Lite/Quartus/db/mult_2qs.tdf Line: 31
-Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Mod1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 602
-Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Mod1" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 602
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Mod1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 604
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Mod1" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 604
     Info (12134): Parameter "LPM_WIDTHN" = "9"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -1510,8 +1510,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_ckh File: D:/git/BISS-C/DE10-Lite/Quartus/db/sign_div_unsign_ckh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_2fe.tdf
     Info (12023): Found entity 1: alt_u_div_2fe File: D:/git/BISS-C/DE10-Lite/Quartus/db/alt_u_div_2fe.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Mod0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 601
-Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Mod0" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 601
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Mod0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Mod0" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
     Info (12134): Parameter "LPM_WIDTHN" = "9"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -1522,8 +1522,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_fkh File: D:/git/BISS-C/DE10-Lite/Quartus/db/sign_div_unsign_fkh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_8fe.tdf
     Info (12023): Found entity 1: alt_u_div_8fe File: D:/git/BISS-C/DE10-Lite/Quartus/db/alt_u_div_8fe.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 601
-Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div1" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 601
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div1" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div1" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 603
     Info (12134): Parameter "LPM_WIDTHN" = "7"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -1534,8 +1534,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_akh File: D:/git/BISS-C/DE10-Lite/Quartus/db/sign_div_unsign_akh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_uee.tdf
     Info (12023): Found entity 1: alt_u_div_uee File: D:/git/BISS-C/DE10-Lite/Quartus/db/alt_u_div_uee.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 600
-Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div0" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 600
+Info (12130): Elaborated megafunction instantiation "bin2deghex:b2dh_1|lpm_divide:Div0" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 602
+Info (12133): Instantiated megafunction "bin2deghex:b2dh_1|lpm_divide:Div0" with the following parameter: File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 602
     Info (12134): Parameter "LPM_WIDTHN" = "9"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -1681,17 +1681,17 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 18
     Warning (15610): No output dependent on input pin "SW[8]" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 18
     Warning (15610): No output dependent on input pin "SW[9]" File: D:/git/BISS-C/DE10-Lite/Quartus/usb_biss.v Line: 18
-Info (21057): Implemented 13678 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 13679 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 58 output pins
     Info (21060): Implemented 53 bidirectional pins
-    Info (21061): Implemented 13544 logic cells
+    Info (21061): Implemented 13545 logic cells
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 7 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 206 warnings
-    Info: Peak virtual memory: 4947 megabytes
-    Info: Processing ended: Wed Apr 10 19:24:51 2024
-    Info: Elapsed time: 00:00:14
+    Info: Peak virtual memory: 4941 megabytes
+    Info: Processing ended: Thu Apr 11 10:44:14 2024
+    Info: Elapsed time: 00:00:15
     Info: Total CPU time (on all processors): 00:00:22
 
 
