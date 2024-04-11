@@ -859,7 +859,8 @@ locked <= locked.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |USB_BISS|UART:uart_1
-clk12M => comb.DATAB
+clk12M => ~NO_FANOUT~
+clk7M4 => comb.DATAB
 clk7M4 => clk3M7.CLK
 RX_IN => RX_IN.IN1
 TX <= TX~reg0.DB_MAX_OUTPUT_PORT_TYPE
