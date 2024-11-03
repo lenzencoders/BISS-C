@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Thu Apr 11 13:45:37 2024
+Analysis & Synthesis Status : Successful - Fri Apr 12 07:48:46 2024
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Standard Edition
 Revision Name : USB_BISS
 Top-level Entity Name : USB_BISS
 Family : MAX 10
-Total logic elements : 13,542
-    Total combinational functions : 6,698
+Total logic elements : 13,548
+    Total combinational functions : 6,704
     Dedicated logic registers : 7,129
 Total registers : 7129
 Total pins : 126

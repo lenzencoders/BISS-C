@@ -91,7 +91,7 @@ reg [5:0]ACK_cou,CRC6;
 
 wire [7:0] SCD_size = 32;
 
-wire MA_clk = clk10M;
+wire MA_clk = clk20M;
 
 CRC4_calc crc1(.data(CRC4_in[10:0]),.CRC(CRC4));
 
@@ -156,14 +156,14 @@ end
 always @(posedge MA_clk)begin
 	if((MA_cou > 0) | SLO) begin
 		if(MA_sync_start)begin
-			if((MA_sync_cou[13:3] > ACK_cou + SCD_size + 11) & SLO)begin
+			if((MA_sync_cou[13:3] > ACK_cou + SCD_size + 21) & SLO)begin
 				MA_cou <= 0;
 				NO_ACK <= 0;
 			end
 			else if (SW[0])
 				MA_cou <= MA_cou + 1;		
 		end
-		else if(MA_cou[13:3] > SCD_size + 64)begin
+		else if(MA_cou[13:3] > SCD_size + 128)begin
 			MA_cou <= 0;
 			NO_ACK <= 1;
 		end
@@ -234,7 +234,7 @@ end
 //===========================================================================================
 wire [6:0] BISS_adr;
 wire [7:0] BISS_data_size;
-pll3m7 pll_1(.inclk0(MAX10_CLK1_50),.c0(clk7M4),.c1(clk10M),.c2(clk12M));
+pll3m7 pll_1(.inclk0(MAX10_CLK1_50),.c0(clk7M4),.c1(clk20M),.c2(clk12M));
 UART uart_1(
 .clk12M(clk12M),
 .clk7M4(clk7M4),
@@ -267,7 +267,7 @@ module UART(input clk12M,input clk7M4, input RX_IN, output reg TX,output reg POW
 				output reg RnW, input [7:0] BISS_read_data, output reg [6:0] BISS_adr,
 				output reg [7:0] BISS_data_size, output reg BISS_start, input BISS_read_end);
 initial begin
-	UART_CLK_7M4_n3M7<=0;
+	UART_CLK_12M_n3M7<=0;
 	TX_start<=0;
 	tx_clk_cou<=0;
 	POWER_CTRL<=1;
@@ -288,10 +288,10 @@ always @(negedge data_sync)begin
 	data_cou <= data_cou + 1;
 	DATA_BUF[data_cou] <= DATA;
 end
-reg uart_rx_busy,uart_rx_end_ok,RX_filt_d,TX_busy,TX_start_d,UART_CLK_7M4_n3M7,TX_en;
+reg uart_rx_busy,uart_rx_end_ok,RX_filt_d,TX_busy,TX_start_d,UART_CLK_12M_n3M7,TX_en;
 reg [6:0]tx_clk_cou,BISS_read_cou;
 reg [23:0]TX_cou;
-wire UART_CLK=UART_CLK_7M4_n3M7?clk7M4:clk3M7;
+wire UART_CLK=UART_CLK_12M_n3M7?clk12M:clk3M7;
 wire [2:0]len_m1;
 assign len_m1=rx_len-1;
 mfilt Mfilt_rx(.clk(UART_CLK),.in(RX_IN),.out(RX_filt));
@@ -556,12 +556,12 @@ task rx_command_task;
 		// Set 460800 baud
 		9:begin
 			TX_CMD<=RX_DATA[2];
-			UART_CLK_7M4_n3M7<=0;		
+			UART_CLK_12M_n3M7<=0;		
 		end
 		// Set 1500000 baud
 		15:begin
 			TX_CMD<=RX_DATA[2];
-			UART_CLK_7M4_n3M7<=1;		
+			UART_CLK_12M_n3M7<=1;		
 		end
 		11:begin
 			TX_CMD<=RX_DATA[2];
