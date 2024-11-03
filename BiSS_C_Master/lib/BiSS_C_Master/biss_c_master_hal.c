@@ -102,16 +102,15 @@ void BissRequest_nCDM(void){
 
 void BISS_Task_IRQHandler(void) {
 	LL_TIM_ClearFlag_UPDATE(BISS_Task_TIM);
-		if(BISS_CRC6_Calc(BISS_SCD >> 6) == (BISS_SCD & 0x3FU)){
+	BISS_SCD = __REV(SPI_rx.revSCD);
+	if(BISS_CRC6_Calc(BISS_SCD >> 6) == (BISS_SCD & 0x3FU)){
 		CRC6_State = CRC6_OK;
 		AngleData.angle_data = BISS_SCD >> 8;
 		AngleData.time_of_life_counter++;
 	}
 	else{
 		CRC6_State = CRC6_FAULT;
-	}
-	BISS_SCD = __REV(SPI_rx.revSCD);
-	
+	}	
 	if (BiSS_C_Master_StateMachine(SPI_rx.CDS) == CDM) {
 		BissRequest_CDM();
 	}
