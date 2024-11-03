@@ -13,6 +13,10 @@
 extern "C" {
 #endif
 
+/**
+ * @brief BiSS C Master hardware abstruction layer initialization function
+ * 
+ */
 void BiSS_C_Master_HAL_Init(void);
 	
 #ifdef __cplusplus
