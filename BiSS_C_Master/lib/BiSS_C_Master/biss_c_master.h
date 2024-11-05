@@ -7,11 +7,11 @@
  *
  * BiSS C Master state machine CDM setting and CDS receiving timing diagram 
  *
- *      \|/ CDM(n) Master request                  CDM(n) setting up \|/             \|/ CDM(n+1) Master request     
+ *         \|/ CDM(n) Master request               CDM(n) setting up \|/                  \|/ CDM(n+1) Master request     
  * MA  ‾‾‾‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾xxxxxxx_|‾‾|xxxx nCDM xxxxx|‾‾‾‾|__|‾‾|_xxx_|‾‾|__|‾‾|_xxxxx
  *
  * SLO ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|__________ACK__________|‾ST‾‾|xCDSx|xx SCD xx|_xx_TimeOut_xx_|‾‾‾‾‾‾‾‾‾‾‾‾‾xxxx‾‾|xCDSx|x SCD xx
- *                             CDS(n-1) setting up /|\ 			  CDS(n-1)Master read  /|\ CDS(n) setting up /|\
+ *                             CDS(n-1) setting up /|\        CDM(n)Slave read  /|\  /|\CDS(n-1)Master read /|\ CDS(n) setting up 
  */
 
 #ifndef __BISS_C_MASTER_H
