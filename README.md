@@ -30,6 +30,8 @@
     <br />
     <br />
     <a href="https://github.com/lenzencoders/Encoders_Description/blob/main/IRS-encoders_en_US.pdf">View the encoders description and specifications</a>
+	·
+	<a href="https://oshwlab.com/lenz-encoders/usb_biss_c"> LENZ USB-BiSS_C FlashTool PCB documentation</a>
     ·
     <a href="https://github.com/lenzencoders/Encoders_Description/issues">Report Bug</a>
     ·
