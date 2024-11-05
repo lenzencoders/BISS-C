@@ -30,8 +30,6 @@
     <br />
     <br />
     <a href="https://github.com/lenzencoders/Encoders_Description/blob/main/IRS-encoders_en_US.pdf">View the encoders description and specifications</a>
-	·
-	<a href="https://oshwlab.com/lenz-encoders/usb_biss_c"> LENZ USB-BiSS_C FlashTool PCB documentation</a>
     ·
     <a href="https://github.com/lenzencoders/Encoders_Description/issues">Report Bug</a>
     ·
@@ -174,6 +172,7 @@ IRS-I34 encoders showed ability to provide stable output at the speed up to 3800
 
 # More Information
 
+[LENZ USB-BiSS_C FlashTool PCB documentation](https://oshwlab.com/lenz-encoders/usb_biss_c),
 [View the encoders description and specifications](https://github.com/lenzencoders/Encoders_Description/blob/main/IRS-encoders_en_US.pdf).
 
 <!-- CONTACT -->
