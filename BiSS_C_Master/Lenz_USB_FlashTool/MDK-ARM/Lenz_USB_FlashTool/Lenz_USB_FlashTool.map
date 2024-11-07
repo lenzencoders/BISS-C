@@ -21,6 +21,7 @@ Section Cross References
     startup_stm32g431xx.o(RESET) refers to stm32g4xx_it.o(.text.DMA1_Channel2_IRQHandler) for DMA1_Channel2_IRQHandler
     startup_stm32g431xx.o(RESET) refers to stm32g4xx_it.o(.text.DMA1_Channel3_IRQHandler) for DMA1_Channel3_IRQHandler
     startup_stm32g431xx.o(RESET) refers to stm32g4xx_it.o(.text.DMA1_Channel4_IRQHandler) for DMA1_Channel4_IRQHandler
+    startup_stm32g431xx.o(RESET) refers to stm32g4xx_it.o(.text.DMA1_Channel5_IRQHandler) for DMA1_Channel5_IRQHandler
     startup_stm32g431xx.o(RESET) refers to biss_c_master_hal.o(.text.TIM7_IRQHandler) for TIM7_IRQHandler
     startup_stm32g431xx.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32g431xx.o(.text) refers to system_stm32g4xx.o(.text.SystemInit) for SystemInit
@@ -74,6 +75,7 @@ Section Cross References
     main.o(.text.main) refers to stm32g4xx_ll_spi.o(.text.LL_SPI_Init) for LL_SPI_Init
     main.o(.text.main) refers to rt_memclr_w.o(.text) for __aeabi_memclr4
     main.o(.text.main) refers to stm32g4xx_ll_tim.o(.text.LL_TIM_Init) for LL_TIM_Init
+    main.o(.text.main) refers to stm32g4xx_ll_usart.o(.text.LL_USART_Init) for LL_USART_Init
     main.o(.text.main) refers to uart.o(.text.InitUart) for InitUart
     main.o(.text.main) refers to biss_c_master_hal.o(.text.BiSS_C_Master_HAL_Init) for BiSS_C_Master_HAL_Init
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
@@ -93,6 +95,7 @@ Section Cross References
     stm32g4xx_it.o(.ARM.exidx.text.DMA1_Channel2_IRQHandler) refers to stm32g4xx_it.o(.text.DMA1_Channel2_IRQHandler) for [Anonymous Symbol]
     stm32g4xx_it.o(.ARM.exidx.text.DMA1_Channel3_IRQHandler) refers to stm32g4xx_it.o(.text.DMA1_Channel3_IRQHandler) for [Anonymous Symbol]
     stm32g4xx_it.o(.ARM.exidx.text.DMA1_Channel4_IRQHandler) refers to stm32g4xx_it.o(.text.DMA1_Channel4_IRQHandler) for [Anonymous Symbol]
+    stm32g4xx_it.o(.ARM.exidx.text.DMA1_Channel5_IRQHandler) refers to stm32g4xx_it.o(.text.DMA1_Channel5_IRQHandler) for [Anonymous Symbol]
     stm32g4xx_ll_utils.o(.ARM.exidx.text.LL_Init1msTick) refers to stm32g4xx_ll_utils.o(.text.LL_Init1msTick) for [Anonymous Symbol]
     stm32g4xx_ll_utils.o(.ARM.exidx.text.LL_mDelay) refers to stm32g4xx_ll_utils.o(.text.LL_mDelay) for [Anonymous Symbol]
     stm32g4xx_ll_utils.o(.text.LL_SetSystemCoreClock) refers to system_stm32g4xx.o(.data.SystemCoreClock) for SystemCoreClock
@@ -164,6 +167,13 @@ Section Cross References
     stm32g4xx_ll_rcc.o(.ARM.exidx.text.LL_RCC_GetUSBClockFreq) refers to stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUSBClockFreq) for [Anonymous Symbol]
     stm32g4xx_ll_rcc.o(.text.LL_RCC_GetADCClockFreq) refers to stm32g4xx_ll_rcc.o(.text.RCC_GetSystemClockFreq) for RCC_GetSystemClockFreq
     stm32g4xx_ll_rcc.o(.ARM.exidx.text.LL_RCC_GetADCClockFreq) refers to stm32g4xx_ll_rcc.o(.text.LL_RCC_GetADCClockFreq) for [Anonymous Symbol]
+    stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_DeInit) refers to stm32g4xx_ll_usart.o(.text.LL_USART_DeInit) for [Anonymous Symbol]
+    stm32g4xx_ll_usart.o(.text.LL_USART_Init) refers to stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUSARTClockFreq) for LL_RCC_GetUSARTClockFreq
+    stm32g4xx_ll_usart.o(.text.LL_USART_Init) refers to stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUARTClockFreq) for LL_RCC_GetUARTClockFreq
+    stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_Init) refers to stm32g4xx_ll_usart.o(.text.LL_USART_Init) for [Anonymous Symbol]
+    stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_StructInit) refers to stm32g4xx_ll_usart.o(.text.LL_USART_StructInit) for [Anonymous Symbol]
+    stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_ClockInit) refers to stm32g4xx_ll_usart.o(.text.LL_USART_ClockInit) for [Anonymous Symbol]
+    stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_ClockStructInit) refers to stm32g4xx_ll_usart.o(.text.LL_USART_ClockStructInit) for [Anonymous Symbol]
     stm32g4xx_ll_spi.o(.ARM.exidx.text.LL_SPI_DeInit) refers to stm32g4xx_ll_spi.o(.text.LL_SPI_DeInit) for [Anonymous Symbol]
     stm32g4xx_ll_spi.o(.ARM.exidx.text.LL_SPI_Init) refers to stm32g4xx_ll_spi.o(.text.LL_SPI_Init) for [Anonymous Symbol]
     stm32g4xx_ll_spi.o(.text.LL_SPI_StructInit) refers to rt_memclr_w.o(.text) for __aeabi_memclr4
@@ -194,21 +204,18 @@ Section Cross References
     system_stm32g4xx.o(.text.SystemCoreClockUpdate) refers to system_stm32g4xx.o(.data.SystemCoreClock) for SystemCoreClock
     system_stm32g4xx.o(.text.SystemCoreClockUpdate) refers to system_stm32g4xx.o(.rodata.AHBPrescTable) for AHBPrescTable
     system_stm32g4xx.o(.ARM.exidx.text.SystemCoreClockUpdate) refers to system_stm32g4xx.o(.text.SystemCoreClockUpdate) for [Anonymous Symbol]
-    biss_c_master_hal.o(.text.BissRequest_CDM) refers to stm32g4xx_ll_spi.o(.text.LL_SPI_DeInit) for LL_SPI_DeInit
     biss_c_master_hal.o(.ARM.exidx.text.BissRequest_CDM) refers to biss_c_master_hal.o(.text.BissRequest_CDM) for [Anonymous Symbol]
-    biss_c_master_hal.o(.text.BissRequest_nCDM) refers to stm32g4xx_ll_spi.o(.text.LL_SPI_DeInit) for LL_SPI_DeInit
     biss_c_master_hal.o(.ARM.exidx.text.BissRequest_nCDM) refers to biss_c_master_hal.o(.text.BissRequest_nCDM) for [Anonymous Symbol]
-    biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.bss.BISS_SCD) for BISS_SCD
+    biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.data.last_CDM) for last_CDM
+    biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.bss.USART_rx) for USART_rx
     biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.rodata.CRC6_LUT) for CRC6_LUT
     biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.data.CRC6_State) for CRC6_State
     biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.bss.AngleData) for AngleData
-    biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.bss.SPI_rx) for SPI_rx
+    biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.data.USART_CDS_last) for USART_CDS_last
     biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master.o(.text.BiSS_C_Master_StateMachine) for BiSS_C_Master_StateMachine
-    biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.text.BissRequest_CDM) for BissRequest_CDM
-    biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.text.BissRequest_nCDM) for BissRequest_nCDM
     biss_c_master_hal.o(.text.TIM7_IRQHandler) refers to uart.o(.text.UART_StateMachine) for UART_StateMachine
     biss_c_master_hal.o(.ARM.exidx.text.TIM7_IRQHandler) refers to biss_c_master_hal.o(.text.TIM7_IRQHandler) for [Anonymous Symbol]
-    biss_c_master_hal.o(.text.BiSS_C_Master_HAL_Init) refers to biss_c_master_hal.o(.bss.SPI_rx) for SPI_rx
+    biss_c_master_hal.o(.text.BiSS_C_Master_HAL_Init) refers to biss_c_master_hal.o(.bss.USART_rx) for USART_rx
     biss_c_master_hal.o(.ARM.exidx.text.BiSS_C_Master_HAL_Init) refers to biss_c_master_hal.o(.text.BiSS_C_Master_HAL_Init) for [Anonymous Symbol]
     biss_c_master.o(.text.IsBiSSReqBusy) refers to biss_c_master.o(.bss.BiSS) for BiSS
     biss_c_master.o(.ARM.exidx.text.IsBiSSReqBusy) refers to biss_c_master.o(.text.IsBiSSReqBusy) for [Anonymous Symbol]
@@ -375,6 +382,7 @@ Removing Unused input sections from the image.
     Removing stm32g4xx_it.o(.ARM.exidx.text.DMA1_Channel2_IRQHandler), (8 bytes).
     Removing stm32g4xx_it.o(.ARM.exidx.text.DMA1_Channel3_IRQHandler), (8 bytes).
     Removing stm32g4xx_it.o(.ARM.exidx.text.DMA1_Channel4_IRQHandler), (8 bytes).
+    Removing stm32g4xx_it.o(.ARM.exidx.text.DMA1_Channel5_IRQHandler), (8 bytes).
     Removing stm32g4xx_ll_utils.o(.text), (0 bytes).
     Removing stm32g4xx_ll_utils.o(.ARM.exidx.text.LL_Init1msTick), (8 bytes).
     Removing stm32g4xx_ll_utils.o(.text.LL_mDelay), (40 bytes).
@@ -423,9 +431,7 @@ Removing Unused input sections from the image.
     Removing stm32g4xx_ll_rcc.o(.text.LL_RCC_GetSystemClocksFreq), (86 bytes).
     Removing stm32g4xx_ll_rcc.o(.ARM.exidx.text.LL_RCC_GetSystemClocksFreq), (8 bytes).
     Removing stm32g4xx_ll_rcc.o(.ARM.exidx.text.RCC_GetSystemClockFreq), (8 bytes).
-    Removing stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUSARTClockFreq), (232 bytes).
     Removing stm32g4xx_ll_rcc.o(.ARM.exidx.text.LL_RCC_GetUSARTClockFreq), (8 bytes).
-    Removing stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUARTClockFreq), (128 bytes).
     Removing stm32g4xx_ll_rcc.o(.ARM.exidx.text.LL_RCC_GetUARTClockFreq), (8 bytes).
     Removing stm32g4xx_ll_rcc.o(.text.LL_RCC_GetI2CClockFreq), (234 bytes).
     Removing stm32g4xx_ll_rcc.o(.ARM.exidx.text.LL_RCC_GetI2CClockFreq), (8 bytes).
@@ -444,7 +450,18 @@ Removing Unused input sections from the image.
     Removing stm32g4xx_ll_rcc.o(.ARM.exidx.text.LL_RCC_GetUSBClockFreq), (8 bytes).
     Removing stm32g4xx_ll_rcc.o(.text.LL_RCC_GetADCClockFreq), (170 bytes).
     Removing stm32g4xx_ll_rcc.o(.ARM.exidx.text.LL_RCC_GetADCClockFreq), (8 bytes).
+    Removing stm32g4xx_ll_usart.o(.text), (0 bytes).
+    Removing stm32g4xx_ll_usart.o(.text.LL_USART_DeInit), (170 bytes).
+    Removing stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_DeInit), (8 bytes).
+    Removing stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_Init), (8 bytes).
+    Removing stm32g4xx_ll_usart.o(.text.LL_USART_StructInit), (26 bytes).
+    Removing stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_StructInit), (8 bytes).
+    Removing stm32g4xx_ll_usart.o(.text.LL_USART_ClockInit), (44 bytes).
+    Removing stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_ClockInit), (8 bytes).
+    Removing stm32g4xx_ll_usart.o(.text.LL_USART_ClockStructInit), (12 bytes).
+    Removing stm32g4xx_ll_usart.o(.ARM.exidx.text.LL_USART_ClockStructInit), (8 bytes).
     Removing stm32g4xx_ll_spi.o(.text), (0 bytes).
+    Removing stm32g4xx_ll_spi.o(.text.LL_SPI_DeInit), (118 bytes).
     Removing stm32g4xx_ll_spi.o(.ARM.exidx.text.LL_SPI_DeInit), (8 bytes).
     Removing stm32g4xx_ll_spi.o(.ARM.exidx.text.LL_SPI_Init), (8 bytes).
     Removing stm32g4xx_ll_spi.o(.text.LL_SPI_StructInit), (32 bytes).
@@ -491,10 +508,14 @@ Removing Unused input sections from the image.
     Removing system_stm32g4xx.o(.text.SystemCoreClockUpdate), (150 bytes).
     Removing system_stm32g4xx.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
     Removing biss_c_master_hal.o(.text), (0 bytes).
+    Removing biss_c_master_hal.o(.text.BissRequest_CDM), (46 bytes).
     Removing biss_c_master_hal.o(.ARM.exidx.text.BissRequest_CDM), (8 bytes).
+    Removing biss_c_master_hal.o(.text.BissRequest_nCDM), (46 bytes).
     Removing biss_c_master_hal.o(.ARM.exidx.text.BissRequest_nCDM), (8 bytes).
     Removing biss_c_master_hal.o(.ARM.exidx.text.TIM7_IRQHandler), (8 bytes).
     Removing biss_c_master_hal.o(.ARM.exidx.text.BiSS_C_Master_HAL_Init), (8 bytes).
+    Removing biss_c_master_hal.o(.bss.SPI_rx), (8 bytes).
+    Removing biss_c_master_hal.o(.bss.BISS_SCD), (4 bytes).
     Removing biss_c_master.o(.text), (0 bytes).
     Removing biss_c_master.o(.ARM.exidx.text.IsBiSSReqBusy), (8 bytes).
     Removing biss_c_master.o(.ARM.exidx.text.BiSSRequestRead), (8 bytes).
@@ -502,7 +523,7 @@ Removing Unused input sections from the image.
     Removing biss_c_master.o(.ARM.exidx.text.BiSS_C_Master_StateMachine), (8 bytes).
     Removing biss_c_master.o(.ARM.exidx.text.BiSSResetExternalState), (8 bytes).
 
-160 unused section(s) (total 7270 bytes) removed from the image.
+174 unused section(s) (total 7432 bytes) removed from the image.
 
 ==============================================================================
 
@@ -588,6 +609,7 @@ Image Symbol Table
     stm32g4xx_ll_rcc.c                       0x00000000   Number         0  stm32g4xx_ll_rcc.o ABSOLUTE
     stm32g4xx_ll_spi.c                       0x00000000   Number         0  stm32g4xx_ll_spi.o ABSOLUTE
     stm32g4xx_ll_tim.c                       0x00000000   Number         0  stm32g4xx_ll_tim.o ABSOLUTE
+    stm32g4xx_ll_usart.c                     0x00000000   Number         0  stm32g4xx_ll_usart.o ABSOLUTE
     stm32g4xx_ll_utils.c                     0x00000000   Number         0  stm32g4xx_ll_utils.o ABSOLUTE
     system_stm32g4xx.c                       0x00000000   Number         0  system_stm32g4xx.o ABSOLUTE
     uart.c                                   0x00000000   Number         0  uart.o ABSOLUTE
@@ -655,47 +677,49 @@ Image Symbol Table
     [Anonymous Symbol]                       0x0800058e   Section        0  biss_c_master.o(.text.BiSSRequestWrite)
     [Anonymous Symbol]                       0x080005be   Section        0  biss_c_master.o(.text.BiSSResetExternalState)
     [Anonymous Symbol]                       0x080005cc   Section        0  biss_c_master_hal.o(.text.BiSS_C_Master_HAL_Init)
-    [Anonymous Symbol]                       0x0800063c   Section        0  biss_c_master.o(.text.BiSS_C_Master_StateMachine)
-    [Anonymous Symbol]                       0x080008c4   Section        0  biss_c_master_hal.o(.text.BissRequest_CDM)
-    [Anonymous Symbol]                       0x08000932   Section        0  biss_c_master_hal.o(.text.BissRequest_nCDM)
-    [Anonymous Symbol]                       0x08000988   Section        0  stm32g4xx_it.o(.text.BusFault_Handler)
-    [Anonymous Symbol]                       0x0800098a   Section        0  stm32g4xx_it.o(.text.DMA1_Channel1_IRQHandler)
-    [Anonymous Symbol]                       0x0800098c   Section        0  stm32g4xx_it.o(.text.DMA1_Channel2_IRQHandler)
-    [Anonymous Symbol]                       0x0800098e   Section        0  stm32g4xx_it.o(.text.DMA1_Channel3_IRQHandler)
-    [Anonymous Symbol]                       0x08000990   Section        0  stm32g4xx_it.o(.text.DMA1_Channel4_IRQHandler)
-    [Anonymous Symbol]                       0x08000992   Section        0  stm32g4xx_it.o(.text.DebugMon_Handler)
-    [Anonymous Symbol]                       0x08000994   Section        0  stm32g4xx_it.o(.text.HardFault_Handler)
-    [Anonymous Symbol]                       0x08000998   Section        0  uart.o(.text.InitUart)
-    [Anonymous Symbol]                       0x08000a16   Section        0  biss_c_master.o(.text.IsBiSSReqBusy)
-    [Anonymous Symbol]                       0x08000a24   Section        0  stm32g4xx_ll_gpio.o(.text.LL_GPIO_Init)
-    [Anonymous Symbol]                       0x08000b02   Section        0  stm32g4xx_ll_utils.o(.text.LL_Init1msTick)
-    [Anonymous Symbol]                       0x08000b2c   Section        0  stm32g4xx_ll_lpuart.o(.text.LL_LPUART_Init)
-    LPUART_PRESCALER_TAB                     0x08000bb4   Number         0  stm32g4xx_ll_lpuart.o(.text.LL_LPUART_Init)
-    [Anonymous Symbol]                       0x08000bcc   Section        0  stm32g4xx_ll_rcc.o(.text.LL_RCC_GetLPUARTClockFreq)
-    [Anonymous Symbol]                       0x08000c46   Section        0  stm32g4xx_ll_spi.o(.text.LL_SPI_DeInit)
-    [Anonymous Symbol]                       0x08000cbc   Section        0  stm32g4xx_ll_spi.o(.text.LL_SPI_Init)
-    [Anonymous Symbol]                       0x08000d3c   Section        0  stm32g4xx_ll_utils.o(.text.LL_SetSystemCoreClock)
-    [Anonymous Symbol]                       0x08000d48   Section        0  stm32g4xx_ll_tim.o(.text.LL_TIM_Init)
-    [Anonymous Symbol]                       0x08000e3c   Section        0  stm32g4xx_it.o(.text.MemManage_Handler)
-    [Anonymous Symbol]                       0x08000e40   Section        0  stm32g4xx_it.o(.text.NMI_Handler)
-    [Anonymous Symbol]                       0x08000e42   Section        0  stm32g4xx_it.o(.text.PendSV_Handler)
-    RCC_GetSystemClockFreq                   0x08000e45   Thumb Code   108  stm32g4xx_ll_rcc.o(.text.RCC_GetSystemClockFreq)
-    [Anonymous Symbol]                       0x08000e44   Section        0  stm32g4xx_ll_rcc.o(.text.RCC_GetSystemClockFreq)
-    [Anonymous Symbol]                       0x08000eb0   Section        0  stm32g4xx_it.o(.text.SVC_Handler)
-    [Anonymous Symbol]                       0x08000eb4   Section        0  main.o(.text.SystemClock_Config)
-    [Anonymous Symbol]                       0x08000f86   Section        0  system_stm32g4xx.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x08000f98   Section        0  biss_c_master_hal.o(.text.TIM7_IRQHandler)
-    [Anonymous Symbol]                       0x0800105c   Section        0  uart.o(.text.UART_StateMachine)
-    [Anonymous Symbol]                       0x080015b8   Section        0  uart.o(.text.UART_Transmit)
-    [Anonymous Symbol]                       0x08001618   Section        0  stm32g4xx_it.o(.text.UsageFault_Handler)
-    [Anonymous Symbol]                       0x0800161c   Section        0  main.o(.text.main)
-    $v0                                      0x08001b16   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x08001b16   Section       26  fpinit.o(x$fpl$fpinit)
-    CRC6_LUT                                 0x08001b48   Data         256  biss_c_master_hal.o(.rodata.CRC6_LUT)
-    [Anonymous Symbol]                       0x08001b48   Section        0  biss_c_master_hal.o(.rodata.CRC6_LUT)
-    tableCRC4                                0x08001c48   Data          16  biss_c_master.o(.rodata.cst16)
-    [Anonymous Symbol]                       0x08001c48   Section        0  biss_c_master.o(.rodata.cst16)
-    .bss                                     0x20000008   Section       96  libspace.o(.bss)
+    [Anonymous Symbol]                       0x08000668   Section        0  biss_c_master.o(.text.BiSS_C_Master_StateMachine)
+    [Anonymous Symbol]                       0x080008f8   Section        0  stm32g4xx_it.o(.text.BusFault_Handler)
+    [Anonymous Symbol]                       0x080008fa   Section        0  stm32g4xx_it.o(.text.DMA1_Channel1_IRQHandler)
+    [Anonymous Symbol]                       0x080008fc   Section        0  stm32g4xx_it.o(.text.DMA1_Channel2_IRQHandler)
+    [Anonymous Symbol]                       0x080008fe   Section        0  stm32g4xx_it.o(.text.DMA1_Channel3_IRQHandler)
+    [Anonymous Symbol]                       0x08000900   Section        0  stm32g4xx_it.o(.text.DMA1_Channel4_IRQHandler)
+    [Anonymous Symbol]                       0x08000902   Section        0  stm32g4xx_it.o(.text.DMA1_Channel5_IRQHandler)
+    [Anonymous Symbol]                       0x08000904   Section        0  stm32g4xx_it.o(.text.DebugMon_Handler)
+    [Anonymous Symbol]                       0x08000908   Section        0  stm32g4xx_it.o(.text.HardFault_Handler)
+    [Anonymous Symbol]                       0x0800090c   Section        0  uart.o(.text.InitUart)
+    [Anonymous Symbol]                       0x0800098a   Section        0  biss_c_master.o(.text.IsBiSSReqBusy)
+    [Anonymous Symbol]                       0x08000998   Section        0  stm32g4xx_ll_gpio.o(.text.LL_GPIO_Init)
+    [Anonymous Symbol]                       0x08000a76   Section        0  stm32g4xx_ll_utils.o(.text.LL_Init1msTick)
+    [Anonymous Symbol]                       0x08000aa0   Section        0  stm32g4xx_ll_lpuart.o(.text.LL_LPUART_Init)
+    LPUART_PRESCALER_TAB                     0x08000b28   Number         0  stm32g4xx_ll_lpuart.o(.text.LL_LPUART_Init)
+    [Anonymous Symbol]                       0x08000b40   Section        0  stm32g4xx_ll_rcc.o(.text.LL_RCC_GetLPUARTClockFreq)
+    [Anonymous Symbol]                       0x08000bba   Section        0  stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUARTClockFreq)
+    [Anonymous Symbol]                       0x08000c3a   Section        0  stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUSARTClockFreq)
+    [Anonymous Symbol]                       0x08000d22   Section        0  stm32g4xx_ll_spi.o(.text.LL_SPI_Init)
+    [Anonymous Symbol]                       0x08000da2   Section        0  stm32g4xx_ll_utils.o(.text.LL_SetSystemCoreClock)
+    [Anonymous Symbol]                       0x08000dae   Section        0  stm32g4xx_ll_tim.o(.text.LL_TIM_Init)
+    [Anonymous Symbol]                       0x08000ea0   Section        0  stm32g4xx_ll_usart.o(.text.LL_USART_Init)
+    USART_PRESCALER_TAB                      0x08000f94   Number         0  stm32g4xx_ll_usart.o(.text.LL_USART_Init)
+    [Anonymous Symbol]                       0x08000fc4   Section        0  stm32g4xx_it.o(.text.MemManage_Handler)
+    [Anonymous Symbol]                       0x08000fc8   Section        0  stm32g4xx_it.o(.text.NMI_Handler)
+    [Anonymous Symbol]                       0x08000fca   Section        0  stm32g4xx_it.o(.text.PendSV_Handler)
+    RCC_GetSystemClockFreq                   0x08000fcd   Thumb Code   108  stm32g4xx_ll_rcc.o(.text.RCC_GetSystemClockFreq)
+    [Anonymous Symbol]                       0x08000fcc   Section        0  stm32g4xx_ll_rcc.o(.text.RCC_GetSystemClockFreq)
+    [Anonymous Symbol]                       0x08001038   Section        0  stm32g4xx_it.o(.text.SVC_Handler)
+    [Anonymous Symbol]                       0x0800103c   Section        0  main.o(.text.SystemClock_Config)
+    [Anonymous Symbol]                       0x0800110e   Section        0  system_stm32g4xx.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x08001120   Section        0  biss_c_master_hal.o(.text.TIM7_IRQHandler)
+    [Anonymous Symbol]                       0x08001248   Section        0  uart.o(.text.UART_StateMachine)
+    [Anonymous Symbol]                       0x080017a4   Section        0  uart.o(.text.UART_Transmit)
+    [Anonymous Symbol]                       0x08001804   Section        0  stm32g4xx_it.o(.text.UsageFault_Handler)
+    [Anonymous Symbol]                       0x08001808   Section        0  main.o(.text.main)
+    $v0                                      0x08001eee   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x08001eee   Section       26  fpinit.o(x$fpl$fpinit)
+    CRC6_LUT                                 0x08001f20   Data         256  biss_c_master_hal.o(.rodata.CRC6_LUT)
+    [Anonymous Symbol]                       0x08001f20   Section        0  biss_c_master_hal.o(.rodata.CRC6_LUT)
+    tableCRC4                                0x08002020   Data          16  biss_c_master.o(.rodata.cst16)
+    [Anonymous Symbol]                       0x08002020   Section        0  biss_c_master.o(.rodata.cst16)
+    .bss                                     0x20000010   Section       96  libspace.o(.bss)
     Heap_Mem                                 0x20001b10   Data         512  startup_stm32g431xx.o(HEAP)
     HEAP                                     0x20001b10   Section      512  startup_stm32g431xx.o(HEAP)
     Stack_Mem                                0x20001d10   Data        1024  startup_stm32g431xx.o(STACK)
@@ -795,7 +819,6 @@ Image Symbol Table
     COMP4_IRQHandler                         0x08000293   Thumb Code     0  startup_stm32g431xx.o(.text)
     CORDIC_IRQHandler                        0x08000293   Thumb Code     0  startup_stm32g431xx.o(.text)
     CRS_IRQHandler                           0x08000293   Thumb Code     0  startup_stm32g431xx.o(.text)
-    DMA1_Channel5_IRQHandler                 0x08000293   Thumb Code     0  startup_stm32g431xx.o(.text)
     DMA1_Channel6_IRQHandler                 0x08000293   Thumb Code     0  startup_stm32g431xx.o(.text)
     DMA2_Channel1_IRQHandler                 0x08000293   Thumb Code     0  startup_stm32g431xx.o(.text)
     DMA2_Channel2_IRQHandler                 0x08000293   Thumb Code     0  startup_stm32g431xx.o(.text)
@@ -884,58 +907,60 @@ Image Symbol Table
     __semihosting_library_function           0x0800055f   Thumb Code     0  indicate_semi.o(.text)
     BiSSRequestWrite                         0x0800058f   Thumb Code    48  biss_c_master.o(.text.BiSSRequestWrite)
     BiSSResetExternalState                   0x080005bf   Thumb Code    14  biss_c_master.o(.text.BiSSResetExternalState)
-    BiSS_C_Master_HAL_Init                   0x080005cd   Thumb Code   110  biss_c_master_hal.o(.text.BiSS_C_Master_HAL_Init)
-    BiSS_C_Master_StateMachine               0x0800063d   Thumb Code   648  biss_c_master.o(.text.BiSS_C_Master_StateMachine)
-    BissRequest_CDM                          0x080008c5   Thumb Code   110  biss_c_master_hal.o(.text.BissRequest_CDM)
-    BissRequest_nCDM                         0x08000933   Thumb Code    86  biss_c_master_hal.o(.text.BissRequest_nCDM)
-    BusFault_Handler                         0x08000989   Thumb Code     2  stm32g4xx_it.o(.text.BusFault_Handler)
-    DMA1_Channel1_IRQHandler                 0x0800098b   Thumb Code     2  stm32g4xx_it.o(.text.DMA1_Channel1_IRQHandler)
-    DMA1_Channel2_IRQHandler                 0x0800098d   Thumb Code     2  stm32g4xx_it.o(.text.DMA1_Channel2_IRQHandler)
-    DMA1_Channel3_IRQHandler                 0x0800098f   Thumb Code     2  stm32g4xx_it.o(.text.DMA1_Channel3_IRQHandler)
-    DMA1_Channel4_IRQHandler                 0x08000991   Thumb Code     2  stm32g4xx_it.o(.text.DMA1_Channel4_IRQHandler)
-    DebugMon_Handler                         0x08000993   Thumb Code     2  stm32g4xx_it.o(.text.DebugMon_Handler)
-    HardFault_Handler                        0x08000995   Thumb Code     2  stm32g4xx_it.o(.text.HardFault_Handler)
-    InitUart                                 0x08000999   Thumb Code   126  uart.o(.text.InitUart)
-    IsBiSSReqBusy                            0x08000a17   Thumb Code    12  biss_c_master.o(.text.IsBiSSReqBusy)
-    LL_GPIO_Init                             0x08000a25   Thumb Code   222  stm32g4xx_ll_gpio.o(.text.LL_GPIO_Init)
-    LL_Init1msTick                           0x08000b03   Thumb Code    40  stm32g4xx_ll_utils.o(.text.LL_Init1msTick)
-    LL_LPUART_Init                           0x08000b2d   Thumb Code   136  stm32g4xx_ll_lpuart.o(.text.LL_LPUART_Init)
-    LL_RCC_GetLPUARTClockFreq                0x08000bcd   Thumb Code   122  stm32g4xx_ll_rcc.o(.text.LL_RCC_GetLPUARTClockFreq)
-    LL_SPI_DeInit                            0x08000c47   Thumb Code   118  stm32g4xx_ll_spi.o(.text.LL_SPI_DeInit)
-    LL_SPI_Init                              0x08000cbd   Thumb Code   128  stm32g4xx_ll_spi.o(.text.LL_SPI_Init)
-    LL_SetSystemCoreClock                    0x08000d3d   Thumb Code    12  stm32g4xx_ll_utils.o(.text.LL_SetSystemCoreClock)
-    LL_TIM_Init                              0x08000d49   Thumb Code   242  stm32g4xx_ll_tim.o(.text.LL_TIM_Init)
-    MemManage_Handler                        0x08000e3d   Thumb Code     2  stm32g4xx_it.o(.text.MemManage_Handler)
-    NMI_Handler                              0x08000e41   Thumb Code     2  stm32g4xx_it.o(.text.NMI_Handler)
-    PendSV_Handler                           0x08000e43   Thumb Code     2  stm32g4xx_it.o(.text.PendSV_Handler)
-    SVC_Handler                              0x08000eb1   Thumb Code     2  stm32g4xx_it.o(.text.SVC_Handler)
-    SystemClock_Config                       0x08000eb5   Thumb Code   210  main.o(.text.SystemClock_Config)
-    SystemInit                               0x08000f87   Thumb Code    18  system_stm32g4xx.o(.text.SystemInit)
-    TIM7_IRQHandler                          0x08000f99   Thumb Code   194  biss_c_master_hal.o(.text.TIM7_IRQHandler)
-    UART_StateMachine                        0x0800105d   Thumb Code  1370  uart.o(.text.UART_StateMachine)
-    UART_Transmit                            0x080015b9   Thumb Code    96  uart.o(.text.UART_Transmit)
-    UsageFault_Handler                       0x08001619   Thumb Code     2  stm32g4xx_it.o(.text.UsageFault_Handler)
-    main                                     0x0800161d   Thumb Code  1274  main.o(.text.main)
-    _fp_init                                 0x08001b17   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x08001b2f   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x08001b2f   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    AHBPrescTable                            0x08001b30   Data          16  system_stm32g4xx.o(.rodata.AHBPrescTable)
-    APBPrescTable                            0x08001b40   Data           8  system_stm32g4xx.o(.rodata.APBPrescTable)
-    Region$$Table$$Base                      0x08001c58   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001c78   Number         0  anon$$obj.o(Region$$Table)
+    BiSS_C_Master_HAL_Init                   0x080005cd   Thumb Code   156  biss_c_master_hal.o(.text.BiSS_C_Master_HAL_Init)
+    BiSS_C_Master_StateMachine               0x08000669   Thumb Code   656  biss_c_master.o(.text.BiSS_C_Master_StateMachine)
+    BusFault_Handler                         0x080008f9   Thumb Code     2  stm32g4xx_it.o(.text.BusFault_Handler)
+    DMA1_Channel1_IRQHandler                 0x080008fb   Thumb Code     2  stm32g4xx_it.o(.text.DMA1_Channel1_IRQHandler)
+    DMA1_Channel2_IRQHandler                 0x080008fd   Thumb Code     2  stm32g4xx_it.o(.text.DMA1_Channel2_IRQHandler)
+    DMA1_Channel3_IRQHandler                 0x080008ff   Thumb Code     2  stm32g4xx_it.o(.text.DMA1_Channel3_IRQHandler)
+    DMA1_Channel4_IRQHandler                 0x08000901   Thumb Code     2  stm32g4xx_it.o(.text.DMA1_Channel4_IRQHandler)
+    DMA1_Channel5_IRQHandler                 0x08000903   Thumb Code     2  stm32g4xx_it.o(.text.DMA1_Channel5_IRQHandler)
+    DebugMon_Handler                         0x08000905   Thumb Code     2  stm32g4xx_it.o(.text.DebugMon_Handler)
+    HardFault_Handler                        0x08000909   Thumb Code     2  stm32g4xx_it.o(.text.HardFault_Handler)
+    InitUart                                 0x0800090d   Thumb Code   126  uart.o(.text.InitUart)
+    IsBiSSReqBusy                            0x0800098b   Thumb Code    12  biss_c_master.o(.text.IsBiSSReqBusy)
+    LL_GPIO_Init                             0x08000999   Thumb Code   222  stm32g4xx_ll_gpio.o(.text.LL_GPIO_Init)
+    LL_Init1msTick                           0x08000a77   Thumb Code    40  stm32g4xx_ll_utils.o(.text.LL_Init1msTick)
+    LL_LPUART_Init                           0x08000aa1   Thumb Code   136  stm32g4xx_ll_lpuart.o(.text.LL_LPUART_Init)
+    LL_RCC_GetLPUARTClockFreq                0x08000b41   Thumb Code   122  stm32g4xx_ll_rcc.o(.text.LL_RCC_GetLPUARTClockFreq)
+    LL_RCC_GetUARTClockFreq                  0x08000bbb   Thumb Code   128  stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUARTClockFreq)
+    LL_RCC_GetUSARTClockFreq                 0x08000c3b   Thumb Code   232  stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUSARTClockFreq)
+    LL_SPI_Init                              0x08000d23   Thumb Code   128  stm32g4xx_ll_spi.o(.text.LL_SPI_Init)
+    LL_SetSystemCoreClock                    0x08000da3   Thumb Code    12  stm32g4xx_ll_utils.o(.text.LL_SetSystemCoreClock)
+    LL_TIM_Init                              0x08000daf   Thumb Code   242  stm32g4xx_ll_tim.o(.text.LL_TIM_Init)
+    LL_USART_Init                            0x08000ea1   Thumb Code   244  stm32g4xx_ll_usart.o(.text.LL_USART_Init)
+    MemManage_Handler                        0x08000fc5   Thumb Code     2  stm32g4xx_it.o(.text.MemManage_Handler)
+    NMI_Handler                              0x08000fc9   Thumb Code     2  stm32g4xx_it.o(.text.NMI_Handler)
+    PendSV_Handler                           0x08000fcb   Thumb Code     2  stm32g4xx_it.o(.text.PendSV_Handler)
+    SVC_Handler                              0x08001039   Thumb Code     2  stm32g4xx_it.o(.text.SVC_Handler)
+    SystemClock_Config                       0x0800103d   Thumb Code   210  main.o(.text.SystemClock_Config)
+    SystemInit                               0x0800110f   Thumb Code    18  system_stm32g4xx.o(.text.SystemInit)
+    TIM7_IRQHandler                          0x08001121   Thumb Code   296  biss_c_master_hal.o(.text.TIM7_IRQHandler)
+    UART_StateMachine                        0x08001249   Thumb Code  1370  uart.o(.text.UART_StateMachine)
+    UART_Transmit                            0x080017a5   Thumb Code    96  uart.o(.text.UART_Transmit)
+    UsageFault_Handler                       0x08001805   Thumb Code     2  stm32g4xx_it.o(.text.UsageFault_Handler)
+    main                                     0x08001809   Thumb Code  1766  main.o(.text.main)
+    _fp_init                                 0x08001eef   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x08001f07   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x08001f07   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    AHBPrescTable                            0x08001f08   Data          16  system_stm32g4xx.o(.rodata.AHBPrescTable)
+    APBPrescTable                            0x08001f18   Data           8  system_stm32g4xx.o(.rodata.APBPrescTable)
+    Region$$Table$$Base                      0x08002030   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08002050   Number         0  anon$$obj.o(Region$$Table)
     CRC6_State                               0x20000000   Data           1  biss_c_master_hal.o(.data.CRC6_State)
     SystemCoreClock                          0x20000004   Data           4  system_stm32g4xx.o(.data.SystemCoreClock)
-    __libspace_start                         0x20000008   Data          96  libspace.o(.bss)
-    AngleData                                0x20000068   Data           4  biss_c_master_hal.o(.bss.AngleData)
-    __temporary_stack_top$libspace           0x20000068   Data           0  libspace.o(.bss)
-    BISS_SCD                                 0x2000006c   Data           4  biss_c_master_hal.o(.bss.BISS_SCD)
-    BiSS                                     0x20000070   Data          32  biss_c_master.o(.bss.BiSS)
-    CommandQueue                             0x20000090   Data        4824  uart.o(.bss.CommandQueue)
-    ReadingStr                               0x20001368   Data        1032  uart.o(.bss.ReadingStr)
-    SPI_rx                                   0x20001770   Data           8  biss_c_master_hal.o(.bss.SPI_rx)
-    UART_Error                               0x20001778   Data           1  uart.o(.bss.UART_Error)
-    UART_State                               0x20001779   Data           1  uart.o(.bss.UART_State)
-    UART_TX                                  0x2000177a   Data         256  uart.o(.bss.UART_TX)
+    USART_CDS_last                           0x20000008   Data           1  biss_c_master_hal.o(.data.USART_CDS_last)
+    last_CDM                                 0x20000009   Data           1  biss_c_master_hal.o(.data.last_CDM)
+    __libspace_start                         0x20000010   Data          96  libspace.o(.bss)
+    AngleData                                0x20000070   Data           4  biss_c_master_hal.o(.bss.AngleData)
+    __temporary_stack_top$libspace           0x20000070   Data           0  libspace.o(.bss)
+    BiSS                                     0x20000074   Data          32  biss_c_master.o(.bss.BiSS)
+    CommandQueue                             0x20000094   Data        4824  uart.o(.bss.CommandQueue)
+    ReadingStr                               0x2000136c   Data        1032  uart.o(.bss.ReadingStr)
+    UART_Error                               0x20001774   Data           1  uart.o(.bss.UART_Error)
+    UART_State                               0x20001775   Data           1  uart.o(.bss.UART_State)
+    UART_TX                                  0x20001776   Data         256  uart.o(.bss.UART_TX)
+    USART_rx                                 0x20001878   Data           4  biss_c_master_hal.o(.bss.USART_rx)
     dma_rx_cnt                               0x2000187c   Data           4  uart.o(.bss.dma_rx_cnt)
     hex_line_buffer                          0x20001880   Data         133  uart.o(.bss.hex_line_buffer)
     queue_cnt                                0x20001905   Data           1  uart.o(.bss.queue_cnt)
@@ -955,156 +980,157 @@ Memory Map of the image
 
   Image Entry point : 0x080001d9
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001c80, Max: 0x00020000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002060, Max: 0x00020000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001c78, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002050, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x08000000   0x000001d8   Data   RO            3    RESET               startup_stm32g431xx.o
-    0x080001d8   0x080001d8   0x00000008   Code   RO          352  * !!!main             c_w.l(__main.o)
-    0x080001e0   0x080001e0   0x00000034   Code   RO          529    !!!scatter          c_w.l(__scatter.o)
-    0x08000214   0x08000214   0x0000001a   Code   RO          531    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x080001d8   0x080001d8   0x00000008   Code   RO          375  * !!!main             c_w.l(__main.o)
+    0x080001e0   0x080001e0   0x00000034   Code   RO          552    !!!scatter          c_w.l(__scatter.o)
+    0x08000214   0x08000214   0x0000001a   Code   RO          554    !!handler_copy      c_w.l(__scatter_copy.o)
     0x0800022e   0x0800022e   0x00000002   PAD
-    0x08000230   0x08000230   0x0000001c   Code   RO          533    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x0800024c   0x0800024c   0x00000002   Code   RO          391    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x0800024e   0x0800024e   0x00000004   Code   RO          403    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          406    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          408    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          411    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          413    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          415    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          418    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          420    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          422    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          424    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          426    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          428    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          430    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          432    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          434    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          436    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          438    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          442    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          444    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          446    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000000   Code   RO          448    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
-    0x08000252   0x08000252   0x00000002   Code   RO          449    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
-    0x08000254   0x08000254   0x00000002   Code   RO          484    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x08000256   0x08000256   0x00000000   Code   RO          512    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x08000256   0x08000256   0x00000000   Code   RO          514    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x08000256   0x08000256   0x00000000   Code   RO          517    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x08000256   0x08000256   0x00000000   Code   RO          520    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x08000256   0x08000256   0x00000000   Code   RO          522    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x08000256   0x08000256   0x00000000   Code   RO          525    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x08000256   0x08000256   0x00000002   Code   RO          526    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x08000258   0x08000258   0x00000000   Code   RO          354    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x08000258   0x08000258   0x00000000   Code   RO          362    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x08000258   0x08000258   0x00000006   Code   RO          374    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x0800025e   0x0800025e   0x00000000   Code   RO          364    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x0800025e   0x0800025e   0x00000004   Code   RO          365    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x08000262   0x08000262   0x00000000   Code   RO          367    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x08000262   0x08000262   0x00000008   Code   RO          368    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x0800026a   0x0800026a   0x00000002   Code   RO          395    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x0800026c   0x0800026c   0x00000000   Code   RO          455    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x0800026c   0x0800026c   0x00000004   Code   RO          456    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x08000270   0x08000270   0x00000006   Code   RO          457    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x08000230   0x08000230   0x0000001c   Code   RO          556    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x0800024c   0x0800024c   0x00000002   Code   RO          414    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x0800024e   0x0800024e   0x00000004   Code   RO          426    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          429    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          431    .ARM.Collect$$libinit$$00000006  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          434    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          436    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          438    .ARM.Collect$$libinit$$00000010  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          441    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          443    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          445    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          447    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          449    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          451    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          453    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          455    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          457    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          459    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          461    .ARM.Collect$$libinit$$00000027  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          465    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          467    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          469    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000000   Code   RO          471    .ARM.Collect$$libinit$$00000034  c_w.l(libinit2.o)
+    0x08000252   0x08000252   0x00000002   Code   RO          472    .ARM.Collect$$libinit$$00000035  c_w.l(libinit2.o)
+    0x08000254   0x08000254   0x00000002   Code   RO          507    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x08000256   0x08000256   0x00000000   Code   RO          535    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x08000256   0x08000256   0x00000000   Code   RO          537    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x08000256   0x08000256   0x00000000   Code   RO          540    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x08000256   0x08000256   0x00000000   Code   RO          543    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x08000256   0x08000256   0x00000000   Code   RO          545    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x08000256   0x08000256   0x00000000   Code   RO          548    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x08000256   0x08000256   0x00000002   Code   RO          549    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x08000258   0x08000258   0x00000000   Code   RO          377    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x08000258   0x08000258   0x00000000   Code   RO          385    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x08000258   0x08000258   0x00000006   Code   RO          397    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0800025e   0x0800025e   0x00000000   Code   RO          387    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x0800025e   0x0800025e   0x00000004   Code   RO          388    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x08000262   0x08000262   0x00000000   Code   RO          390    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x08000262   0x08000262   0x00000008   Code   RO          391    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x0800026a   0x0800026a   0x00000002   Code   RO          418    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x0800026c   0x0800026c   0x00000000   Code   RO          478    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x0800026c   0x0800026c   0x00000004   Code   RO          479    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x08000270   0x08000270   0x00000006   Code   RO          480    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x08000276   0x08000276   0x00000002   PAD
     0x08000278   0x08000278   0x00000040   Code   RO            4    .text               startup_stm32g431xx.o
-    0x080002b8   0x080002b8   0x000000f0   Code   RO          342    .text               c_w.l(lludivv7m.o)
-    0x080003a8   0x080003a8   0x0000008a   Code   RO          344    .text               c_w.l(rt_memcpy_v6.o)
-    0x08000432   0x08000432   0x0000004e   Code   RO          348    .text               c_w.l(rt_memclr_w.o)
-    0x08000480   0x08000480   0x00000006   Code   RO          350    .text               c_w.l(heapauxi.o)
-    0x08000486   0x08000486   0x00000064   Code   RO          359    .text               c_w.l(rt_memcpy_w.o)
-    0x080004ea   0x080004ea   0x0000004a   Code   RO          378    .text               c_w.l(sys_stackheap_outer.o)
-    0x08000534   0x08000534   0x00000012   Code   RO          380    .text               c_w.l(exit.o)
+    0x080002b8   0x080002b8   0x000000f0   Code   RO          365    .text               c_w.l(lludivv7m.o)
+    0x080003a8   0x080003a8   0x0000008a   Code   RO          367    .text               c_w.l(rt_memcpy_v6.o)
+    0x08000432   0x08000432   0x0000004e   Code   RO          371    .text               c_w.l(rt_memclr_w.o)
+    0x08000480   0x08000480   0x00000006   Code   RO          373    .text               c_w.l(heapauxi.o)
+    0x08000486   0x08000486   0x00000064   Code   RO          382    .text               c_w.l(rt_memcpy_w.o)
+    0x080004ea   0x080004ea   0x0000004a   Code   RO          401    .text               c_w.l(sys_stackheap_outer.o)
+    0x08000534   0x08000534   0x00000012   Code   RO          403    .text               c_w.l(exit.o)
     0x08000546   0x08000546   0x00000002   PAD
-    0x08000548   0x08000548   0x00000008   Code   RO          392    .text               c_w.l(libspace.o)
-    0x08000550   0x08000550   0x0000000c   Code   RO          450    .text               c_w.l(sys_exit.o)
-    0x0800055c   0x0800055c   0x00000002   Code   RO          473    .text               c_w.l(use_no_semi.o)
-    0x0800055e   0x0800055e   0x00000000   Code   RO          475    .text               c_w.l(indicate_semi.o)
-    0x0800055e   0x0800055e   0x00000030   Code   RO          323    .text.BiSSRequestRead  biss_c_master.o
-    0x0800058e   0x0800058e   0x00000030   Code   RO          325    .text.BiSSRequestWrite  biss_c_master.o
-    0x080005be   0x080005be   0x0000000e   Code   RO          329    .text.BiSSResetExternalState  biss_c_master.o
-    0x080005cc   0x080005cc   0x0000006e   Code   RO          306    .text.BiSS_C_Master_HAL_Init  biss_c_master_hal.o
-    0x0800063a   0x0800063a   0x00000002   PAD
-    0x0800063c   0x0800063c   0x00000288   Code   RO          327    .text.BiSS_C_Master_StateMachine  biss_c_master.o
-    0x080008c4   0x080008c4   0x0000006e   Code   RO          300    .text.BissRequest_CDM  biss_c_master_hal.o
-    0x08000932   0x08000932   0x00000056   Code   RO          302    .text.BissRequest_nCDM  biss_c_master_hal.o
-    0x08000988   0x08000988   0x00000002   Code   RO           72    .text.BusFault_Handler  stm32g4xx_it.o
-    0x0800098a   0x0800098a   0x00000002   Code   RO           82    .text.DMA1_Channel1_IRQHandler  stm32g4xx_it.o
-    0x0800098c   0x0800098c   0x00000002   Code   RO           84    .text.DMA1_Channel2_IRQHandler  stm32g4xx_it.o
-    0x0800098e   0x0800098e   0x00000002   Code   RO           86    .text.DMA1_Channel3_IRQHandler  stm32g4xx_it.o
-    0x08000990   0x08000990   0x00000002   Code   RO           88    .text.DMA1_Channel4_IRQHandler  stm32g4xx_it.o
-    0x08000992   0x08000992   0x00000002   Code   RO           78    .text.DebugMon_Handler  stm32g4xx_it.o
-    0x08000994   0x08000994   0x00000002   Code   RO           68    .text.HardFault_Handler  stm32g4xx_it.o
+    0x08000548   0x08000548   0x00000008   Code   RO          415    .text               c_w.l(libspace.o)
+    0x08000550   0x08000550   0x0000000c   Code   RO          473    .text               c_w.l(sys_exit.o)
+    0x0800055c   0x0800055c   0x00000002   Code   RO          496    .text               c_w.l(use_no_semi.o)
+    0x0800055e   0x0800055e   0x00000000   Code   RO          498    .text               c_w.l(indicate_semi.o)
+    0x0800055e   0x0800055e   0x00000030   Code   RO          346    .text.BiSSRequestRead  biss_c_master.o
+    0x0800058e   0x0800058e   0x00000030   Code   RO          348    .text.BiSSRequestWrite  biss_c_master.o
+    0x080005be   0x080005be   0x0000000e   Code   RO          352    .text.BiSSResetExternalState  biss_c_master.o
+    0x080005cc   0x080005cc   0x0000009c   Code   RO          326    .text.BiSS_C_Master_HAL_Init  biss_c_master_hal.o
+    0x08000668   0x08000668   0x00000290   Code   RO          350    .text.BiSS_C_Master_StateMachine  biss_c_master.o
+    0x080008f8   0x080008f8   0x00000002   Code   RO           72    .text.BusFault_Handler  stm32g4xx_it.o
+    0x080008fa   0x080008fa   0x00000002   Code   RO           82    .text.DMA1_Channel1_IRQHandler  stm32g4xx_it.o
+    0x080008fc   0x080008fc   0x00000002   Code   RO           84    .text.DMA1_Channel2_IRQHandler  stm32g4xx_it.o
+    0x080008fe   0x080008fe   0x00000002   Code   RO           86    .text.DMA1_Channel3_IRQHandler  stm32g4xx_it.o
+    0x08000900   0x08000900   0x00000002   Code   RO           88    .text.DMA1_Channel4_IRQHandler  stm32g4xx_it.o
+    0x08000902   0x08000902   0x00000002   Code   RO           90    .text.DMA1_Channel5_IRQHandler  stm32g4xx_it.o
+    0x08000904   0x08000904   0x00000002   Code   RO           78    .text.DebugMon_Handler  stm32g4xx_it.o
+    0x08000906   0x08000906   0x00000002   PAD
+    0x08000908   0x08000908   0x00000002   Code   RO           68    .text.HardFault_Handler  stm32g4xx_it.o
+    0x0800090a   0x0800090a   0x00000002   PAD
+    0x0800090c   0x0800090c   0x0000007e   Code   RO           15    .text.InitUart      uart.o
+    0x0800098a   0x0800098a   0x0000000c   Code   RO          344    .text.IsBiSSReqBusy  biss_c_master.o
     0x08000996   0x08000996   0x00000002   PAD
-    0x08000998   0x08000998   0x0000007e   Code   RO           15    .text.InitUart      uart.o
-    0x08000a16   0x08000a16   0x0000000c   Code   RO          321    .text.IsBiSSReqBusy  biss_c_master.o
-    0x08000a22   0x08000a22   0x00000002   PAD
-    0x08000a24   0x08000a24   0x000000de   Code   RO          135    .text.LL_GPIO_Init  stm32g4xx_ll_gpio.o
-    0x08000b02   0x08000b02   0x00000028   Code   RO           97    .text.LL_Init1msTick  stm32g4xx_ll_utils.o
-    0x08000b2a   0x08000b2a   0x00000002   PAD
-    0x08000b2c   0x08000b2c   0x000000a0   Code   RO          172    .text.LL_LPUART_Init  stm32g4xx_ll_lpuart.o
-    0x08000bcc   0x08000bcc   0x0000007a   Code   RO          196    .text.LL_RCC_GetLPUARTClockFreq  stm32g4xx_ll_rcc.o
-    0x08000c46   0x08000c46   0x00000076   Code   RO          220    .text.LL_SPI_DeInit  stm32g4xx_ll_spi.o
-    0x08000cbc   0x08000cbc   0x00000080   Code   RO          222    .text.LL_SPI_Init   stm32g4xx_ll_spi.o
-    0x08000d3c   0x08000d3c   0x0000000c   Code   RO          101    .text.LL_SetSystemCoreClock  stm32g4xx_ll_utils.o
-    0x08000d48   0x08000d48   0x000000f2   Code   RO          255    .text.LL_TIM_Init   stm32g4xx_ll_tim.o
-    0x08000e3a   0x08000e3a   0x00000002   PAD
-    0x08000e3c   0x08000e3c   0x00000002   Code   RO           70    .text.MemManage_Handler  stm32g4xx_it.o
-    0x08000e3e   0x08000e3e   0x00000002   PAD
-    0x08000e40   0x08000e40   0x00000002   Code   RO           66    .text.NMI_Handler   stm32g4xx_it.o
-    0x08000e42   0x08000e42   0x00000002   Code   RO           80    .text.PendSV_Handler  stm32g4xx_it.o
-    0x08000e44   0x08000e44   0x0000006c   Code   RO          188    .text.RCC_GetSystemClockFreq  stm32g4xx_ll_rcc.o
-    0x08000eb0   0x08000eb0   0x00000002   Code   RO           76    .text.SVC_Handler   stm32g4xx_it.o
-    0x08000eb2   0x08000eb2   0x00000002   PAD
-    0x08000eb4   0x08000eb4   0x000000d2   Code   RO           53    .text.SystemClock_Config  main.o
-    0x08000f86   0x08000f86   0x00000012   Code   RO          285    .text.SystemInit    system_stm32g4xx.o
-    0x08000f98   0x08000f98   0x000000c2   Code   RO          304    .text.TIM7_IRQHandler  biss_c_master_hal.o
-    0x0800105a   0x0800105a   0x00000002   PAD
-    0x0800105c   0x0800105c   0x0000055a   Code   RO           23    .text.UART_StateMachine  uart.o
-    0x080015b6   0x080015b6   0x00000002   PAD
-    0x080015b8   0x080015b8   0x00000060   Code   RO           21    .text.UART_Transmit  uart.o
-    0x08001618   0x08001618   0x00000002   Code   RO           74    .text.UsageFault_Handler  stm32g4xx_it.o
-    0x0800161a   0x0800161a   0x00000002   PAD
-    0x0800161c   0x0800161c   0x000004fa   Code   RO           51    .text.main          main.o
-    0x08001b16   0x08001b16   0x0000001a   Code   RO          467    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x08001b30   0x08001b30   0x00000010   Data   RO          290    .rodata.AHBPrescTable  system_stm32g4xx.o
-    0x08001b40   0x08001b40   0x00000008   Data   RO          291    .rodata.APBPrescTable  system_stm32g4xx.o
-    0x08001b48   0x08001b48   0x00000100   Data   RO          312    .rodata.CRC6_LUT    biss_c_master_hal.o
-    0x08001c48   0x08001c48   0x00000010   Data   RO          332    .rodata.cst16       biss_c_master.o
-    0x08001c58   0x08001c58   0x00000020   Data   RO          528    Region$$Table       anon$$obj.o
+    0x08000998   0x08000998   0x000000de   Code   RO          137    .text.LL_GPIO_Init  stm32g4xx_ll_gpio.o
+    0x08000a76   0x08000a76   0x00000028   Code   RO           99    .text.LL_Init1msTick  stm32g4xx_ll_utils.o
+    0x08000a9e   0x08000a9e   0x00000002   PAD
+    0x08000aa0   0x08000aa0   0x000000a0   Code   RO          174    .text.LL_LPUART_Init  stm32g4xx_ll_lpuart.o
+    0x08000b40   0x08000b40   0x0000007a   Code   RO          198    .text.LL_RCC_GetLPUARTClockFreq  stm32g4xx_ll_rcc.o
+    0x08000bba   0x08000bba   0x00000080   Code   RO          194    .text.LL_RCC_GetUARTClockFreq  stm32g4xx_ll_rcc.o
+    0x08000c3a   0x08000c3a   0x000000e8   Code   RO          192    .text.LL_RCC_GetUSARTClockFreq  stm32g4xx_ll_rcc.o
+    0x08000d22   0x08000d22   0x00000080   Code   RO          242    .text.LL_SPI_Init   stm32g4xx_ll_spi.o
+    0x08000da2   0x08000da2   0x0000000c   Code   RO          103    .text.LL_SetSystemCoreClock  stm32g4xx_ll_utils.o
+    0x08000dae   0x08000dae   0x000000f2   Code   RO          275    .text.LL_TIM_Init   stm32g4xx_ll_tim.o
+    0x08000ea0   0x08000ea0   0x00000124   Code   RO          224    .text.LL_USART_Init  stm32g4xx_ll_usart.o
+    0x08000fc4   0x08000fc4   0x00000002   Code   RO           70    .text.MemManage_Handler  stm32g4xx_it.o
+    0x08000fc6   0x08000fc6   0x00000002   PAD
+    0x08000fc8   0x08000fc8   0x00000002   Code   RO           66    .text.NMI_Handler   stm32g4xx_it.o
+    0x08000fca   0x08000fca   0x00000002   Code   RO           80    .text.PendSV_Handler  stm32g4xx_it.o
+    0x08000fcc   0x08000fcc   0x0000006c   Code   RO          190    .text.RCC_GetSystemClockFreq  stm32g4xx_ll_rcc.o
+    0x08001038   0x08001038   0x00000002   Code   RO           76    .text.SVC_Handler   stm32g4xx_it.o
+    0x0800103a   0x0800103a   0x00000002   PAD
+    0x0800103c   0x0800103c   0x000000d2   Code   RO           53    .text.SystemClock_Config  main.o
+    0x0800110e   0x0800110e   0x00000012   Code   RO          305    .text.SystemInit    system_stm32g4xx.o
+    0x08001120   0x08001120   0x00000128   Code   RO          324    .text.TIM7_IRQHandler  biss_c_master_hal.o
+    0x08001248   0x08001248   0x0000055a   Code   RO           23    .text.UART_StateMachine  uart.o
+    0x080017a2   0x080017a2   0x00000002   PAD
+    0x080017a4   0x080017a4   0x00000060   Code   RO           21    .text.UART_Transmit  uart.o
+    0x08001804   0x08001804   0x00000002   Code   RO           74    .text.UsageFault_Handler  stm32g4xx_it.o
+    0x08001806   0x08001806   0x00000002   PAD
+    0x08001808   0x08001808   0x000006e6   Code   RO           51    .text.main          main.o
+    0x08001eee   0x08001eee   0x0000001a   Code   RO          490    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x08001f08   0x08001f08   0x00000010   Data   RO          310    .rodata.AHBPrescTable  system_stm32g4xx.o
+    0x08001f18   0x08001f18   0x00000008   Data   RO          311    .rodata.APBPrescTable  system_stm32g4xx.o
+    0x08001f20   0x08001f20   0x00000100   Data   RO          335    .rodata.CRC6_LUT    biss_c_master_hal.o
+    0x08002020   0x08002020   0x00000010   Data   RO          355    .rodata.cst16       biss_c_master.o
+    0x08002030   0x08002030   0x00000020   Data   RO          551    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001c78, Size: 0x00002110, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002050, Size: 0x00002110, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08001c78   0x00000001   Data   RW          308    .data.CRC6_State    biss_c_master_hal.o
-    0x20000001   0x08001c79   0x00000003   PAD
-    0x20000004   0x08001c7c   0x00000004   Data   RW          289    .data.SystemCoreClock  system_stm32g4xx.o
-    0x20000008        -       0x00000060   Zero   RW          393    .bss                c_w.l(libspace.o)
-    0x20000068        -       0x00000004   Zero   RW          310    .bss.AngleData      biss_c_master_hal.o
-    0x2000006c        -       0x00000004   Zero   RW          309    .bss.BISS_SCD       biss_c_master_hal.o
-    0x20000070        -       0x00000020   Zero   RW          331    .bss.BiSS           biss_c_master.o
-    0x20000090        -       0x000012d8   Zero   RW           40    .bss.CommandQueue   uart.o
-    0x20001368        -       0x00000408   Zero   RW           42    .bss.ReadingStr     uart.o
-    0x20001770        -       0x00000008   Zero   RW          311    .bss.SPI_rx         biss_c_master_hal.o
-    0x20001778        -       0x00000001   Zero   RW           26    .bss.UART_Error     uart.o
-    0x20001779        -       0x00000001   Zero   RW           30    .bss.UART_State     uart.o
-    0x2000177a        -       0x00000100   Zero   RW           41    .bss.UART_TX        uart.o
-    0x2000187a   0x08001c80   0x00000002   PAD
+    0x20000000   0x08002050   0x00000001   Data   RW          329    .data.CRC6_State    biss_c_master_hal.o
+    0x20000001   0x08002051   0x00000003   PAD
+    0x20000004   0x08002054   0x00000004   Data   RW          309    .data.SystemCoreClock  system_stm32g4xx.o
+    0x20000008   0x08002058   0x00000001   Data   RW          328    .data.USART_CDS_last  biss_c_master_hal.o
+    0x20000009   0x08002059   0x00000001   Data   RW          330    .data.last_CDM      biss_c_master_hal.o
+    0x2000000a   0x0800205a   0x00000006   PAD
+    0x20000010        -       0x00000060   Zero   RW          416    .bss                c_w.l(libspace.o)
+    0x20000070        -       0x00000004   Zero   RW          332    .bss.AngleData      biss_c_master_hal.o
+    0x20000074        -       0x00000020   Zero   RW          354    .bss.BiSS           biss_c_master.o
+    0x20000094        -       0x000012d8   Zero   RW           40    .bss.CommandQueue   uart.o
+    0x2000136c        -       0x00000408   Zero   RW           42    .bss.ReadingStr     uart.o
+    0x20001774        -       0x00000001   Zero   RW           26    .bss.UART_Error     uart.o
+    0x20001775        -       0x00000001   Zero   RW           30    .bss.UART_State     uart.o
+    0x20001776        -       0x00000100   Zero   RW           41    .bss.UART_TX        uart.o
+    0x20001876   0x0800205a   0x00000002   PAD
+    0x20001878        -       0x00000004   Zero   RW          331    .bss.USART_rx       biss_c_master_hal.o
     0x2000187c        -       0x00000004   Zero   RW           31    .bss.dma_rx_cnt     uart.o
     0x20001880        -       0x00000085   Zero   RW           29    .bss.hex_line_buffer  uart.o
     0x20001905        -       0x00000001   Zero   RW           38    .bss.queue_cnt      uart.o
     0x20001906        -       0x00000001   Zero   RW           36    .bss.queue_read_cnt  uart.o
     0x20001907        -       0x00000001   Zero   RW           37    .bss.queue_write_cnt  uart.o
     0x20001908        -       0x00000001   Zero   RW           39    .bss.retry_cnt      uart.o
-    0x20001909   0x08001c80   0x00000003   PAD
+    0x20001909   0x0800205a   0x00000003   PAD
     0x2000190c        -       0x00000004   Zero   RW           32    .bss.uart_expected_length  uart.o
     0x20001910        -       0x00000001   Zero   RW           33    .bss.uart_length    uart.o
-    0x20001911   0x08001c80   0x00000003   PAD
+    0x20001911   0x0800205a   0x00000003   PAD
     0x20001914        -       0x00000100   Zero   RW           27    .bss.usb_rx_buffer  uart.o
     0x20001a14        -       0x000000fc   Zero   RW           28    .bss.usb_tx_buffer  uart.o
     0x20001b10        -       0x00000200   Zero   RW            2    HEAP                startup_stm32g431xx.o
@@ -1118,24 +1144,25 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       770         20         16          0         32       4688   biss_c_master.o
-       500          0        256          1         16       6020   biss_c_master_hal.o
-      1484          0          0          0          0      16640   main.o
+       778         20         16          0         32       4696   biss_c_master.o
+       452          0        256          3          8       6864   biss_c_master_hal.o
+      1976          0          0          0          0      19027   main.o
         64         26        472          0       1536        848   startup_stm32g431xx.o
-        24          0          0          0          0       1281   stm32g4xx_it.o
+        26          0          0          0          0       1367   stm32g4xx_it.o
        222          0          0          0          0       3960   stm32g4xx_ll_gpio.o
        160         24          0          0          0       4234   stm32g4xx_ll_lpuart.o
-       230          0          0          0          0      13337   stm32g4xx_ll_rcc.o
-       246          0          0          0          0       5336   stm32g4xx_ll_spi.o
+       590          0          0          0          0      13337   stm32g4xx_ll_rcc.o
+       128          0          0          0          0       5336   stm32g4xx_ll_spi.o
        242          0          0          0          0      13222   stm32g4xx_ll_tim.o
+       292         48          0          0          0       5750   stm32g4xx_ll_usart.o
         52          0          0          0          0       8794   stm32g4xx_ll_utils.o
         18          0         24          4          0       2749   system_stm32g4xx.o
       1592         34          0          0       6768      11831   uart.o
 
     ----------------------------------------------------------------------
-      5624        104        800          8       8360      92940   Object Totals
+      6608        152        800         12       8356     102015   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        20          0          0          3          8          0   (incl. Padding)
+        16          0          0          5         12          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1188,15 +1215,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6488        120        800          8       8456      93384   Grand Totals
-      6488        120        800          8       8456      93384   ELF Image Totals
-      6488        120        800          8          0          0   ROM Totals
+      7472        168        800         12       8452     102439   Grand Totals
+      7472        168        800         12       8452     102439   ELF Image Totals
+      7472        168        800         12          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7288 (   7.12kB)
+    Total RO  Size (Code + RO Data)                 8272 (   8.08kB)
     Total RW  Size (RW Data + ZI Data)              8464 (   8.27kB)
-    Total ROM Size (Code + RO Data + RW Data)       7296 (   7.12kB)
+    Total ROM Size (Code + RO Data + RW Data)       8284 (   8.09kB)
 
 ==============================================================================
 

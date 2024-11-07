@@ -8,6 +8,7 @@
 
 #include "biss_c_master.h"
 #include "biss_c_master_hal.h"
+#include "stm32g4xx.h"
 
 #define BISS_ADRESS_Mask					0x7FU	/* BiSS C register address mask (7 bits) */
 #define BISS_CD_CRC4_Pos					2U 		/* Control Data CRC4 position */
@@ -220,6 +221,9 @@ CDM_t BiSS_C_Master_StateMachine(CDS_t CDS_in) {
 					}
 				}
 				else{
+					__NOP();
+					__NOP();
+					__NOP();
 					ret = nCDM;					
 					BiSS.State = BISS_STATE_ABORT;
 				}

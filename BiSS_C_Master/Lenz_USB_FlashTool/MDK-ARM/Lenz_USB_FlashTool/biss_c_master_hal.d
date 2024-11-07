@@ -20,4 +20,5 @@ lenz_usb_flashtool/biss_c_master_hal.o: \
   ..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_ll_exti.h \
   ..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_ll_spi.h \
   ..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_ll_gpio.h \
+  ..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_ll_usart.h \
   ..\Core\Inc\uart.h

@@ -25,5 +25,6 @@ lenz_usb_flashtool/stm32g4xx_it.o: ..\Core\Src\stm32g4xx_it.c \
   ..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_ll_pwr.h \
   ..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_ll_spi.h \
   ..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_ll_tim.h \
+  ..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_ll_usart.h \
   ..\Drivers\STM32G4xx_HAL_Driver\Inc\stm32g4xx_ll_gpio.h \
   ..\Core\Inc\stm32g4xx_it.h

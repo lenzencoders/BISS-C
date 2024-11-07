@@ -10,6 +10,7 @@
 "lenz_usb_flashtool\stm32g4xx_ll_dma.o"
 "lenz_usb_flashtool\stm32g4xx_ll_lpuart.o"
 "lenz_usb_flashtool\stm32g4xx_ll_rcc.o"
+"lenz_usb_flashtool\stm32g4xx_ll_usart.o"
 "lenz_usb_flashtool\stm32g4xx_ll_spi.o"
 "lenz_usb_flashtool\stm32g4xx_ll_pwr.o"
 "lenz_usb_flashtool\stm32g4xx_ll_tim.o"

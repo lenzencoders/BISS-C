@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Lenz_USB_FlashTool\Lenz_USB_FlashTool.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Lenz_USB_FlashTool\Lenz_USB_FlashTool.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Sun Nov  3 15:13:39 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6190004: Last Updated: Thu Nov  7 15:47:42 2024
 <BR><P>
 <H3>Maximum Stack Usage =        128 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -40,7 +40,7 @@ Function Pointers
  <LI><a href="#[16]">DMA1_Channel2_IRQHandler</a> from stm32g4xx_it.o(.text.DMA1_Channel2_IRQHandler) referenced from startup_stm32g431xx.o(RESET)
  <LI><a href="#[17]">DMA1_Channel3_IRQHandler</a> from stm32g4xx_it.o(.text.DMA1_Channel3_IRQHandler) referenced from startup_stm32g431xx.o(RESET)
  <LI><a href="#[18]">DMA1_Channel4_IRQHandler</a> from stm32g4xx_it.o(.text.DMA1_Channel4_IRQHandler) referenced from startup_stm32g431xx.o(RESET)
- <LI><a href="#[19]">DMA1_Channel5_IRQHandler</a> from startup_stm32g431xx.o(.text) referenced from startup_stm32g431xx.o(RESET)
+ <LI><a href="#[19]">DMA1_Channel5_IRQHandler</a> from stm32g4xx_it.o(.text.DMA1_Channel5_IRQHandler) referenced from startup_stm32g431xx.o(RESET)
  <LI><a href="#[1a]">DMA1_Channel6_IRQHandler</a> from startup_stm32g431xx.o(.text) referenced from startup_stm32g431xx.o(RESET)
  <LI><a href="#[3d]">DMA2_Channel1_IRQHandler</a> from startup_stm32g431xx.o(.text) referenced from startup_stm32g431xx.o(RESET)
  <LI><a href="#[3e]">DMA2_Channel2_IRQHandler</a> from startup_stm32g431xx.o(.text) referenced from startup_stm32g431xx.o(RESET)
@@ -284,9 +284,6 @@ Global Symbols
 <P><STRONG><a name="[45]"></a>CRS_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32g431xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(RESET)
 </UL>
-<P><STRONG><a name="[19]"></a>DMA1_Channel5_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32g431xx.o(.text))
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(RESET)
-</UL>
 <P><STRONG><a name="[1a]"></a>DMA1_Channel6_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32g431xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(RESET)
 </UL>
@@ -468,15 +465,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[6d]"></a>__aeabi_uldivmod</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, lludivv7m.o(.text))
+<P><STRONG><a name="[6a]"></a>__aeabi_uldivmod</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, lludivv7m.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = __aeabi_uldivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_LPUART_Init
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_LPUART_Init
 </UL>
 
 <P><STRONG><a name="[a3]"></a>_ll_udiv</STRONG> (Thumb, 240 bytes, Stack size 48 bytes, lludivv7m.o(.text), UNUSED)
 
-<P><STRONG><a name="[7a]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
+<P><STRONG><a name="[7a]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_StateMachine
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Transmit
 </UL>
@@ -549,44 +546,26 @@ Global Symbols
 
 <P><STRONG><a name="[b1]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[79]"></a>BiSSRequestRead</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, biss_c_master.o(.text.BiSSRequestRead))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = BiSSRequestRead
-</UL>
-<BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_StateMachine
+<P><STRONG><a name="[79]"></a>BiSSRequestRead</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, biss_c_master.o(.text.BiSSRequestRead), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_StateMachine
 </UL>
 
 <P><STRONG><a name="[b2]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[78]"></a>BiSSRequestWrite</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, biss_c_master.o(.text.BiSSRequestWrite))
+<P><STRONG><a name="[78]"></a>BiSSRequestWrite</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, biss_c_master.o(.text.BiSSRequestWrite), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_StateMachine
 </UL>
 
-<P><STRONG><a name="[76]"></a>BiSSResetExternalState</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, biss_c_master.o(.text.BiSSResetExternalState))
+<P><STRONG><a name="[76]"></a>BiSSResetExternalState</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, biss_c_master.o(.text.BiSSResetExternalState), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_StateMachine
 </UL>
 
-<P><STRONG><a name="[7f]"></a>BiSS_C_Master_HAL_Init</STRONG> (Thumb, 110 bytes, Stack size 0 bytes, biss_c_master_hal.o(.text.BiSS_C_Master_HAL_Init))
+<P><STRONG><a name="[7f]"></a>BiSS_C_Master_HAL_Init</STRONG> (Thumb, 156 bytes, Stack size 0 bytes, biss_c_master_hal.o(.text.BiSS_C_Master_HAL_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[72]"></a>BiSS_C_Master_StateMachine</STRONG> (Thumb, 648 bytes, Stack size 0 bytes, biss_c_master.o(.text.BiSS_C_Master_StateMachine))
+<P><STRONG><a name="[72]"></a>BiSS_C_Master_StateMachine</STRONG> (Thumb, 656 bytes, Stack size 0 bytes, biss_c_master.o(.text.BiSS_C_Master_StateMachine))
 <BR><BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM7_IRQHandler
-</UL>
-
-<P><STRONG><a name="[68]"></a>BissRequest_CDM</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, biss_c_master_hal.o(.text.BissRequest_CDM))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = BissRequest_CDM
-</UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_SPI_DeInit
-</UL>
-<BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM7_IRQHandler
-</UL>
-
-<P><STRONG><a name="[6a]"></a>BissRequest_nCDM</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, biss_c_master_hal.o(.text.BissRequest_nCDM))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = BissRequest_nCDM
-</UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_SPI_DeInit
-</UL>
-<BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM7_IRQHandler
 </UL>
 
 <P><STRONG><a name="[4]"></a>BusFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(.text.BusFault_Handler))
@@ -608,6 +587,9 @@ Global Symbols
 <P><STRONG><a name="[18]"></a>DMA1_Channel4_IRQHandler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(.text.DMA1_Channel4_IRQHandler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(RESET)
 </UL>
+<P><STRONG><a name="[19]"></a>DMA1_Channel5_IRQHandler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(.text.DMA1_Channel5_IRQHandler))
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(RESET)
+</UL>
 <P><STRONG><a name="[7]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(.text.DebugMon_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(RESET)
 </UL>
@@ -622,7 +604,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[74]"></a>IsBiSSReqBusy</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, biss_c_master.o(.text.IsBiSSReqBusy))
+<P><STRONG><a name="[74]"></a>IsBiSSReqBusy</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, biss_c_master.o(.text.IsBiSSReqBusy), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_StateMachine
 </UL>
 
@@ -636,26 +618,37 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[6b]"></a>LL_LPUART_Init</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, stm32g4xx_ll_lpuart.o(.text.LL_LPUART_Init))
+<P><STRONG><a name="[68]"></a>LL_LPUART_Init</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, stm32g4xx_ll_lpuart.o(.text.LL_LPUART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = LL_LPUART_Init &rArr; __aeabi_uldivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_GetLPUARTClockFreq
+<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_GetLPUARTClockFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[6c]"></a>LL_RCC_GetLPUARTClockFreq</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, stm32g4xx_ll_rcc.o(.text.LL_RCC_GetLPUARTClockFreq))
+<P><STRONG><a name="[69]"></a>LL_RCC_GetLPUARTClockFreq</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, stm32g4xx_ll_rcc.o(.text.LL_RCC_GetLPUARTClockFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LL_RCC_GetLPUARTClockFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetSystemClockFreq
+<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetSystemClockFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_LPUART_Init
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_LPUART_Init
 </UL>
 
-<P><STRONG><a name="[69]"></a>LL_SPI_DeInit</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, stm32g4xx_ll_spi.o(.text.LL_SPI_DeInit))
-<BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BissRequest_nCDM
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BissRequest_CDM
+<P><STRONG><a name="[6c]"></a>LL_RCC_GetUARTClockFreq</STRONG> (Thumb, 128 bytes, Stack size 8 bytes, stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUARTClockFreq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LL_RCC_GetUARTClockFreq
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetSystemClockFreq
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_USART_Init
+</UL>
+
+<P><STRONG><a name="[6d]"></a>LL_RCC_GetUSARTClockFreq</STRONG> (Thumb, 232 bytes, Stack size 8 bytes, stm32g4xx_ll_rcc.o(.text.LL_RCC_GetUSARTClockFreq))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LL_RCC_GetUSARTClockFreq
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetSystemClockFreq
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_USART_Init
 </UL>
 
 <P><STRONG><a name="[7c]"></a>LL_SPI_Init</STRONG> (Thumb, 128 bytes, Stack size 32 bytes, stm32g4xx_ll_spi.o(.text.LL_SPI_Init))
@@ -670,6 +663,15 @@ Global Symbols
 
 <P><STRONG><a name="[7d]"></a>LL_TIM_Init</STRONG> (Thumb, 242 bytes, Stack size 0 bytes, stm32g4xx_ll_tim.o(.text.LL_TIM_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[6e]"></a>LL_USART_Init</STRONG> (Thumb, 244 bytes, Stack size 16 bytes, stm32g4xx_ll_usart.o(.text.LL_USART_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LL_USART_Init &rArr; LL_RCC_GetUARTClockFreq
+</UL>
+<BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_GetUARTClockFreq
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_GetUSARTClockFreq
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[3]"></a>MemManage_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32g4xx_it.o(.text.MemManage_Handler))
@@ -704,22 +706,15 @@ Global Symbols
 <P><STRONG><a name="[50]"></a>SystemInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, system_stm32g4xx.o(.text.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(.text)
 </UL>
-<P><STRONG><a name="[3c]"></a>TIM7_IRQHandler</STRONG> (Thumb, 194 bytes, Stack size 8 bytes, biss_c_master_hal.o(.text.TIM7_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72 + Unknown Stack Size
-<LI>Call Chain = TIM7_IRQHandler &rArr; UART_StateMachine &rArr; UART_Transmit
+<P><STRONG><a name="[3c]"></a>TIM7_IRQHandler</STRONG> (Thumb, 296 bytes, Stack size 16 bytes, biss_c_master_hal.o(.text.TIM7_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = TIM7_IRQHandler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BiSS_C_Master_StateMachine
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BissRequest_nCDM
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BissRequest_CDM
-<LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_StateMachine
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(RESET)
 </UL>
-<P><STRONG><a name="[73]"></a>UART_StateMachine</STRONG> (Thumb, 1370 bytes, Stack size 48 bytes, uart.o(.text.UART_StateMachine))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64 + Unknown Stack Size
-<LI>Call Chain = UART_StateMachine &rArr; UART_Transmit
-</UL>
-<BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<P><STRONG><a name="[73]"></a>UART_StateMachine</STRONG> (Thumb, 1370 bytes, Stack size 48 bytes, uart.o(.text.UART_StateMachine), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BiSSRequestRead
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BiSSRequestWrite
@@ -727,13 +722,9 @@ Global Symbols
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsBiSSReqBusy
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Transmit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM7_IRQHandler
-</UL>
 
-<P><STRONG><a name="[75]"></a>UART_Transmit</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, uart.o(.text.UART_Transmit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART_Transmit
-</UL>
-<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<P><STRONG><a name="[75]"></a>UART_Transmit</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, uart.o(.text.UART_Transmit), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_StateMachine
 </UL>
@@ -745,15 +736,16 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32g431xx.o(RESET)
 </UL>
-<P><STRONG><a name="[5d]"></a>main</STRONG> (Thumb, 1274 bytes, Stack size 64 bytes, main.o(.text.main))
+<P><STRONG><a name="[5d]"></a>main</STRONG> (Thumb, 1766 bytes, Stack size 64 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128 + Unknown Stack Size
 <LI>Call Chain = main &rArr; LL_LPUART_Init &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BiSS_C_Master_HAL_Init
+<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_USART_Init
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_TIM_Init
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_SPI_Init
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_LPUART_Init
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_LPUART_Init
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_GPIO_Init
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitUart
@@ -772,8 +764,10 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[6e]"></a>RCC_GetSystemClockFreq</STRONG> (Thumb, 108 bytes, Stack size 0 bytes, stm32g4xx_ll_rcc.o(.text.RCC_GetSystemClockFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_GetLPUARTClockFreq
+<P><STRONG><a name="[6b]"></a>RCC_GetSystemClockFreq</STRONG> (Thumb, 108 bytes, Stack size 0 bytes, stm32g4xx_ll_rcc.o(.text.RCC_GetSystemClockFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_GetUARTClockFreq
+<LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_GetUSARTClockFreq
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LL_RCC_GetLPUARTClockFreq
 </UL>
 <P>
 <H3>
