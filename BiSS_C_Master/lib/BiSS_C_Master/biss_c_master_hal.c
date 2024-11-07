@@ -8,13 +8,10 @@
 
 #include "hw_cfg.h"
 #include "stm32g4xx.h"
-#include "stm32g4xx_it.h"
 #include "biss_c_master.h"
 #include "biss_c_master_hal.h"
 #include "stm32g4xx_ll_tim.h"
 #include "stm32g4xx_ll_dma.h"
-#include "stm32g4xx_ll_system.h"
-#include "stm32g4xx_ll_exti.h"
 #include "stm32g4xx_ll_spi.h"
 #include "stm32g4xx_ll_gpio.h"
 #include "stm32g4xx_ll_usart.h"

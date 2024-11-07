@@ -7,7 +7,6 @@
  */
 
 #include "biss_c_master.h"
-#include "biss_c_master_hal.h"
 
 #define BISS_ADRESS_Mask					0x7FU	/* BiSS C register address mask (7 bits) */
 #define BISS_CD_CRC4_Pos					2U 		/* Control Data CRC4 position */
