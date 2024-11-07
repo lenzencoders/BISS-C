@@ -36,17 +36,14 @@ typedef enum{
 }BiSSExternalState_t;
 
 /**
- * @union AngleData_t
+ * @struct AngleData_t
  * @brief Angle Data with time of life counter type
  * 
  */
-typedef union {
-	uint32_t Angle_TOF; /**< Angle and time of life value for uint32_t buffers */
-	struct{
+typedef struct{
     uint32_t angle_data:24; /**< Value of Angle */
     uint32_t time_of_life_counter:8; /**< Value of time of life countre to check
 	that angle was updated*/
-	};
 } AngleData_t;
 
 /**
