@@ -1,7 +1,7 @@
 /*!
  * @file biss_c_master_hal.c
  * @author Kirill Rostovskiy (kmrost@lenzencoders.com)
- * @brief BiSS C Master Hardware abstraction layer driver
+ * @brief BiSS C Master STM32G4x Hardware abstraction layer driver
  * @version 0.1
  * @copyright Lenz Encoders (c) 2024
  */
@@ -69,6 +69,10 @@ typedef union{
 SPI_rx_t SPI_rx;
 USART_rx_t USART_rx;
 volatile CDS_t USART_CDS_last = CDS;
+volatile uint32_t BISS_SCD;
+volatile AngleData_t AngleData;
+volatile enum{CRC6_OK,CRC6_FAULT} CRC6_State = CRC6_FAULT;
+volatile CDM_t last_CDM = CDM;
 
 static const uint8_t CRC6_LUT[256U] = {
 	0x00U, 0x0CU, 0x18U, 0x14U, 0x30U, 0x3CU, 0x28U, 0x24U, 0x60U, 0x6CU, 0x78U, 0x74U, 0x50U, 0x5CU, 0x48U, 0x44U, 
@@ -104,9 +108,6 @@ __STATIC_INLINE uint8_t BISS_CRC6_Calc(uint32_t data){
 }
 
 
-volatile uint32_t BISS_SCD;
-volatile AngleData_t AngleData;
-volatile enum{CRC6_OK,CRC6_FAULT} CRC6_State = CRC6_FAULT;
 
 void BissRequest_CDM(void){
 	switch(BISS_MODE){
@@ -167,8 +168,6 @@ void BissRequest_nCDM(void){
 			break;		
 	}		
 }
-
-volatile CDM_t last_CDM = CDM;
 
 void BISS_Task_IRQHandler(void) {
 	LL_TIM_ClearFlag_UPDATE(BISS_Task_TIM);
