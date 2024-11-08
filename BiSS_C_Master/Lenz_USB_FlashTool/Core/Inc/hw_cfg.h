@@ -16,7 +16,6 @@ extern "C" {
 
 /* BISS C Config*/
 static const enum {BISS_MODE_SPI, BISS_MODE_UART} BISS_MODE = BISS_MODE_UART;
-static const enum {RS485_ADR1, RS485_ADR2} RS485_ADR = RS485_ADR1;
 	
 #define BISS_Task_TIM 					TIM7
 #define BISS_Task_IRQHandler 		TIM7_IRQHandler

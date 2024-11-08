@@ -21,7 +21,8 @@
 #define SPI_CR1_BISS_nCDM   SPI_CR1_CPOL | SPI_CR1_CPHA | SPI_CR1_BISS_CDM
 
 #define SPI_CR2_BISS_CFG		SPI_CR2_RXDMAEN |SPI_CR2_TXDMAEN | SPI_CR2_FRXTH | (0x7U << SPI_CR2_DS_Pos)
-
+static volatile enum {RS485_ADR1, RS485_ADR2} RS485_ADR = RS485_ADR2;
+static volatile uint8_t adr_reset_cou = 0;
 typedef enum{
 	RS485_CDM_ADR1_REQ = 0x81U,
 	RS485_CDM_ADR2_REQ = 0x22U,
@@ -208,8 +209,13 @@ void BISS_Task_IRQHandler(void) {
 					last_CDM = nCDM;
 				}	
 				USART_CDS_last = (CDS_t)USART_rx.CDS;
+				adr_reset_cou = 0;
 			}
 			else{
+				adr_reset_cou++;
+				if(adr_reset_cou == 255){
+					RS485_ADR = RS485_ADR == RS485_ADR1? RS485_ADR2 : RS485_ADR1;
+				}
 				if(last_CDM == CDM){
 					BissRequest_CDM();
 				}
