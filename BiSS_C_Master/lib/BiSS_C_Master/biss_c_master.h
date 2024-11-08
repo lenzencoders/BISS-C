@@ -5,8 +5,8 @@
  * @version 0.1
  * @copyright Lenz Encoders (c) 2024
  *
- * BiSS C Master state machine CDM setting and CDS receiving timing diagram 
- * @note
+ * @note BiSS C Master state machine CDM setting and CDS receiving timing diagram 
+ * 
  *          ↓ CDM(n) Master request                 CDM(n) setting up ↓                    ↓ CDM(n+1) Master request     
  * MA  ‾‾‾‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾‾|__|‾xxxxxxx_|‾‾|xxxx nCDM xxxxx|‾‾‾‾|__|‾‾|_xxx_|‾‾|__|‾‾|_xxxxx
  *
