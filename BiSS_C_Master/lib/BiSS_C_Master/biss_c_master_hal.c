@@ -4,6 +4,10 @@
  * @brief BiSS C Master STM32G4x Hardware abstraction layer driver
  * @version 0.1
  * @copyright Lenz Encoders (c) 2024
+ * @section disclaimer  
+ * Disclaimer! This is tamplate driver for debug/review BiSS C master library on STM32Gx (and similar) microcontrollers.
+ * It supports only LENZ IRS/SAB/SIB encoders only with 3 additional Ack bits and SCD length - 32 bits(24 bits position data, 
+ * 2 bits nError/nWaring and 6 bits CRC). You should implement and test this part on your own.
  */
 
 #include "hw_cfg.h"
