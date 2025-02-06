@@ -28,7 +28,6 @@ typedef enum{
 	UART_COMMAND_WRITE_REG  = 0x0DU,
 	UART_COMMAND_READ_ANGLE = 0x81U,
 	UART_COMMAND_READ_REG 	= 0x82U,
-
 }UART_Command_t;
 
 typedef struct {
@@ -39,6 +38,7 @@ typedef struct {
 	uint8_t Buf[TX_BUFFER_SIZE];
 }UartTxStr_t;
 
+
 extern UartTxStr_t UART_TX;
 //End move
 
@@ -46,6 +46,9 @@ extern UartTxStr_t UART_TX;
 void UART_Transmit(UartTxStr_t *TxStr);
 
 uint8_t check_request(uint8_t *received_data);
+// Begin init Renishaw
+void InitRenishaw(void);
+// End init Renishaw
 void InitUart(void);
 void UART_StateMachine (void);
 	

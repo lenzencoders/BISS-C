@@ -21,19 +21,30 @@
 #define UART_LINE_SIZE		HEXLEN_ADR_CMD_CRC_LEN + HEX_DATA_LEN
 #define QUEUE_SIZE 	36U //FIFO
 #define MAX_RETRY		3U
-#define UART_ANGLE_LEN 	60U
-#define UART_ANGLE_BUF_SIZE 	(UART_ANGLE_LEN * 4U)
-
+#define UART_ANGLE_LEN 	40U //60U --> Encoder / 40U --> Encoder + Renishaw
+#define UART_ANGLE_BUF_SIZE 	(UART_ANGLE_LEN * 6U) // *4U --> Encoder / *(4U + 2U) --> Encoder + Renishaw
 #define PAGE_ADDR       0x18U
 #define BSEL_ADDR		    0x40U
 #define FIRST_USER_BANK 0x05U
 
 static void EncoderPowerEnable(void){
-	LL_GPIO_SetOutputPin(PWR_EN_PIN);
+	LL_GPIO_SetOutputPin(PWR2_EN_PIN);
 }
 
 static void EncoderPowerDisable(void){
-	LL_GPIO_ResetOutputPin(PWR_EN_PIN);
+	LL_GPIO_ResetOutputPin(PWR2_EN_PIN);
+}
+/**
+ * @brief Renishaw Encoder power enable
+**/
+static void RenishawEncoderPowerEnable(void){
+	LL_GPIO_SetOutputPin(PWR1_EN_PIN);
+}
+/**
+ * @brief Renishaw Encoder power disable
+**/
+static void RenishawEncoderPowerDisable(void){
+	LL_GPIO_ResetOutputPin(PWR1_EN_PIN);
 }
 
 typedef enum {
@@ -81,7 +92,29 @@ volatile struct{
 	uint8_t FIFO_current_ptr;
 }ReadingStr;
 
+// DEBUG BEGIN
+// INSERT AngleDataRenishaw_t to ReadingStr
+/*
+volatile struct{
+	AngleData_t AngleFIFO[256];
+	AngleDataRenishaw_t AngleFIFO[256];
+	uint16_t len;
+	uint8_t ToL_cnt;
+	uint8_t FIFO_start_ptr;
+	uint8_t FIFO_current_ptr;
+}ReadingStr;
+*/
+// DEBUG END
+volatile struct{
+	AngleDataRenishaw_t AngleFIFO[256];
+	uint16_t len;
+	uint8_t ToL_cnt;
+	uint8_t FIFO_start_ptr;
+	uint8_t FIFO_current_ptr;
+}ReadingRenishawStr;
+
 UartTxStr_t UART_TX;
+UartTxStr_t UART_RENISHAW_TX;
 UART_Error_t UART_Error = UART_ERROR_NONE;
 
 volatile uint8_t usb_rx_buffer[RX_BUFFER_SIZE] = {0};
@@ -98,6 +131,10 @@ volatile uint32_t new_cnt = 0;
 volatile UART_Command_t UART_Command = 0; 
 CommandQueue_t CommandQueue[QUEUE_SIZE];
 
+// DEBUG BEGIN
+// uint16_t current_readingStr_len = 0;
+uint32_t remaining_data = 0;
+// DEBUG END
 uint8_t queue_read_cnt = 0;
 uint8_t queue_write_cnt = 0;
 uint8_t queue_cnt = 0;
@@ -143,6 +180,14 @@ void InitUart(void){
 	LL_LPUART_EnableDMAReq_TX(LPUART1);
 	LL_DMA_EnableChannel(DMA_LPUART_RX);
 }
+/**
+ * @brief Initialization of Renishaw Encoder by TIM_RENISHAW TIM3 --> hw_cdg.h
+**/
+void InitRenishaw(void){
+	LL_GPIO_ResetOutputPin(DE1_PIN); // Need to think;  GPIOA, LL_GPIO_PIN_10 to low state
+	LL_GPIO_SetOutputPin(PWR1_EN_PIN); // Need to think; GPIOB, LL_GPIO_PIN_0 to high state
+	LL_TIM_EnableCounter(TIM_RENISHAW);
+}
 
 
 uint8_t CalculateCRC(uint8_t *data, uint32_t length) {
@@ -171,13 +216,12 @@ void UART_Transmit(UartTxStr_t *TxStr) { //*ptr to struct
 	}
 	LL_DMA_DisableChannel(DMA_LPUART_TX);
 	LL_DMA_SetDataLength(DMA_LPUART_TX, size + 5U); //1U for CRC additional byte
-	//len, addr, cmd
+	//len, addr_h, addr_l, cmd
 	memcpy(usb_tx_buffer, TxStr, size + 4U);
 	usb_tx_buffer[3] += 0x10U;
 	uint8_t crc = CalculateCRC(usb_tx_buffer, size + 4U);
 	usb_tx_buffer[size + 4U] = crc;
-	LL_DMA_EnableChannel(DMA_LPUART_TX);	
-
+	LL_DMA_EnableChannel(DMA_LPUART_TX);
 }
 
 void UART_StateMachine(void) {
@@ -196,8 +240,10 @@ void UART_StateMachine(void) {
 //						if (IsBiSSReqBusy() != BISS_READ_FINISHED){
 //							UART_Transmit(read_buf, RX_BUFFER_SIZE);
 //						}
-				
            new_cnt = RX_BUFFER_SIZE - LL_DMA_GetDataLength(DMA_LPUART_RX);
+					 // DEBUG BEGIN
+					 remaining_data = LL_DMA_GetDataLength(DMA_LPUART_RX);
+				   // DEBUG END
            if (dma_rx_cnt != new_cnt) {
 								
 								bytes_received = (new_cnt - dma_rx_cnt + RX_BUFFER_SIZE) % RX_BUFFER_SIZE;
@@ -257,6 +303,10 @@ void UART_StateMachine(void) {
                 dma_rx_cnt = (dma_rx_cnt + uart_expected_length) % RX_BUFFER_SIZE;
             }
 						else { //??
+							// DEBUG BEGIN 
+							// reset the length, reconfigure the number of data transfers:
+							// LL_DMA_SetDataLength(DMA_LPUART_RX, RX_BUFFER_SIZE);
+							// DEBUG END
 							UART_State = UART_STATE_ABORT;
 						} 
             break;
@@ -397,6 +447,16 @@ void UART_StateMachine(void) {
 											UART_TX.len = cmd_data_len;
 											UART_TX.adr_h = (cmd_addr >> 8U) & 0xFFU;
 											UART_TX.adr_l = cmd_addr & 0xFFU;
+										
+											// TODO Renishaw TX struct 
+											// Test Renishaw BEGIN
+											/*
+											UART_RENISHAW_TX.cmd = command;
+											UART_RENISHAW_TX.len = cmd_data_len;
+											UART_RENISHAW_TX.adr_h = (cmd_addr >> 8U) & 0xFFU;
+											UART_RENISHAW_TX.adr_l = cmd_addr & 0xFFU;
+											*/
+											// Test Renishaw END
 											
 											if (BiSSRequestRead(cmd_addr, cmd_data_len, UART_TX.Buf) == BISS_REQ_OK) {
 												UART_State = UART_STATE_IDLE;
@@ -412,21 +472,41 @@ void UART_StateMachine(void) {
 										}
 										break;
 
-								case UART_COMMAND_READ_ANGLE:			
+								case UART_COMMAND_READ_ANGLE:
+									if (IsBiSSReqBusy() != BISS_BUSY){
 										UART_TX.cmd = command;
 										UART_TX.len = UART_ANGLE_BUF_SIZE;
 										ReadingStr.len = cmd_addr + 1;// Address = buf_size * 63
 										ReadingStr.FIFO_current_ptr = 0;
 										ReadingStr.FIFO_start_ptr = 0;
 										ReadingStr.ToL_cnt = 0;
+										// DEBUG BEGIN	
+										// current_readingStr_len = ReadingStr.len;
+										// DEBUG END
+								
+										// TODO Renishaw TX
+										// Test Renishaw BEGIN
+										UART_RENISHAW_TX.cmd = command;
+										UART_RENISHAW_TX.len = UART_ANGLE_BUF_SIZE;
+										ReadingRenishawStr.len = cmd_addr + 1;// Address = buf_size * 63
+										ReadingRenishawStr.FIFO_current_ptr = 0;
+										ReadingRenishawStr.FIFO_start_ptr = 0;
+										ReadingRenishawStr.ToL_cnt = 0;
+										// Test Renishaw END
+								
 										queue_read_cnt = (queue_read_cnt + 1U) % QUEUE_SIZE;
 										queue_cnt--;
 
 										UART_State = UART_STATE_ANGLE_READING;
-										break;
-										
+									}
+									break;
+									
 								case UART_COMMAND_POWER_OFF:
 										EncoderPowerDisable();
+										RenishawEncoderPowerDisable(); // ???
+										if (LL_GPIO_IsOutputPinSet(LED1_RED)){ // Set LED1 to Red light
+											LL_GPIO_ResetOutputPin(LED1_RED); 
+										}
 										UART_State = UART_STATE_IDLE;
 										queue_read_cnt = (queue_read_cnt + 1U) % QUEUE_SIZE;
 										queue_cnt--;										
@@ -434,6 +514,10 @@ void UART_StateMachine(void) {
 								
 								case UART_COMMAND_POWER_ON:
 										EncoderPowerEnable();
+										RenishawEncoderPowerEnable(); // ???
+										if (!LL_GPIO_IsOutputPinSet(LED1_RED)){ // Set LED1 to Green light
+											LL_GPIO_SetOutputPin(LED1_RED);
+										}
 										UART_State = UART_STATE_IDLE;
 										queue_read_cnt = (queue_read_cnt + 1U) % QUEUE_SIZE;
 										queue_cnt--;
@@ -448,16 +532,30 @@ void UART_StateMachine(void) {
 				case UART_STATE_ANGLE_READING:
 					if(ReadingStr.len > 0){
 						AngleData_t angle_data = getAngle();
+						AngleDataRenishaw_t angle_data_renishaw = getAngleRenishaw();
 						if(angle_data.time_of_life_counter != ReadingStr.ToL_cnt){
 							ReadingStr.ToL_cnt = angle_data.time_of_life_counter;
 							ReadingStr.AngleFIFO[ReadingStr.FIFO_current_ptr] = angle_data;
 							ReadingStr.FIFO_current_ptr++;
+							// DEBUG BEGIN
+							ReadingRenishawStr.ToL_cnt = angle_data.time_of_life_counter; // do i need this ????
+							ReadingRenishawStr.AngleFIFO[ReadingRenishawStr.FIFO_current_ptr] = angle_data_renishaw;
+							ReadingRenishawStr.FIFO_current_ptr++; // do i need this ????
+							// DEBUG END
 							if((((uint16_t)ReadingStr.FIFO_current_ptr + 256 - ReadingStr.FIFO_start_ptr) & 0xFFU) >= UART_ANGLE_LEN){
 								uint8_t TxBufCnt = 0;
 								while(ReadingStr.FIFO_start_ptr != ReadingStr.FIFO_current_ptr){
 									*((AngleData_t*)&UART_TX.Buf[TxBufCnt]) = ReadingStr.AngleFIFO[ReadingStr.FIFO_start_ptr];
-									TxBufCnt += 4;
+									// DEBUG BEGIN 
+									TxBufCnt += 4; // 4 --> Encoder
+									// Renishaw struct insert into UART_TX buffer
+									*((AngleDataRenishaw_t*)&UART_TX.Buf[TxBufCnt]) = ReadingRenishawStr.AngleFIFO[ReadingRenishawStr.FIFO_start_ptr];
+									// DEBUG END
+									TxBufCnt += 2; // 2 --> Renishaw
 									ReadingStr.FIFO_start_ptr++;
+									// DEBUG BEGIN 
+									ReadingRenishawStr.FIFO_start_ptr++; // do i need this ????
+									// DEBUG END 
 								}
 								ReadingStr.len--;
 								UART_TX.adr_h = (ReadingStr.len >> 8U) & 0xFFU;
@@ -465,7 +563,32 @@ void UART_StateMachine(void) {
 								UART_Transmit(&UART_TX);
 							}
 						}
-					}		
+						/*
+						// Test Renishaw Begin
+									
+						ReadingRenishawStr.ToL_cnt = angle_data.time_of_life_counter;
+						ReadingRenishawStr.AngleFIFO[ReadingRenishawStr.FIFO_current_ptr] = angle_data_renishaw;
+						ReadingRenishawStr.FIFO_current_ptr++;
+						if((((uint16_t)ReadingRenishawStr.FIFO_current_ptr + RX_BUFFER_SIZE - ReadingRenishawStr.FIFO_start_ptr) & 0xFFU) >= UART_ANGLE_LEN){
+							uint8_t TxBufCnt = 0;
+							while(ReadingRenishawStr.FIFO_start_ptr != ReadingRenishawStr.FIFO_current_ptr){
+								*((AngleDataRenishaw_t*)&UART_RENISHAW_TX.Buf[TxBufCnt]) = ReadingRenishawStr.AngleFIFO[ReadingRenishawStr.FIFO_start_ptr];
+								TxBufCnt += 4;
+								ReadingRenishawStr.FIFO_start_ptr++;
+							}
+							//ReadingRenishawStr.len--;
+							ReadingStr.len--;
+							UART_RENISHAW_TX.adr_h = (ReadingStr.len >> 8U) & 0xFFU;
+							UART_RENISHAW_TX.adr_l = ReadingStr.len & 0xFFU;
+							UART_Transmit(&UART_RENISHAW_TX);
+						}
+						
+						// Test Renishaw End
+						angle_renishaw_data = LL_TIM_GetCounter(TIM_RENISHAW);
+						AngleDataRenishaw_t angle_renishaw_data;
+						angle_renishaw_data.angle_data = LL_TIM_GetCounter(TIM_RENISHAW);
+						*/
+					}
 					else{
 						UART_State = UART_STATE_IDLE;
 					}
@@ -474,14 +597,51 @@ void UART_StateMachine(void) {
 //					
 //					break;
         case UART_STATE_ABORT:
-					__NOP();
-				__NOP();
-				__NOP();
-            UART_State = UART_STATE_IDLE;
-            break;
-
+					switch (UART_Error) {
+						case UART_ERROR_QUEUE_FULL:					
+							__NOP();
+							__NOP();
+							__NOP();
+							break;
+						case UART_ERROR_BISS_WRITE_FAULT:
+							__NOP();
+							__NOP();
+							__NOP();
+							break;
+						case UART_ERROR_CRC:
+							__NOP();
+							__NOP();
+							__NOP();
+							break;
+						case UART_ERROR_NONE:
+							__NOP();
+							__NOP();
+							__NOP();
+							// DEBUG BEGIN
+							// dma_rx_cnt = (dma_rx_cnt + uart_expected_length) % RX_BUFFER_SIZE;
+							// DEBUG END
+							UART_State = UART_STATE_IDLE;
+							break;
+					}
+					break;
+						
+					/*
+					if(UART_Error == UART_ERROR_QUEUE_FULL){
+						// 
+					} else{
+						__NOP();
+						__NOP();
+						__NOP();
+						// DEBUG BEGIN
+						// IF uart_length = 0 --> need to fix
+						dma_rx_cnt = (dma_rx_cnt + uart_expected_length) % RX_BUFFER_SIZE;
+						// DEBUG END
+						UART_State = UART_STATE_IDLE;
+					}
+          break;
+					*/
         default:
-            UART_State = UART_STATE_IDLE;
-            break;
+          UART_State = UART_STATE_IDLE;
+          break;
     }
 }

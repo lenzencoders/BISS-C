@@ -71,6 +71,10 @@ typedef union{
 	};
 }USART_rx_t;
 
+// Test Renishaw Data
+//volatile uint32_t renishaw_angle = 0;
+volatile AngleDataRenishaw_t AngleDataRenishaw;
+
 SPI_rx_t SPI_rx;
 USART_rx_t USART_rx;
 volatile CDS_t USART_CDS_last = CDS;
@@ -229,6 +233,11 @@ void BISS_Task_IRQHandler(void) {
 			}
 			break;
 	}
+	// DEBUG BEGIN
+	//Test Renishaw angle data
+	AngleDataRenishaw.angle_data= LL_TIM_GetCounter(TIM_RENISHAW);
+	// DEBUG END
+	// UART STATEMachine
 	UART_StateMachine();
 }
 
@@ -238,7 +247,7 @@ void BiSS_C_Master_HAL_Init(void){
 			LL_GPIO_SetPinMode(BISS_MA_UART_PIN, LL_GPIO_MODE_INPUT);
 			LL_GPIO_SetPinMode(BISS_MA_SPI_PIN, LL_GPIO_MODE_ALTERNATE);
 			LL_GPIO_SetOutputPin(BISS_MA_SPI_PIN);
-			LL_GPIO_SetOutputPin(PWR_EN_PIN);
+			LL_GPIO_SetOutputPin(PWR2_EN_PIN);
 			LL_GPIO_ResetOutputPin(BISS_SLO_DE_PIN);
 			LL_DMA_SetPeriphAddress(DMA_BISS_RX, (uint32_t) &BISS_SPI->DR);
 			LL_DMA_SetMemoryAddress(DMA_BISS_RX, (uint32_t) &SPI_rx.buf[3]);
@@ -251,7 +260,8 @@ void BiSS_C_Master_HAL_Init(void){
 			LL_DMA_EnableChannel(DMA_BISS_RX);
 			break;
 		case BISS_MODE_UART:
-			LL_GPIO_SetOutputPin(PWR_EN_PIN);
+			LL_GPIO_SetOutputPin(PWR2_EN_PIN);
+			LL_GPIO_SetOutputPin(LED1_RED); // Set LED1 to high --> Green light
 			LL_USART_Disable(BISS_UART);		
 			LL_GPIO_SetPinMode(BISS_MA_SPI_PIN, LL_GPIO_MODE_INPUT);
 			LL_GPIO_SetPinMode(BISS_MA_UART_PIN, LL_GPIO_MODE_ALTERNATE);

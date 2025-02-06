@@ -15,12 +15,12 @@ extern "C" {
 
 
 /* BISS C Config*/
-static const enum {BISS_MODE_SPI, BISS_MODE_UART} BISS_MODE = BISS_MODE_UART;
+static const enum {BISS_MODE_SPI, BISS_MODE_UART} BISS_MODE = BISS_MODE_SPI; // BISS_MODE_UART
 	
 #define BISS_Task_TIM 					TIM7
 #define BISS_Task_IRQHandler 		TIM7_IRQHandler
 #define BISS_SPI								SPI1
-#define BISS_UART								USART1
+#define BISS_UART								USART2
 #define DMA_LPUART_RX 					DMA1, LL_DMA_CHANNEL_1
 #define DMA_LPUART_TX 					DMA1, LL_DMA_CHANNEL_2
 
@@ -31,9 +31,19 @@ static const enum {BISS_MODE_SPI, BISS_MODE_UART} BISS_MODE = BISS_MODE_UART;
 #define BISS_MA_SPI_PIN      		GPIOA, LL_GPIO_PIN_5
 #define BISS_SLO_DE_PIN					GPIOA, LL_GPIO_PIN_12 /* RS485 Slave Out (uart in_out) Driver enable pin */
 #define BISS_MA_UART_PIN				GPIOA, LL_GPIO_PIN_9
-#define BISS_SLO_UART_PIN				GPIOB, LL_GPIO_PIN_7
+#define BISS_SLO_UART_PIN				GPIOB, LL_GPIO_PIN_4
+
 /* END BISS C Config*/
-#define PWR_EN_PIN							GPIOB, LL_GPIO_PIN_0
+#define PWR1_EN_PIN							GPIOB, LL_GPIO_PIN_0
+#define PWR2_EN_PIN							GPIOB, LL_GPIO_PIN_7
+#define DE1_PIN									GPIOA, LL_GPIO_PIN_10
+#define TIM_RENISHAW						TIM3
+
+#define LED1_RED								GPIOA, LL_GPIO_PIN_11
+#define LED1_GREEN							GPIOA, LL_GPIO_PIN_12
+#define LED2_RED								GPIOB, LL_GPIO_PIN_5
+#define LED2_GREEN							GPIOB, LL_GPIO_PIN_6
+
 
 #ifdef __cplusplus
 }
